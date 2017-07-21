@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class DeveloperUser implements Serializable {
 	private Integer id; //id
-	private String loginName; // µÇÂ¼Ãû
+	private String loginName; // µÇÂ¼Ãû;
 	private String loginPwd; //µÇÂ¼ÃÜÂë,md5¼ÓÃÜ
 	private String nickname;  // êÇ³Æ
 	private String headImg;   //Í·Ïñ
