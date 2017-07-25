@@ -1,10 +1,11 @@
 package com.jsyouyun.developer.dao.provider;
 
 
+import static com.jsyouyun.developer.common.utils.DeveloperConstants.DEVELOPERUSERTABLE;
+
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 import com.jsyouyun.developer.entity.DeveloperUser;
-import static com.jsyouyun.developer.util.common.DeveloperConstants.DEVELOPERUSERTABLE;
 
 /**   
  * @Description: 开发者用户动态SQL语句提供类

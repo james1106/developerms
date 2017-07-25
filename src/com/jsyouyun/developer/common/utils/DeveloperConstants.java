@@ -1,4 +1,4 @@
-package com.jsyouyun.developer.util.common;
+package com.jsyouyun.developer.common.utils;
 
 
 public class DeveloperConstants {

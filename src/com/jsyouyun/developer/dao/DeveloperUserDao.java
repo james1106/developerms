@@ -1,6 +1,8 @@
 package com.jsyouyun.developer.dao;
 
 
+import static com.jsyouyun.developer.common.utils.DeveloperConstants.DEVELOPERUSERTABLE;
+
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
@@ -9,7 +11,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import com.jsyouyun.developer.dao.provider.DeveloperUserDynaSqlProvider;
 import com.jsyouyun.developer.entity.DeveloperUser;
-import static com.jsyouyun.developer.util.common.DeveloperConstants.DEVELOPERUSERTABLE;
 
 /**   
  * @Description: DeveloperUserMapper½Ó¿Ú
