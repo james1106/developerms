@@ -198,7 +198,7 @@
 					<button style="padding: 6px 20px;" type="button" data-toggle="modal" data-target="#applyModal" class="developApp btn btn-success">
 						<i class="fa fa-plus"></i>发布应用模块
 					</button>
-					<a class="btn btn-success" style="padding: 6px 20px;" href=""><i class="fa fa-plus"></i> 设计应用模块</a>
+					<a class="btn btn-success" style="padding: 6px 20px;" href="./developer/module/designForm"><i class="fa fa-plus"></i> 设计应用模块</a>
 					<a class="btn btn-success hidden" new-version="" style="padding: 6px 20px;" href=""><i class="fa fa-plus"></i> 新建应用模块</a>
 				</div>
 				<!--点击发布应用后弹出的模态框-->

@@ -3,6 +3,7 @@ package com.jsyouyun.developer.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**   
  * @Description: 
  * 开发者用户--持久化实体类 
@@ -130,5 +131,14 @@ public class DeveloperUser implements Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "DeveloperUser [id=" + id + ", loginName=" + loginName + ", loginPwd="
+				+ loginPwd + ", nickname=" + nickname + ", headImg=" + headImg
+				+ ", email=" + email + ", mobile=" + mobile + ", status=" + status
+				+ ", loginCount=" + loginCount + ", lastLoginTime=" + lastLoginTime
+				+ ", updateTime=" + updateTime + ", createTime=" + createTime + "]";
+	}
+	
 }

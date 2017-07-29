@@ -5,6 +5,7 @@ public class DeveloperConstants {
 	
 	// 数据库表常量
 	public static final String DEVELOPERUSERTABLE = "developer_user";
+	public static final String DEVELOPERDATUMTABLE = "developer_datum";
 		
 		
 	// 登录

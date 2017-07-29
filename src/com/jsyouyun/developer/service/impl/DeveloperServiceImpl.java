@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import com.jsyouyun.developer.common.utils.tag.PageModel;
 import com.jsyouyun.developer.dao.DeveloperUserDao;
+import com.jsyouyun.developer.dao.DeveloperDatumDao;
+import com.jsyouyun.developer.entity.DeveloperDatum;
 import com.jsyouyun.developer.entity.DeveloperUser;
 import com.jsyouyun.developer.service.DeveloperService;
 //import org.fkit.hrm.util.tag.PageModel;
@@ -31,6 +33,8 @@ public class DeveloperServiceImpl implements DeveloperService{
 	 * */
 	@Autowired
 	private DeveloperUserDao developerUserDao;
+	@Autowired
+	private DeveloperDatumDao developerDatumDao;
 	
 	/*
 	@Autowired
@@ -117,9 +121,67 @@ public class DeveloperServiceImpl implements DeveloperService{
 		
 	}
 	
-	/*****************部门服务接口实现*************************************/
 	
-	/*****************员工服务接口实现*************************************/
+	/*****************开发者资料服务接口实现*************************************/
+	/**
+	 *DeverloperService接口findDeveloper方法实现
+	 * @see { HeverloperService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<DeveloperDatum> findDeveloperDatum(DeveloperDatum developerDatum,PageModel pageModel) {
+		/** 当前需要分页的总数据条数  */
+		Map<String,Object> params = new HashMap<>();
+		params.put("developerDatum", developerDatum);
+		
+		int recordCount = developerDatumDao.count(params);
+	    pageModel.setRecordCount(recordCount);
+	    
+	    if(recordCount > 0){
+	        /** 开始分页查询数据：查询第几页的数据 */
+		    params.put("pageModel", pageModel);
+	    }
+	    List<DeveloperDatum> developerDatums = developerDatumDao.selectByPage(params);
+	    return developerDatums;
+	}
+	/**
+	 * DeveloperDatumService接口removeDeveloperDatumById方法实现
+	 * @see { DeveloperDatumService }
+	 * */
+	@Override
+	public void removeDeveloperDatumById(Integer id) {
+		developerDatumDao.deleteById(id);
+		
+	}
+	/**
+	 * DeveloperDatumService接口findDeveloperDatumById方法实现
+	 * @see { DeveloperDatumService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public DeveloperDatum findDeveloperDatumById(Integer id) {
+		
+		return developerDatumDao.selectById(id);
+	}
+	
+	/**
+	 * DeveloperDatumService接口addDeveloperDatum方法实现
+	 * @see { DeveloperDatumService }
+	 * */
+	@Override
+	public void addDeveloperDatum(DeveloperDatum developerDatum) {
+		developerDatumDao.save(developerDatum);
+		
+	}
+	
+	/**
+	 * DeveloperDatumService接口modifyDeveloperDatum方法实现
+	 * @see { DeveloperDatumService }
+	 * */
+	@Override
+	public void modifyDeveloperDatum(DeveloperDatum developerDatum) {
+		developerDatumDao.update(developerDatum);
+	}
 	
 	
 	/*****************职位接口实现*************************************/

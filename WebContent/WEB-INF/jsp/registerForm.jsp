@@ -66,7 +66,7 @@
 							<a href="">免费注册</a>
 						</li>
 					</ul>
-							</div>
+			</div>
 		</div>
 	</nav>
 </div>

@@ -84,14 +84,14 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">真实姓名</label>
 					<div class="col-sm-10">
-						<input type="text" name="datum[real_name]" class="form-control" value="">
+						<input type="text" name="realName" class="form-control" value="">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">性别</label>
 					<div class="col-sm-10">
 						<label class="radio-inline">
-							<input type="radio" name="datum[sex]" value="1" checked=""> 男
+							<input type="radio" name="sex" value="1" checked=""> 男
 						</label>
 						<label class="radio-inline">
 							<input type="radio" name="datum[sex]" value="2"> 女
@@ -101,14 +101,14 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">手机号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="datum[mobile]" class="form-control" value="" readonly="readonly">
+						<input type="text" name="mobile" class="form-control" value="" readonly="readonly">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">短信验证码</label>
 					<div class="col-sm-10">
 						<div class="input-group">
-							<input type="text" placeholder="请输入短信验证码" class="form-control" name="verifycode">
+							<input type="text" placeholder="请输入短信验证码" class="form-control" name="verifyCode">
 							<span class="input-group-btn">
 								<button class="btn btn-warning js-verifycode-button" type="button">获取验证码 
 									<span class="badge js-time" style="display:none;">0</span>
@@ -158,15 +158,15 @@
 	});
 </script><div class="row tpl-district-container">
 			<div class="col-xs-4 col-sm-4">
-				<select name="datum[reside_province]" data-value="" class="form-control tpl-province">
+				<select name="resideProvince" data-value="" class="form-control tpl-province">
 				<option value="">省/直辖市</option><option value="北京" pid="110000">北京</option><option value="天津" pid="120000">天津</option><option value="河北省" pid="130000">河北省</option><option value="山西省" pid="140000">山西省</option><option value="内蒙古自治区" pid="150000">内蒙古自治区</option><option value="辽宁省" pid="210000">辽宁省</option><option value="吉林省" pid="220000">吉林省</option><option value="黑龙江省" pid="230000">黑龙江省</option><option value="上海" pid="310000">上海</option><option value="江苏省" pid="320000">江苏省</option><option value="浙江省" pid="330000">浙江省</option><option value="安徽省" pid="340000">安徽省</option><option value="福建省" pid="350000">福建省</option><option value="江西省" pid="360000">江西省</option><option value="山东省" pid="370000">山东省</option><option value="河南省" pid="410000">河南省</option><option value="湖北省" pid="420000">湖北省</option><option value="湖南省" pid="430000">湖南省</option><option value="广东省" pid="440000">广东省</option><option value="广西壮族自治区" pid="450000">广西壮族自治区</option><option value="海南省" pid="460000">海南省</option><option value="重庆" pid="500000">重庆</option><option value="四川省" pid="510000">四川省</option><option value="贵州省" pid="520000">贵州省</option><option value="云南省" pid="530000">云南省</option><option value="西藏自治区" pid="540000">西藏自治区</option><option value="陕西省" pid="610000">陕西省</option><option value="甘肃省" pid="620000">甘肃省</option><option value="青海省" pid="630000">青海省</option><option value="宁夏回族自治区" pid="640000">宁夏回族自治区</option><option value="新疆维吾尔自治区" pid="650000">新疆维吾尔自治区</option><option value="台湾省" pid="710000">台湾省</option><option value="香港特别行政区" pid="810000">香港特别行政区</option><option value="澳门特别行政区" pid="820000">澳门特别行政区</option><option value="海外" pid="990000">海外</option></select>
 			</div>
 			<div class="col-xs-4 col-sm-4">
-				<select name="datum[reside_city]" data-value="" class="form-control tpl-city">
+				<select name="resideCity" data-value="" class="form-control tpl-city">
 				<option value="">市</option></select>
 			</div>
 			<div class="col-xs-4 col-sm-4">
-				<select name="datum[reside_dist]" data-value="" class="form-control tpl-district">
+				<select name="resideDist" data-value="" class="form-control tpl-district">
 				<option value="">区/县</option></select>
 			</div>
 		</div>					</div>
@@ -174,7 +174,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">证件类型</label>
 					<div class="col-sm-10">
-						<select name="datum[credentials_type]" class="form-control">
+						<select name="credentialsType" class="form-control">
 														<option value="身份证">身份证</option>
 														<option value="护照">护照</option>
 														<option value="驾驶证">驾驶证</option>
@@ -184,7 +184,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">证件号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="datum[credentials_number]" class="form-control" value="">
+						<input type="text" name="credentialsNumber" class="form-control" value="">
 					</div>
 				</div>
 				<div class="form-group">
@@ -207,7 +207,7 @@
 			}
 		</script>
 	<div class="input-group">
-		<input type="text" value="" name="datum[credentials_photo]" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
+		<input type="text" value="" name="credentialsPhoto" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button" onclick="showImageDialog(this, &#39;YTo0OntzOjU6IndpZHRoIjtpOjgwMDtzOjY6ImhlaWdodCI7aTo2MDA7czo2OiJleHRyYXMiO2I6MDtzOjY6Imdsb2JhbCI7YjowO30=&#39;);">选择图片</button>
 		</span>
@@ -221,13 +221,13 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">个人履历</label>
 					<div class="col-md-10">
-						<textarea name="datum[datum]" class="form-control" rows="5"></textarea>
+						<textarea name="personalDatum" class="form-control" rows="5"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
 						<input type="submit" name="submit" class="btn btn-success" value="提交资料">
-						<input type="hidden" name="token" value="3e9bc946">
+					
 					</div>
 				</div>
 			</form>
