@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="https://www.we7.cc/">
-					<img src="./index.php_files/logo.png" class="img-responsive">
+					<img src="${ctx}/images/we/logo.png" class="img-responsive">
 				</a>
 			</div>
 			<div class="collapse navbar-collapse">
@@ -120,18 +120,18 @@
 	<div class="container">
 		<div class="row foot-sever">
 			<div class="col-xs-4">
-				<a href="" target="_blank"><img src="./index.php_files/7day.png">7天内，退全款</a>
+				<a href="" target="_blank"><img src="${ctx}/images/we/7day.png">7天内，退全款</a>
 			</div>
 			<div class="col-xs-4">
-				<a href="" target="_blank"><img src="./index.php_files/30day.png">30天内，退半款</a>
+				<a href="" target="_blank"><img src="${ctx}/images/we/30day.png">30天内，退半款</a>
 			</div>
 			<div class="col-xs-4">
-				<a href="" target="_blank"><img src="./index.php_files/24hour.png">在线客服咨询</a>
+				<a href="" target="_blank"><img src="${ctx}/images/we/24hour.png">在线客服咨询</a>
 			</div>
 		</div>
 		<ul class="footer-menu col-xs-12">
 			<li class="col-xs-2">
-				关于微擎
+				关于平发平台
 				<ul>
 					<li>
 						<a href="" target="_blank">关于我们</a>
@@ -197,7 +197,7 @@
 				微信公众号
 				<ul>
 					<li>
-						<a href=""><img src="./index.php_files/"></a>
+						<a href=""><img src="${ctx}/images/we/we7_server.jpg"></a>
 					</li>
 				</ul>
 			</li>

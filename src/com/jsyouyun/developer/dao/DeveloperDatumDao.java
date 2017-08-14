@@ -46,7 +46,7 @@ public interface DeveloperDatumDao {
 		@Result(column="level",property="level"),
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
-		@Result(column="user_id",property="developverUser",
+		@Result(column="user_id",property="developerUser",
 		one=@One(select="com.jsyouyun.developer.dao.DeveloperUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
@@ -78,11 +78,36 @@ public interface DeveloperDatumDao {
 		@Result(column="level",property="level"),
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
-		@Result(column="user_id",property="developverUser",
+		@Result(column="user_id",property="developerUser",
 		one=@One(select="com.jsyouyun.developer.dao.DeveloperUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	DeveloperDatum selectById(Integer id);
+	
+	
+	// 根据id查询开发者资料
+	@Select("select * from "+DEVELOPERDATUMTABLE+" where user_id = #{userId}")
+	@Results({
+		@Result(id=true,column="id",property="id"),
+		@Result(column="real_name",property="realName"),
+		@Result(column="sex",property="sex"),
+		@Result(column="mobile",property="mobile"),
+		@Result(column="reside_province",property="resideProvince"),
+		@Result(column="reside_city",property="resideCity"),
+		@Result(column="reside_dist",property="resideDist"),
+		@Result(column="credentials_type",property="credentialsType"),
+		@Result(column="credentials_number",property="credentialsNumber"),
+		@Result(column="credentials_photo",property="credentialsPhoto"),
+		@Result(column="personal_datum",property="personalDatum"),
+		@Result(column="status",property="status"),
+		@Result(column="level",property="level"),
+		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
+		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
+		@Result(column="user_id",property="developerUser",
+		one=@One(select="com.jsyouyun.developer.dao.DeveloperUserDao.selectById",
+			fetchType=FetchType.EAGER))
+		})
+	DeveloperDatum selectByUserId(Integer userId);
 		
 	// 动态修改员工
 	@SelectProvider(type=DeveloperDatumDynaSqlProvider.class,method="updateDeveloperDatum")

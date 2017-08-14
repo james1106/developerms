@@ -80,35 +80,35 @@
 	<div class="panel-heading">初中高级开发者认证</div>
 	<div class="panel-body">
 		<div class="form-group">
-			<form method="post" action="./developer/doCertification" class="form-horizontal">
+			<form method="post" action="" class="form-horizontal">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">真实姓名</label>
 					<div class="col-sm-10">
-						<input type="text" name="realName" class="form-control" value="">
+						<input type="text" name="datum[real_name]" class="form-control" value="">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">性别</label>
 					<div class="col-sm-10">
 						<label class="radio-inline">
-							<input type="radio" name="sex" value="1" checked=""> 男
+							<input type="radio" name="datum[sex]" value="1" checked=""> 男
 						</label>
 						<label class="radio-inline">
-							<input type="radio" name="sex]" value="2"> 女
+							<input type="radio" name="datum[sex]" value="2"> 女
 						</label>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">手机号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="mobile" class="form-control" value=""  >
+						<input type="text" name="datum[mobile]" class="form-control" value="15995585957" readonly="readonly">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">短信验证码</label>
 					<div class="col-sm-10">
 						<div class="input-group">
-							<input type="text" placeholder="请输入短信验证码" class="form-control" name="verifyCode">
+							<input type="text" placeholder="请输入短信验证码" class="form-control" name="verifycode">
 							<span class="input-group-btn">
 								<button class="btn btn-warning js-verifycode-button" type="button">获取验证码 
 									<span class="badge js-time" style="display:none;">0</span>
@@ -121,19 +121,19 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">支付宝帐号</label>
 					<div class="col-sm-10">
-						<input type="text" name="ali_pay]" class="form-control" value="tzwjt@163.com">
+						<input type="text" name="datum[ali_pay]" class="form-control" value="tzwjt@163.com">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">QQ</label>
 					<div class="col-sm-10">
-						<input type="text" name="qq]" class="form-control" value="596624126">
+						<input type="text" name="datum[qq]" class="form-control" value="596624126">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">紧急联系QQ</label>
 					<div class="col-sm-10">
-						<input type="text" name="qq2]" class="form-control" value="">
+						<input type="text" name="datum[qq2]" class="form-control" value="">
 						<span class="help-block">云商城紧急联系开发者QQ</span>
 					</div>
 				</div>
@@ -143,7 +143,6 @@
 					<div class="col-sm-10">
 						
 <script type="text/javascript">
-/*
 	require(["jquery", "district"], function($, dis){
 		$(".tpl-district-container").each(function(){
 			var elms = {};
@@ -157,26 +156,25 @@
 			dis.render(elms, vals, {withTitle: true});
 		});
 	});
-	*/
 </script><div class="row tpl-district-container">
 			<div class="col-xs-4 col-sm-4">
-				<select name="resideProvince" data-value="" class="form-control tpl-province">
+				<select name="datum[reside_province]" data-value="" class="form-control tpl-province">
 				<option value="">省/直辖市</option><option value="北京" pid="110000">北京</option><option value="天津" pid="120000">天津</option><option value="河北省" pid="130000">河北省</option><option value="山西省" pid="140000">山西省</option><option value="内蒙古自治区" pid="150000">内蒙古自治区</option><option value="辽宁省" pid="210000">辽宁省</option><option value="吉林省" pid="220000">吉林省</option><option value="黑龙江省" pid="230000">黑龙江省</option><option value="上海" pid="310000">上海</option><option value="江苏省" pid="320000">江苏省</option><option value="浙江省" pid="330000">浙江省</option><option value="安徽省" pid="340000">安徽省</option><option value="福建省" pid="350000">福建省</option><option value="江西省" pid="360000">江西省</option><option value="山东省" pid="370000">山东省</option><option value="河南省" pid="410000">河南省</option><option value="湖北省" pid="420000">湖北省</option><option value="湖南省" pid="430000">湖南省</option><option value="广东省" pid="440000">广东省</option><option value="广西壮族自治区" pid="450000">广西壮族自治区</option><option value="海南省" pid="460000">海南省</option><option value="重庆" pid="500000">重庆</option><option value="四川省" pid="510000">四川省</option><option value="贵州省" pid="520000">贵州省</option><option value="云南省" pid="530000">云南省</option><option value="西藏自治区" pid="540000">西藏自治区</option><option value="陕西省" pid="610000">陕西省</option><option value="甘肃省" pid="620000">甘肃省</option><option value="青海省" pid="630000">青海省</option><option value="宁夏回族自治区" pid="640000">宁夏回族自治区</option><option value="新疆维吾尔自治区" pid="650000">新疆维吾尔自治区</option><option value="台湾省" pid="710000">台湾省</option><option value="香港特别行政区" pid="810000">香港特别行政区</option><option value="澳门特别行政区" pid="820000">澳门特别行政区</option><option value="海外" pid="990000">海外</option></select>
 			</div>
 			<div class="col-xs-4 col-sm-4">
-				<select name="resideCity" data-value="" class="form-control tpl-city">
-				<option value="">市</option><option value="南京市" cid="320100">南京市</option><option value="无锡市" cid="320200">无锡市</option><option value="徐州市" cid="320300">徐州市</option><option value="常州市" cid="320400">常州市</option><option value="苏州市" cid="320500">苏州市</option><option value="南通市" cid="320600">南通市</option><option value="连云港市" cid="320700">连云港市</option><option value="淮安市" cid="320800">淮安市</option><option value="盐城市" cid="320900">盐城市</option><option value="扬州市" cid="321000">扬州市</option><option value="镇江市" cid="321100">镇江市</option><option value="泰州市" cid="321200">泰州市</option><option value="宿迁市" cid="321300">宿迁市</option></select>
+				<select name="datum[reside_city]" data-value="" class="form-control tpl-city">
+				<option value="">市</option></select>
 			</div>
 			<div class="col-xs-4 col-sm-4">
-				<select name="resideDist" data-value="" class="form-control tpl-district">
-				<option value="">区/县</option><option value="海陵区">海陵区</option><option value="高港区">高港区</option><option value="兴化市">兴化市</option><option value="靖江市">靖江市</option><option value="泰兴市">泰兴市</option><option value="姜堰市">姜堰市</option><option value="其它区">其它区</option></select>
+				<select name="datum[reside_dist]" data-value="" class="form-control tpl-district">
+				<option value="">区/县</option></select>
 			</div>
 		</div>					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">证件类型</label>
 					<div class="col-sm-10">
-						<select name="credentialsType" class="form-control">
+						<select name="datum[credentials_type]" class="form-control">
 														<option value="身份证">身份证</option>
 														<option value="护照">护照</option>
 														<option value="驾驶证">驾驶证</option>
@@ -186,7 +184,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">证件号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="credentialsNumber" class="form-control" value="">
+						<input type="text" name="datum[credentials_number]" class="form-control" value="">
 					</div>
 				</div>
 				<div class="form-group">
@@ -209,13 +207,13 @@
 			}
 		</script>
 	<div class="input-group">
-		<input type="text" value="" name="credentialsPhoto" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
+		<input type="text" value="" name="datum[credentials_photo]" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button" onclick="showImageDialog(this, &#39;YTo0OntzOjU6IndpZHRoIjtpOjgwMDtzOjY6ImhlaWdodCI7aTo2MDA7czo2OiJleHRyYXMiO2I6MDtzOjY6Imdsb2JhbCI7YjowO30=&#39;);">选择图片</button>
 		</span>
 	</div>
 	<div class="input-group" style="margin-top:.5em;">
-		<img src="${ctx}/images/we/nopic.jpg" class="img-responsive img-thumbnail" width="150">
+		<img src="${ctx}/js/we/nopic.jpg" class="img-responsive img-thumbnail" width="150">
 	</div>						<span class="help-block">开发者手持证件照片, 照片要求清晰可见, 小于 5M.</span>
 					</div>
 				</div>
@@ -223,13 +221,13 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">个人履历</label>
 					<div class="col-md-10">
-						<textarea name="personalDatum" class="form-control" rows="5"></textarea>
+						<textarea name="datum[datum]" class="form-control" rows="5"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
 						<input type="submit" name="submit" class="btn btn-success" value="提交资料">
-					
+						<input type="hidden" name="token" value="3e9bc946">
 					</div>
 				</div>
 			</form>
@@ -239,18 +237,18 @@
 <script>
 require(['iosOverlay'], function(){
 	$(function() {
-		var $real_name = $('[name="realName"]');
-		var $mobile = $('[name="mobile"]');
-		var $verifycode = $('[name="verifyCode"]');
-	//	var $ali_pay = $('[name="ali_pay"]');
-		//var $qq = $('[name="qq"]');
-	//	var $qq2 = $('[name="qq2"]');
-		var $reside_province = $('[name="resideProvince"]');
-		var $reside_city = $('[name="resideCity"]');
-		var $reside_dist = $('[name="resideDist"]');
-		var $credentials_type = $('[name="credentialsType"]');
-		var $credentials_number = $('[name="credentialsNumber"]');
-		var $credentials_photo = $('[name="credentialsPhoto"]');
+		var $real_name = $('[name="datum[real_name]"]');
+		var $mobile = $('[name="datum[mobile]"]');
+		var $verifycode = $('[name="verifycode"]');
+		var $ali_pay = $('[name="datum[ali_pay]"]');
+		var $qq = $('[name="datum[qq]"]');
+		var $qq2 = $('[name="datum[qq2]"]');
+		var $reside_province = $('[name="datum[reside_province]"]');
+		var $reside_city = $('[name="datum[reside_city]"]');
+		var $reside_dist = $('[name="datum[reside_dist]"]');
+		var $credentials_type = $('[name="datum[credentials_type]"]');
+		var $credentials_number = $('[name="datum[credentials_number]"]');
+		var $credentials_photo = $('[name="datum[credentials_photo]"]');
 		$('form').submit(function(event) {
 			var mobile = "";
 			if (mobile == '') {
@@ -260,7 +258,7 @@ require(['iosOverlay'], function(){
 				util.message('请输入真实姓名');
 				return false;
 			};
-			var sex = $('input[name="sex"]:checked').val();
+			var sex = $('input[name="datum[sex]"]:checked').val();
 			if (!sex) {
 				util.message('请选择性别');
 				return false;
@@ -347,7 +345,6 @@ require(['iosOverlay'], function(){
 				clearInterval(interval);
 				return false;
 			};
-			/*
 			var url = "./index.php?c=site&a=register&do=sms_verifycode&";
 			$.post(url, {mobile : mobile}, function(data) {
 				if (!data.message.errno) {
@@ -366,8 +363,6 @@ require(['iosOverlay'], function(){
 					toast.hide();
 				}, 1000);
 			}, 'json');
-			
-			*/
 		});
 	});
 });

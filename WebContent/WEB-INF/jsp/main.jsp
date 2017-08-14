@@ -102,7 +102,7 @@
 		</div>
         -->
 		<div class="list-group-item">
-			<a href="./certificationForm" class="menu-new">开发者认证</a>
+			<a href="./developer/certification" class="menu-new">开发者认证</a>
 		</div>
 	</div>
 	<div class="list-group">
@@ -118,7 +118,7 @@
 	</div>
 
 	<div class="text-center">
-		<img src="${ctx}/imsges/we/wx.png" width="100" title="扫二维码">
+		<img src="${ctx}/images/we/wx.png" width="100" title="扫二维码">
 		<p>用微信扫描二维码<br>随时掌握应用动态</p>
 	</div>
 </div>
@@ -295,11 +295,92 @@
 					
 				</ul>
 			</div>
+			
+			
+			
 						<div class="form-group"></div>
 			<div class="alert alert-warning">
 				<span><i class="fa fa-info-circle"></i></span>
 				您还没有创建任何应用，点击右上角【发布应用】去创建一个吧！
 			</div>
+					</div>
+					
+					
+	<!-- ------------------------有模块------------------------- -->			
+<c:forEach items="${requestScope.users}" var="user" varStatus="stat">
+				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
+					<td><input type="checkbox" id="box_${stat.index}" value="${user.id}"></td>
+					 <td>${user.loginname }</td>
+					  <td>${user.password }</td>
+					  <td>${user.username }</td>
+					  <td>${user.status }</td>
+					  <td><f:formatDate value="${user.createDate}" 
+								type="date" dateStyle="long"/></td>
+					 <td align="center" width="40px;"><a href="${ctx}/user/updateUser?flag=1&id=${user.id}">
+							<img title="修改" src="${ctx}/images/update.gif"/></a>
+					  </td>
+				</tr>
+			</c:forEach>
+
+
+
+	
+					
+		  <div class="search">
+				<form method="get" action="" class="pull-left">
+					<input type="hidden" name="c" value="develop">
+					<input type="hidden" name="a" value="home">
+					<input type="hidden" name="type" value="0">
+					<div class="input-group" role="form">
+						<input type="text" name="title" class="form-control" value="" placeholder="应用的名称或标识">
+						<span class="input-group-btn">
+							<button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			
+			<style>
+			a + a { margin-left: 10px;}
+			</style>
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead class="navbar-inner">
+						<tr>
+							<th style="width: 115px;">LOGO</th>
+							<th style="width: 20%;" class="text-center">标识</th>
+							<th style="width: 20%;" class="text-center">名称</th>
+							<th style="width: 100px;" class="text-center">购买总数</th>
+							<th style="width: 100px;" class="text-center">创建时间</th>
+							<th style="width: 160px;" class="text-center">
+								应用总数: <span style="color:#555555;">1</span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+                    <c:forEach items="${requestScope.modules}" var="module" varStatus="stat">
+							<tr>
+								<td>
+									<img src="${module.logo}" title="erabits_hrm" width="48" height="48" style="border-radius:5px;">
+								</td>
+								<td class="text-center">
+									<a href="" title="${module.moduleName}" target="_blank">${module.moduleName}</a>
+								</td>
+								<td class="text-center">
+									<a href="" title="查看应用主页" target="_blank">${module.title}</a>
+								</td>
+								<td class="text-center">0</td>
+								<td class="text-center">${module.createTime}</td>
+								<td class="text-center">
+																			<a href="">版本管理</a>
+																		<a href="" target="_blank">基本设置</a>
+									<span class="label label-warning">待更新</span>								</td>
+							</tr>
+                    </c:forEach>
+							
+						</tbody>
+	              </table>
+							</div>
 					</div>
 		<!--end 我的应用-->
 	

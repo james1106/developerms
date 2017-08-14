@@ -15,7 +15,12 @@ import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 
 import com.jsyouyun.developer.common.utils.DeveloperConstants;
+
 import com.jsyouyun.developer.entity.DeveloperUser;
+import com.jsyouyun.developer.entity.DeveloperDatum;
+import com.jsyouyun.developer.entity.DeveloperModule;
+
+
 import com.jsyouyun.developer.service.DeveloperService;
 
 //import com.jsyouyun.developer.common.utils.ShiroUtils;
@@ -45,9 +50,6 @@ public class DeveloperModuleController {
 	@Qualifier("developerService")
 	private DeveloperService developerService;
 	
-
-
-		
 	/**
 	 * 模块设计界面
 	 * @return 跳转的视图
@@ -119,6 +121,40 @@ public class DeveloperModuleController {
 			 ){
 		// 设置客户端跳转到模块设计界面
 		return "developer/moduleDesign-step5";
+	}
+	
+	/**
+	 * 添加或编辑模块
+	 * @param DeveloperModule developerModule  模块对象
+	 * @param ModelAndView mv
+	 * */
+	@RequestMapping(value="/developer/module/doModule")
+	 public String addOrEditModule(
+			 @ModelAttribute DeveloperModule developerModule,
+			 HttpSession session,
+			 Model model){
+			// 执行添加操作
+		   DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
+		    if (developerModule.getId() != null && developerModule.getId() > 0) {
+		    	developerService.modifyDeveloperModule(developerModule);
+		    	
+		    } else {
+		    	developerModule.setDeveloperUser(user);
+		    	developerService.addDeveloperModule(developerModule);
+		    }
+		//	developerService.addDeveloperUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+		//	mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+		    model.addAttribute("module", developerModule);
+			return "developer/moduleDesign-step1";
 	}
 	
 	

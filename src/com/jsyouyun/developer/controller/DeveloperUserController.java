@@ -15,6 +15,8 @@ import com.google.code.kaptcha.Producer;
 
 import com.jsyouyun.developer.common.utils.DeveloperConstants;
 import com.jsyouyun.developer.entity.DeveloperUser;
+import com.jsyouyun.developer.entity.DeveloperDatum;
+import com.jsyouyun.developer.entity.DeveloperModule;
 import com.jsyouyun.developer.service.DeveloperService;
 
 //import com.jsyouyun.developer.common.utils.ShiroUtils;
@@ -230,6 +232,115 @@ public class DeveloperUserController {
 		   // 返回
 		   return mv;
 	}
+	
+	/**
+	 * 开发者用户认证
+	 * @param DeveloperUser developerUser  要注册的开发者用户对象
+	 * @param ModelAndView mv
+	 * */
+	@RequestMapping(value="/developer/doCertification")
+	 public ModelAndView addDeveloperDatum(
+			 @ModelAttribute DeveloperDatum developerDatum,
+			 HttpSession session,
+			 ModelAndView mv){
+			// 执行添加操作
+		   DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
+		//   System.out.println("userId:" + user.getId());
+		   developerDatum.setDeveloperUser(user);
+			developerService.addDeveloperDatum(developerDatum);
+		//	developerService.addDeveloperUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+		   return mv;
+	}
+	
+	/**
+	 * 开发者用户注册
+	 * @param DeveloperUser developerUser  要注册的开发者用户对象
+	 * @param ModelAndView mv
+	 * */
+	@RequestMapping(value="/developer/certification")
+	 public String developerCertification(
+			 HttpSession session,
+			 Model model
+			 ){
+			// 执行添加操作
+		   DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
+		  DeveloperDatum datum = developerService.findDeveloperDatumByUser(user);
+		  model.addAttribute("datum", datum);
+		//	developerService.addDeveloperUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "developer/certificationForm";
+	}
+	
+	 /**
+		@RequestMapping(value="/user/selectUser")
+		 public String selectUser(Integer pageIndex,
+				 @ModelAttribute User user,
+				 Model model){
+			System.out.println("user = " + user);
+			PageModel pageModel = new PageModel();
+			if(pageIndex != null){
+				pageModel.setPageIndex(pageIndex);
+			}
+			*/
+			/** 查询用户信息     */
+	/*
+			List<User> users = hrmService.findUser(user, pageModel);
+			model.addAttribute("users", users);
+			model.addAttribute("pageModel", pageModel);
+			return "user/user";
+			
+		}
+		*/
+	
+	/**
+	 * 处理查询请求
+	 * @param pageIndex 请求的是第几页
+	 * @param employee 模糊查询参数
+	 * @param Model model
+	 * */
+	@RequestMapping(value="/home")
+	 public String getDeveloperApplication(  //Integer pageIndex,
+			 HttpSession session,
+			 Model model){
+		/*
+		PageModel pageModel = new PageModel();
+		if(pageIndex != null){
+			pageModel.setPageIndex(pageIndex);
+		}
+		*/
+		/** 查询用户信息     */
+		 DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
+		  developerService.findDeveloperModuleByUser(user);
+		  List<DeveloperModule> modules = 
+				developerService.findDeveloperModuleByUser(user);
+		  model.addAttribute("modules", modules);
+	
+		 return "main";
+		
+	}
+	
+	
+	
+	
 	
 }
 

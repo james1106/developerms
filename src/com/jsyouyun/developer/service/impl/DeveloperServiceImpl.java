@@ -6,10 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 import com.jsyouyun.developer.common.utils.tag.PageModel;
+
+import com.jsyouyun.developer.entity.DeveloperUser;
+import com.jsyouyun.developer.entity.DeveloperDatum;
+import com.jsyouyun.developer.entity.DeveloperModule;
+
 import com.jsyouyun.developer.dao.DeveloperUserDao;
 import com.jsyouyun.developer.dao.DeveloperDatumDao;
-import com.jsyouyun.developer.entity.DeveloperDatum;
-import com.jsyouyun.developer.entity.DeveloperUser;
+import com.jsyouyun.developer.dao.DeveloperModuleDao;
+
 import com.jsyouyun.developer.service.DeveloperService;
 //import org.fkit.hrm.util.tag.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +40,8 @@ public class DeveloperServiceImpl implements DeveloperService{
 	private DeveloperUserDao developerUserDao;
 	@Autowired
 	private DeveloperDatumDao developerDatumDao;
+	@Autowired
+	private DeveloperModuleDao developerModuleDao;
 	
 	/*
 	@Autowired
@@ -164,6 +171,18 @@ public class DeveloperServiceImpl implements DeveloperService{
 		return developerDatumDao.selectById(id);
 	}
 	
+	
+	/**
+	 * 根据开发者用户查询开发者资料
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public DeveloperDatum findDeveloperDatumByUser(DeveloperUser user) {
+		return developerDatumDao.selectByUserId(user.getId());
+	}
+	
 	/**
 	 * DeveloperDatumService接口addDeveloperDatum方法实现
 	 * @see { DeveloperDatumService }
@@ -184,7 +203,79 @@ public class DeveloperServiceImpl implements DeveloperService{
 	}
 	
 	
-	/*****************职位接口实现*************************************/
+	/*****************开发者模块服务接口实现*************************************/
+	/**
+	 *DeverloperService接口findDeveloper方法实现
+	 * @see { HeverloperService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<DeveloperModule> findDeveloperModule(DeveloperModule developerModule,PageModel pageModel) {
+		/** 当前需要分页的总数据条数  */
+		Map<String,Object> params = new HashMap<>();
+		params.put("developerModule", developerModule);
+		
+		int recordCount = developerModuleDao.count(params);
+	    pageModel.setRecordCount(recordCount);
+	    
+	    if(recordCount > 0){
+	        /** 开始分页查询数据：查询第几页的数据 */
+		    params.put("pageModel", pageModel);
+	    }
+	    List<DeveloperModule> developerModules = developerModuleDao.selectByPage(params);
+	    return developerModules;
+	}
+	/**
+	 * DeveloperModuleService接口removeDeveloperModuleById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void removeDeveloperModuleById(Integer id) {
+		developerModuleDao.deleteById(id);
+		
+	}
+	/**
+	 * DeveloperModuleService接口findDeveloperModuleById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public DeveloperModule findDeveloperModuleById(Integer id) {
+		
+		return developerModuleDao.selectById(id);
+	}
+	
+	
+	/**
+	 * 根据开发者用户查询开发者模块
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<DeveloperModule> findDeveloperModuleByUser(DeveloperUser user) {
+		return developerModuleDao.selectByUserId(user.getId());
+	}
+	
+	/**
+	 * DeveloperModuleService接口addDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void addDeveloperModule(DeveloperModule developerModule) {
+		developerModuleDao.save(developerModule);
+		
+	}
+	
+	/**
+	 * DeveloperModuleService接口modifyDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void modifyDeveloperModule(DeveloperModule developerModule) {
+		developerModuleDao.update(developerModule);
+	}
+	
 
 	
 	/*****************公告接口实现*************************************/

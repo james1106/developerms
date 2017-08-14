@@ -72,7 +72,7 @@
 	<div class="list-group">
 		<div class="list-group-item">
 			<div class="info">
-				<h4>人事管理</h4>
+				<h4> ${module.title}</h4>
 			</div>
 		</div>
 		<div class="list-group-item ">
@@ -186,7 +186,7 @@
 
 		<li class="step3  ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">小程序</a>
+				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">数据表</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
@@ -228,7 +228,7 @@
 						<input type="checkbox" value="1" name="setting"> 存在全局设置项
 					</label>
 					<span class="help-block"><label class="label label-danger">无法修改审核通过模块</label></span>
-					<span class="help-block">此模块是否存在全局的配置参数, 此参数是针对公众账号独立保存的</span>
+					<span class="help-block">此模块是否存在全局的配置参数, 此参数是针对模块独立保存的</span>
 				</div>
 			</div>
 			

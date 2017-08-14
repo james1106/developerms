@@ -22,6 +22,7 @@
 	<script src="${ctx}/js/we/jquery-1.11.1.min.js"></script>
 	<script src="${ctx}/js/we/bootstrap.min.js"></script>
 	<script src="${ctx}/js/we/util.js"></script>
+	
 	<script>window.sys={debug:false}</script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="district" src="${ctx}/js/we/district.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="css" src="${ctx}/js/we/css.min.js"></script>
@@ -80,11 +81,11 @@
 	<div class="panel-heading">初中高级开发者认证</div>
 	<div class="panel-body">
 		<div class="form-group">
-			<form method="post" action="./developer/doCertification" class="form-horizontal">
+			<form method="post" action="${ctx}/developer/doCertification" class="form-horizontal">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">真实姓名</label>
 					<div class="col-sm-10">
-						<input type="text" name="realName" class="form-control" value="">
+						<input type="text" name="realName" class="form-control" value="${datum.realName}">
 					</div>
 				</div>
 				<div class="form-group">
@@ -101,7 +102,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">手机号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="mobile" class="form-control" value=""  >
+						<input type="text" name="mobile" class="form-control" value="${datum.mobile}"  >
 					</div>
 				</div>
 				<div class="form-group">
@@ -186,7 +187,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">证件号码</label>
 					<div class="col-sm-10">
-						<input type="text" name="credentialsNumber" class="form-control" value="">
+						<input type="text" name="credentialsNumber" class="form-control" value="${datum.credentialsNumber}">
 					</div>
 				</div>
 				<div class="form-group">
@@ -209,7 +210,7 @@
 			}
 		</script>
 	<div class="input-group">
-		<input type="text" value="" name="credentialsPhoto" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
+		<input type="text" value="${datum.credentialsPhoto}" name="credentialsPhoto" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button" onclick="showImageDialog(this, &#39;YTo0OntzOjU6IndpZHRoIjtpOjgwMDtzOjY6ImhlaWdodCI7aTo2MDA7czo2OiJleHRyYXMiO2I6MDtzOjY6Imdsb2JhbCI7YjowO30=&#39;);">选择图片</button>
 		</span>
@@ -223,7 +224,7 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">个人履历</label>
 					<div class="col-md-10">
-						<textarea name="personalDatum" class="form-control" rows="5"></textarea>
+						<textarea name="personalDatum" class="form-control" rows="5">${datum.personalDatum}</textarea>
 					</div>
 				</div>
 				<div class="form-group">

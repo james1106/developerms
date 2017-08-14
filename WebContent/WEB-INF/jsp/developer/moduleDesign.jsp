@@ -140,11 +140,11 @@
 		创建新模块
 	</div>
 	<div class="panel-body">
-		<form action="${ctx}/developer/module/doModuleDesign" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form action="${ctx}/developer/module/doModule" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">标识</label>
 				<div class="col-sm-10">
-					<input type="text" name="name" class="form-control" value="">
+					<input type="text" name="moduleName" class="form-control" value="">
 					<span class="help-block">
 						<strong class="red">必填 </strong> ,必须输入模块标识(只能包括字母和数字, 且只能以字母开头，格式如：aa1_bb1 或 aa_bb)
 					</span>
@@ -230,7 +230,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">简述</label>
+				<label class="col-sm-2 control-label">功能简述</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" placeholder="" name="ability" value="">
 					<span class="help-block">
@@ -241,14 +241,14 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">介绍</label>
 				<div class="col-sm-10">
-					<textarea rows="3" class="form-control" id="design_app_description" name="design_app_description"></textarea>
+					<textarea rows="3" class="form-control" id="design_app_description" name="designDescription"></textarea>
 					<span class="help-block">
 						<strong class="red">必填 </strong> ,模块详细描述,  简要介绍模块的功能和使用方法
 					</span>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">发布页</label>
+				<label class="col-sm-2 control-label">发布页url</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" placeholder="" name="url" value="">
 					<span class="help-block">
@@ -260,10 +260,10 @@
 				<label class="col-sm-2 control-label">正版保护</label>
 				<div class="col-sm-10">
 					<label class="radio-inline">
-						<input type="radio" name="isprotect" value="1" checked="checked">是
+						<input type="radio" name="isProtect" value="1" checked="checked">是
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="isprotect" value="0">否
+						<input type="radio" name="isProtect" value="0">否
 					</label>
 					<span class="help-block">
 						<strong class="red">必填 </strong> ,设置是否启用正版保护机制，开启后所有不通过本平台安装的应用将无法安装和使用
@@ -275,15 +275,15 @@
 				<label class="col-sm-2 control-label">适用客户类型</label>
 				<div class="col-sm-10">
 										<label class="checkbox-inline">
-						<input type="checkbox" name="account_type[]" checked="checked" value="0">全部类型					</label>
+						<input type="checkbox" name="accountType" checked="checked" value="0">全部类型					</label>
 										<label class="checkbox-inline">
-						<input type="checkbox" name="account_type[]" value="1">所有客户			</label>
+						<input type="checkbox" name="accountType" value="1">所有客户			</label>
 										<label class="checkbox-inline">
-						<input type="checkbox" name="account_type[]" value="2">基础客户			</label>
+						<input type="checkbox" name="accountType" value="2">基础客户			</label>
 										<label class="checkbox-inline">
-						<input type="checkbox" name="account_type[]" value="3">运维客户			</label>
+						<input type="checkbox" name="accountType" value="3">运维客户			</label>
 										<label class="checkbox-inline">
-						<input type="checkbox" name="account_type[]" value="4">认证客户						</label>
+						<input type="checkbox" name="accountType" value="4">认证客户						</label>
 										<span class="help-block">
 						<strong class="red">必填 </strong> ,设置应用适用的客户类型
 					</span>

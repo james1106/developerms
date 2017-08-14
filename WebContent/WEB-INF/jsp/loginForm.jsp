@@ -64,7 +64,7 @@
 							<a href="">登录</a>
 						</li>
 						<li>
-							<a href="">免费注册</a>
+							<a href="./registerForm">免费注册</a>
 						</li>
 					</ul>
 							</div>
@@ -141,7 +141,7 @@
 		</div>
 		<ul class="footer-menu col-xs-12">
 			<li class="col-xs-2">
-				关于微擎
+				关于运维平台
 				<ul>
 					<li>
 						<a href="" target="_blank">关于我们</a>

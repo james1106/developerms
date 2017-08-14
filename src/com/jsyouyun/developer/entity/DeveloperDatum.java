@@ -51,6 +51,7 @@ public class DeveloperDatum implements Serializable {
 	 
 	 public void setDeveloperUser(DeveloperUser developerUser) {
 		 this.developerUser = developerUser;
+		// /developer/certificationForm
 	 }
 	 
 	 public String getRealName() {
