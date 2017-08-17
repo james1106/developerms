@@ -140,7 +140,7 @@
 		创建新模块
 	</div>
 	<div class="panel-body">
-		<form action="${ctx}/developer/module/doModule" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">标识</label>
 				<div class="col-sm-10">
@@ -695,7 +695,8 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10 col-sm-offset-2">
-					<input type="submit" name="submit" value="下一步" class="btn btn-success">
+					<input type="submit" name="submit" value="下一步" onclick="sm1()" class="btn btn-success">
+					<input type="submit" name="submit-finish" value="完成并导出" onclick="sm2()" class="btn btn-default">
 					<input type="hidden" name="token" value="3e9bc946">
 				</div>
 			</div>
@@ -707,7 +708,15 @@
 				var $name = $('input[name="name"]');
 				var $logo = $('input[name="logo"]');
 				var $ability = $('input[name="ability"]');
-				var $design_app_description = $('#design_app_description');
+				var $design_app_description = $('#designDescription');
+				function sm1() {
+					$('form').action = '/developer/module/doModule?finish=0';
+					$('form').submit();
+				}
+				function sm2() {
+					$('form').action = '/developer/module/doModule?finish=1';
+					$('form').submit();
+				}
 				$('form').submit(function() {
 					var msg = '';
 					var title = $.trim($title.val());

@@ -28,7 +28,7 @@ import java.util.Map;
 public class CommonController {
 	
 	// 上传文件会自动绑定到MultipartFile中
-	 @RequestMapping(value="/upload",method=RequestMethod.POST)
+	 @RequestMapping(value= {"/upload","/developer/upload", "/developer/module/upload"},method=RequestMethod.POST)
 	 @ResponseBody
 		 public Object upload(HttpServletRequest request,
 				//@RequestParam("description") String description,
@@ -45,6 +45,9 @@ public class CommonController {
 				// 上传文件路径
 				String path = request.getServletContext().getRealPath(
 		                "/images/");
+				
+				String cxt =  request.getContextPath();
+				
 				// 上传文件名
 				String filename = file.getOriginalFilename();
 			    File filepath = new File(path,filename);
@@ -60,9 +63,9 @@ public class CommonController {
 				System.out.println("111333："+path);
 				result.put("name", filename);
 				result.put("ext", "jpg");
-				result.put("filename", "./images/"+ filename);
+				result.put("filename", cxt + "/images/"+ filename);
 				result.put("attachment", path);
-				result.put("url", "./images/"+ filename);
+				result.put("url", cxt + "/images/"+ filename);
 				result.put("is_image", 1);
 				/*
 				

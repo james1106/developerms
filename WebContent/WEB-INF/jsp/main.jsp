@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -298,29 +300,18 @@
 			
 			
 			
-						<div class="form-group"></div>
+	      <div class="form-group"></div>
+	      <c:if test="empty ${modules}">
 			<div class="alert alert-warning">
 				<span><i class="fa fa-info-circle"></i></span>
 				您还没有创建任何应用，点击右上角【发布应用】去创建一个吧！
 			</div>
-					</div>
+		  </c:if>
 					
 					
-	<!-- ------------------------有模块------------------------- -->			
-<c:forEach items="${requestScope.users}" var="user" varStatus="stat">
-				<tr id="data_${stat.index}" align="center" class="main_trbg" onMouseOver="move(this);" onMouseOut="out(this);">
-					<td><input type="checkbox" id="box_${stat.index}" value="${user.id}"></td>
-					 <td>${user.loginname }</td>
-					  <td>${user.password }</td>
-					  <td>${user.username }</td>
-					  <td>${user.status }</td>
-					  <td><f:formatDate value="${user.createDate}" 
-								type="date" dateStyle="long"/></td>
-					 <td align="center" width="40px;"><a href="${ctx}/user/updateUser?flag=1&id=${user.id}">
-							<img title="修改" src="${ctx}/images/update.gif"/></a>
-					  </td>
-				</tr>
-			</c:forEach>
+	<!-- ------------------------有模块------------------------- -->		
+	<!--  -->	
+
 
 
 
@@ -343,7 +334,7 @@
 			<style>
 			a + a { margin-left: 10px;}
 			</style>
-			<div class="table-responsive">
+			<div class="">
 				<table class="table table-hover">
 					<thead class="navbar-inner">
 						<tr>
@@ -370,7 +361,10 @@
 									<a href="" title="查看应用主页" target="_blank">${module.title}</a>
 								</td>
 								<td class="text-center">0</td>
-								<td class="text-center">${module.createTime}</td>
+								<td class="text-center">
+								<f:formatDate value="${module.createTime}" 
+								type="date" dateStyle="long"/>
+								</td>
 								<td class="text-center">
 																			<a href="">版本管理</a>
 																		<a href="" target="_blank">基本设置</a>

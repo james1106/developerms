@@ -8,6 +8,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -131,6 +132,7 @@ public class DeveloperModuleController {
 	@RequestMapping(value="/developer/module/doModule")
 	 public String addOrEditModule(
 			 @ModelAttribute DeveloperModule developerModule,
+			 HttpServletRequest request,
 			 HttpSession session,
 			 Model model){
 			// 执行添加操作
@@ -153,8 +155,13 @@ public class DeveloperModuleController {
 		//	return "main"
 
 		   // 返回
-		    model.addAttribute("module", developerModule);
-			return "developer/moduleDesign-step1";
+		    String param = request.getParameter("finish");
+		    if (param != null && param.equals("1")) {
+		    	return "/home";
+		    } else {
+		    	model.addAttribute("module", developerModule);
+		    	return "developer/moduleDesign-step1";
+		    }
 	}
 	
 	

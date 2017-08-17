@@ -41,7 +41,7 @@ public interface DeveloperModuleDao  {
 		@Result(column="design_description",property="designDescription"),
 		@Result(column="url",property="url"),
 		@Result(column="is_protect",property="isProtect"),
-		@Result(column="account_type",property="account_type"),
+		@Result(column="account_type",property="accountType"),
 		@Result(column="description",property="description"),
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
@@ -73,7 +73,7 @@ public interface DeveloperModuleDao  {
 		@Result(column="design_description",property="designDescription"),
 		@Result(column="url",property="url"),
 		@Result(column="is_protect",property="isProtect"),
-		@Result(column="account_type",property="account_type"),
+		@Result(column="account_type",property="accountType"),
 		@Result(column="description",property="description"),
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
@@ -98,18 +98,20 @@ public interface DeveloperModuleDao  {
 		@Result(column="design_description",property="designDescription"),
 		@Result(column="url",property="url"),
 		@Result(column="is_protect",property="isProtect"),
-		@Result(column="account_type",property="account_type"),
+		@Result(column="account_type",property="accountType"),
 		@Result(column="description",property="description"),
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
-		@Result(column="user_id",property="developerUser")
+		@Result(column="user_id",property="developerUser",
+		one=@One(select="com.jsyouyun.developer.dao.DeveloperUserDao.selectById",
+		fetchType=FetchType.EAGER))
 		
 		})
 	List<DeveloperModule> selectByUserId(Integer userId);
 		
 	// ¶¯Ì¬ÐÞ¸ÄÄ£¿é
 	@SelectProvider(type=DeveloperModuleDynaSqlProvider.class,method="updateDeveloperModule")
-	void update(DeveloperModule DeveloperModule);
+	void update(DeveloperModule developerModule);
 	
 }
 
