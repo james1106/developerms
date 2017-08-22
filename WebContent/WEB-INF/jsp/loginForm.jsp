@@ -56,7 +56,7 @@
 						<a href="" target="_blank">论坛</a>
 					</li>
 					<li>
-						<a href="" target="_blank">开发者中心</a>
+						<a href="${ctx}/home" target="_blank">开发者中心</a>
 					</li>
 									</ul>
 									<ul class="nav navbar-nav navbar-right head-user-login">
@@ -64,7 +64,7 @@
 							<a href="">登录</a>
 						</li>
 						<li>
-							<a href="./registerForm">免费注册</a>
+							<a href="${ctx}/registerForm">免费注册</a>
 						</li>
 					</ul>
 							</div>
@@ -104,7 +104,7 @@
 					<div class="form-group clearfix text-center">
 		
 						<input type="submit" name="submit" value="登录" class="btn btn-we7 btn-login">
-						<a href="./registerForm" class="btn btn-we7-no btn-login">注册</a>
+						<a href="${ctx}/registerForm" class="btn btn-we7-no btn-login">注册</a>
 					</div>
 					<fieldset class="field-title text-center">
 						<legend class="text-center">使用第三方账号登录</legend>

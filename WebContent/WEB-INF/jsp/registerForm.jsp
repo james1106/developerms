@@ -55,12 +55,12 @@
 						<a href="" target="_blank">论坛</a>
 					</li>
 					<li>
-						<a href="" target="_blank">开发者中心</a>
+						<a href="${ctx}/home" target="_blank">开发者中心</a>
 					</li>
 									</ul>
 									<ul class="nav navbar-nav navbar-right head-user-login">
 						<li>
-							<a href="">登录</a>
+							<a href="${ctx}/loginForm">登录</a>
 						</li>
 						<li class="active-right">
 							<a href="">免费注册</a>
@@ -107,7 +107,7 @@
 						<!--  <input type="hidden" name="token" value="3e9bc946">-->
 					</div>
 					<div class="form-group text-center">
-						<a href="" class="form-control-static c-blue">已有账号，登录到开发平台</a>
+						<a href="${ctx}/loginForm" class="form-control-static c-blue">已有账号，登录到开发平台</a>
 					</div>
 					<div class="hidden">
 											</div>

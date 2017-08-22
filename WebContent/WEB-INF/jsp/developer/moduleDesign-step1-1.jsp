@@ -34,13 +34,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation" class="active">
-				<a href="${ctx}/home">个人中心</a>
+				<a href="">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
+				<a href="" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -60,7 +60,7 @@
 				<span class="badge" id="developer-message-count">1</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i> 			</span>
+				<i class="fa fa-user"></i> tzwjt			</span>
 			<a href="">退出</a>
 		</div>
 	</div>
@@ -169,14 +169,14 @@
 </style>
 <div class="step">
 	<ul>
-		<li class="step1  step-cur ">
+		<li class="step1  step-done ">
 			<h2 class="step-tit">
 				<span class="ico-cir-num ico-cir-num-1">1</span>
 				<a href="">参数设置</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
-		<li class="step2  ">
+		<li class="step2  step-cur  ">
 			<h2 class="step-tit">
 				<span class="ico-cir-num ico-cir-num-2">2</span><a href="">数据库设置</a>
 			</h2>
@@ -186,13 +186,27 @@
 
 		<li class="step3  ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">后台管理</a>
+				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">数据表</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
-		<li class="step4 ">
+
+
+		<li class="step4  ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">导出</a>
+				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">公众号</a>
+			</h2>
+			<span class="arrow"></span>
+		</li>
+		<li class="step5  ">
+			<h2 class="step-tit">
+				<span class="ico-cir-num ico-cir-num-5">5</span><a href="">后台管理</a>
+			</h2>
+			<span class="arrow"></span>
+		</li>
+		<li class="step6 ">
+			<h2 class="step-tit">
+				<span class="ico-cir-num ico-cir-num-6">6</span><a href="">导出</a>
 			</h2>
 		</li>
 	</ul>
@@ -211,17 +225,17 @@
 				<label class="col-sm-2 control-label">设置项</label>
 				<div class="col-sm-10">
 					<label class="checkbox-inline">
-						<input type="checkbox" value="1" name="setting"> 存在全局设置项
+						<input type="checkbox" value="1" name="setting"> 是否要为此模块设计数据库
 					</label>
-					<span class="help-block"><label class="label label-danger">无法修改审核通过模块</label></span>
-					<span class="help-block">此模块是否存在全局的配置参数, 此参数是针对模块独立保存的</span>
+					<span class="help-block"><label class="label label-danger"><!--无法修改审核通过模块--></label></span>
+					<span class="help-block">数据库是此模块操作的数据存储，仅用于此模块</span>
 				</div>
 			</div>
 			
 			<div class="form-group js-prev-next">
 				<div class="col-sm-10 col-md-offset-2">
-				    <input type="hidden" name="moduleId" value="${module.id}">
-					<input type="hidden" name="moduleTitle" value="${module.title}">
+				    <input type="text" name="moduleId" value="${module.id}">
+					<input type="text" name="moduleTitle" value="${module.title}">
 					<input type="submit" name="submit" value="下一步" onclick="sm1()"  class="btn btn-success">
 					<input type="submit" name="submit-finish" value="完成并导出" onclick="sm2()" class="btn btn-default">
 					
@@ -354,7 +368,7 @@ value2 = title2">备选值 <i class="fa fa-question-circle"></i></th>
 				revert: true,
 			});
 			$('form').submit(function() {
-				//alert("aaa");
+				alert("aaa");
 				var msg = '';
 				if ($cloud_setting_table.is(":visible")) {
 					if ($('.item').length <= 0) {
@@ -399,7 +413,7 @@ value2 = title2">备选值 <i class="fa fa-question-circle"></i></th>
 						return false;
 					}
 				}
-				//alert("bbb");
+				alert("bbb");
 				return true;
 			});
 		});
@@ -407,22 +421,22 @@ value2 = title2">备选值 <i class="fa fa-question-circle"></i></th>
 	
 	
 	function sm1() {
-		// alert("sm1");
+		 alert("sm1");
 		
 		
 		$("#form1").attr("action",action1 + "?finish=0");
 		
 		action2 = $('#form1').attr("action");
-		//alert(action2);
+		alert(action2);
 	//	$('#form1').submit();
 	}
 	function sm2() {
-		// alert("sm2");
+		 alert("sm2");
 		
 			$("#form1").attr("action",action1 + "?finish=1");
 			
 			action2 = $('#form1').attr("action");
-	//		alert(action2);
+			alert(action2);
 		//	$('#form1').submit();
 	}
 </script>			</div>

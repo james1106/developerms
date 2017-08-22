@@ -222,7 +222,8 @@ public class DeveloperUserController {
 			developerService.addDeveloperUser(developerUser);
 			// 设置客户端跳转到查询请求
 			// 将用户保存到HttpSession当中
-			session.setAttribute(DeveloperConstants.DEVELOPER_SESSION, developerUser);
+			DeveloperUser user = developerService.login(developerUser.getLoginName(), developerUser.getLoginPwd());
+			session.setAttribute(DeveloperConstants.DEVELOPER_SESSION, user);
 			// 设置Model数据
 			//model.addAttribute("developerUser", developerUser);
 			// 客户端跳转到main页面
@@ -246,8 +247,14 @@ public class DeveloperUserController {
 			// 执行添加操作
 		   DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
 		//   System.out.println("userId:" + user.getId());
-		   developerDatum.setDeveloperUser(user);
-			developerService.addDeveloperDatum(developerDatum);
+		   Integer datumId = developerDatum.getId();
+		   if (datumId == null || datumId < 1) {
+			   developerDatum.setDeveloperUser(user);
+			   developerService.addDeveloperDatum(developerDatum);
+		   } else {
+			   developerDatum.setDeveloperUser(user);
+			   developerService.modifyDeveloperDatum(developerDatum);
+		   }
 		//	developerService.addDeveloperUser(developerUser);
 			// 设置客户端跳转到查询请求
 			// 将用户保存到HttpSession当中
@@ -255,7 +262,9 @@ public class DeveloperUserController {
 			// 设置Model数据
 			//model.addAttribute("developerUser", developerUser);
 			// 客户端跳转到main页面
-			mv.setViewName("redirect:/home");
+		//	mv.setViewName("redirect:/home");
+		   mv.setViewName("redirect:/developer/doDeveloperLevel");
+			
 		//	return "main"
 
 		   // 返回
@@ -276,6 +285,7 @@ public class DeveloperUserController {
 		   DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
 		  DeveloperDatum datum = developerService.findDeveloperDatumByUser(user);
 		  model.addAttribute("datum", datum);
+		  
 		//	developerService.addDeveloperUser(developerUser);
 			// 设置客户端跳转到查询请求
 			// 将用户保存到HttpSession当中
@@ -288,6 +298,36 @@ public class DeveloperUserController {
 
 		   // 返回
 			return "developer/certificationForm";
+	}
+	
+	
+	/**
+	 * 开发者用户注册
+	 * @param DeveloperUser developerUser  要注册的开发者用户对象
+	 * @param ModelAndView mv
+	 * */
+	@RequestMapping(value="/developer/doDeveloperLevel")
+	 public String doDeveloperLevel(
+			 HttpSession session,
+			 Model model
+			 ){
+			// 执行添加操作
+		  DeveloperUser user = (DeveloperUser)session.getAttribute(DeveloperConstants.DEVELOPER_SESSION);
+		  DeveloperDatum datum = developerService.findDeveloperDatumByUser(user);
+		  model.addAttribute("datum", datum);
+		  
+		//	developerService.addDeveloperUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "developer/developerLevel";
 	}
 	
 	 /**
@@ -333,6 +373,7 @@ public class DeveloperUserController {
 		  List<DeveloperModule> modules = 
 				developerService.findDeveloperModuleByUser(user);
 		  model.addAttribute("modules", modules);
+		  model.addAttribute("loginName", user.getLoginName());
 	
 		 return "main";
 		

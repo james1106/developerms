@@ -34,13 +34,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation" class="active">
-				<a href="">个人中心</a>
+				<a href="${ctx}/home">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者等级</a>
+				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -60,7 +60,7 @@
 				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i>${sessionScope.developerUser.loginName}</span>
+				<i class="fa fa-user">${loginName}</i></span>
 			<a href="">退出</a>
 		</div>
 	</div>
@@ -74,7 +74,7 @@
 			<a href="javascript:;"><i class="fa fa-th-large"></i>"发布管理"</a>
 		</div>
 		<div class="list-group-item  active ">
-			<a href="">我的发布</a>
+			<a href="${ctx}/home">我的发布</a>
 		</div>
 		<div class="list-group-item  hidden">
 			<a href="">我的服务</a>
@@ -104,7 +104,7 @@
 		</div>
         -->
 		<div class="list-group-item">
-			<a href="./developer/certification" class="menu-new">开发者认证</a>
+			<a href="${ctx}/developer/certification" class="menu-new">开发者认证</a>
 		</div>
 	</div>
 	<div class="list-group">
@@ -135,10 +135,10 @@
 			<div class="panel-body">
 				<ul class="bbs-article">
 					<script type="text/javascript" src=""></script>
-                    <li><a href="" title="" target="_blank"><b>优云运维应用商城整治行动，严禁开发者以非优云云服务的方式为用户提供下载更新服务</b> <span class="date">2017-04-28 17:58</span></a></li>
-                    <li><a href="" title="" target="_blank"><b>我们鼓励开发者发布分佣型应用，发展分享经济，让优云运维开发生态圈更加繁荣稳定</b> <span class="date">2017-04-25 14:52</span></a></li>
-                    <li><a href="" title="优云运维开发者平台上线啦，开发者来看看！" target="_blank"><b><font style="color: #FF0000;">优云运维开发者平台上线啦，开发者来看看！</font></b> <span class="date">2017-04-24 18:31</span></a></li>
-                    <li><a href="" title="优云运维插件机制来了，开发者们速度跟上！" target="_blank"><b><font style="color: #FF0000;">优云运维插件机制来了，开发者们速度跟上！</font></b> <span class="date">2017-04-19 18:55</span></a></li>
+                    <li><a href="" title="" target="_blank"><b>优云运维应用商城整治行动，严禁开发者以非优云云服务的方式为用户提供下载更新服务</b> <span class="date">2017-08-18 17:58</span></a></li>
+                    <li><a href="" title="" target="_blank"><b>我们鼓励开发者发布分佣型应用，发展分享经济，让优云运维开发生态圈更加繁荣稳定</b> <span class="date">2017-08-18 14:52</span></a></li>
+                    <li><a href="" title="优云运维开发者平台上线啦，开发者来看看！" target="_blank"><b><font style="color: #FF0000;">优云运维开发者平台上线啦，开发者来看看！</font></b> <span class="date">2017-08-14 18:31</span></a></li>
+                    <li><a href="" title="优云运维插件机制来了，开发者们速度跟上！" target="_blank"><b><font style="color: #FF0000;">优云运维插件机制来了，开发者们速度跟上！</font></b> <span class="date">2017-08-14 18:55</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -200,8 +200,8 @@
 					<button style="padding: 6px 20px;" type="button" data-toggle="modal" data-target="#applyModal" class="developApp btn btn-success">
 						<i class="fa fa-plus"></i>发布应用模块
 					</button>
-					<a class="btn btn-success" style="padding: 6px 20px;" href="./developer/module/designForm"><i class="fa fa-plus"></i> 设计应用模块</a>
-					<a class="btn btn-success hidden" new-version="" style="padding: 6px 20px;" href=""><i class="fa fa-plus"></i> 新建应用模块</a>
+					<a class="btn btn-success" style="padding: 6px 20px;" href="${ctx}/developer/module/designForm"><i class="fa fa-plus"></i> 设计应用模块</a>
+					<a class="btn btn-success hidden" new-version="" style="padding: 6px 20px;" href="${ctx}/developer/module/designForm"><i class="fa fa-plus"></i> 新建应用模块</a>
 				</div>
 				<!--点击发布应用后弹出的模态框-->
 				<div class="modal fade" id="applyModal">
@@ -217,7 +217,7 @@
 							<div class="modal-body clearfix">
 								<div class="col-md-3">
 									<div class="con">
-										<a href="">
+										<a href="${ctx}/developer/module/designForm">
 											<span class="img-circle" title="为优云运维开发平台开发者提供在线设计模块的功能">
 												<i class="fa fa-edit fa-4x"></i>
 											</span>
@@ -249,7 +249,7 @@
 								</div>
 								<div class="col-md-4">
 									<div class="con">
-										<a href="https://s.we7.cc/index.php?c=develop&a=home&do=create&type=2">
+										<a href="">
 											<span class="img-circle" title="为优云运维平台提供各种风格的模板界面">
 												<i class="fa fa-sitemap fa-4x"></i>
 											</span>
@@ -266,7 +266,7 @@
 								</div>
 								<div class="col-md-4 hidden">
 									<div class="con">
-										<a href="https://s.we7.cc/index.php?c=develop&a=service&do=create&">
+										<a href="">
 											<span class="img-circle" title="为优云运维平台提供特色服务功能">
 												<i class="fa fa-wrench fa-4x"></i>
 											</span>
@@ -366,8 +366,8 @@
 								type="date" dateStyle="long"/>
 								</td>
 								<td class="text-center">
-																			<a href="">版本管理</a>
-																		<a href="" target="_blank">基本设置</a>
+																			<a href="${ctx}/developer/module/moduleVersion?moduleId=${module.id}">版本管理</a>
+																		<a href="${ctx}/developer/module/moduleApp?moduleId=${module.id}" target="_blank">基本设置</a>
 									<span class="label label-warning">待更新</span>								</td>
 							</tr>
                     </c:forEach>

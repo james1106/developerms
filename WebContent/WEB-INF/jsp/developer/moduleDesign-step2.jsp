@@ -22,12 +22,11 @@
 	<script src="${ctx}/js/we/bootstrap.min.js"></script>
 	<script src="${ctx}/js/we/util.js"></script>
 	<script>window.sys={debug:false}</script>
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="css" src="${ctx}/js/we/css.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="${ctx}/css/we/layer.css">
-    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="layer" src="${ctx}/js/we/layer.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.ui" src="${ctx}/js/we/jquery-ui-1.10.3.min.js"></script>
     </head>
-<body class=" pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
-  <div class="pace-progress-inner"></div>
+    <body class=" pace-done"><div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+    <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
 
@@ -35,13 +34,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation" class="active">
-				<a href="">个人中心</a>
+				<a href="${ctx}/home">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者等级</a>
+				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -61,19 +60,19 @@
 				<span class="badge" id="developer-message-count">1</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i> tzwjt			</span>
+				<i class="fa fa-user"></i>			</span>
 			<a href="">退出</a>
 		</div>
 	</div>
 </div>
 <div class="wrapper clearfix">
-	<div class="content clearfix" style="min-height: 1069px;">
+	<div class="content clearfix" style="min-height: 1007px;">
 					<!--左侧导航aside-->
 <div class="aside">
 	<div class="list-group">
 		<div class="list-group-item">
 			<div class="info">
-				<h4>人事管理</h4>
+				<h4> ${module.title}</h4>
 			</div>
 		</div>
 		<div class="list-group-item ">
@@ -179,35 +178,22 @@
 		</li>
 		<li class="step2  step-cur  ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-2">2</span><a href="">消息规则</a>
+				<span class="ico-cir-num ico-cir-num-2">2</span><a href="">数据库设置</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
 
 
+		
 		<li class="step3  ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">小程序</a>
+				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">后台管理</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
-
-
-		<li class="step4  ">
+		<li class="step4 ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">公众号</a>
-			</h2>
-			<span class="arrow"></span>
-		</li>
-		<li class="step5  ">
-			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-5">5</span><a href="">后台管理</a>
-			</h2>
-			<span class="arrow"></span>
-		</li>
-		<li class="step6 ">
-			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-6">6</span><a href="">导出</a>
+				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">导出</a>
 			</h2>
 		</li>
 	</ul>
@@ -218,176 +204,69 @@
 		</ul>
 					<div class="panel panel-default">
 	<div class="panel-heading">
-		消息与规则 <span class="pull-right">【人事管理】 - 【1.0】</span>
+		数据库设置 <span class="pull-right">【${module.title}】 - 【1.0】</span>
 	</div>
 	<div class="panel-body">
-		<form action="${ctx}/developer/module/doModuleDesignStep2" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form action="${ctx}/developer/module/nextStep3" id="form1" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
-				<label class="col-sm-2 control-label">是否要嵌入规则</label>
+				<label class="col-sm-2 control-label">设置项</label>
 				<div class="col-sm-10">
 					<label class="checkbox-inline">
-						<input type="checkbox" name="platform_rule" value="1">
-						需要嵌入规则
+						<input type="checkbox" value="1" name="setting"> 是否要为此模块设计数据库
 					</label>
-					<span class="help-block">是否要在规则编辑时添加此规则的相应的规则</span>
-					<div class="alert-warning alert">注意: 如果需要嵌入规则, 那么此模块必须能够处理文本类型消息 (需要定义Processor)</div>
+					<span class="help-block"><label class="label label-danger"><!--无法修改审核通过模块--></label></span>
+					<span class="help-block">数据库是此模块操作的数据存储，仅用于此模块</span>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label">直接处理的类型</label>
-				<div class="col-sm-10">
-															<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[text]" type="checkbox" value="text"> 文本消息(重要)						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[image]" type="checkbox" value="image"> 图片消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[voice]" type="checkbox" value="voice"> 语音消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[video]" type="checkbox" value="video"> 视频消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[shortvideo]" type="checkbox" value="shortvideo"> 小视频消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[location]" type="checkbox" value="location"> 位置消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[link]" type="checkbox" value="link"> 链接消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[subscribe]" type="checkbox" value="subscribe"> 粉丝开始关注						</label>
-					</div>
-																														<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[qr]" type="checkbox" value="qr"> 扫描二维码						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[trace]" type="checkbox" value="trace"> 追踪地理位置						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[click]" type="checkbox" value="click"> 点击菜单(模拟关键字)						</label>
-					</div>
-																														<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[merchant_order]" type="checkbox" value="merchant_order"> 微小店消息						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[user_get_card]" type="checkbox" value="user_get_card"> 用户领取卡券事件						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[user_del_card]" type="checkbox" value="user_del_card"> 用户删除卡券事件						</label>
-					</div>
-																				<div class="checkbox js-handle">
-						<label>
-							<input class="js-handles" name="handles[user_consume_card]" type="checkbox" value="user_consume_card"> 用户核销卡券事件						</label>
-					</div>
-															<span class="help-block">当前模块能够直接处理的消息类型(没有上下文的对话语境, 能直接处理消息并返回数据). 如果公众平台传递过来的消息类型不在设定的类型列表中, 那么系统将不会把此消息路由至此模块</span>
-					<div class="alert-warning alert">
-						注意: 关键字路由只能针对文本消息有效, 文本消息最为重要. 其他类型的消息并不能被直接理解, 多数情况需要使用文本消息来进行语境分析, 再处理其他相关消息类型<br>
-						注意: 上下文锁定的模块不受此限制, 上下文锁定期间, 任何类型的消息都会路由至锁定模块
-					</div>
+			
+			<div class="form-group js-prev-next">
+				<div class="col-sm-10 col-md-offset-2">
+				    <input type="hidden" name="moduleId" value="${module.id}">
+					<input type="hidden" name="moduleTitle" value="${module.title}">
+					<a href="JavaScript:history.Go(-1);" class="btn btn-default">上一步</a>
+					<input type="submit" name="submit" value="下一步"  onclick="sm1()" class="btn btn-success">
+					<input type="submit" name="submit-finish" value="完成并导出" onclick="sm2()" class="btn btn-default">
+					
+					<input type="hidden" name="branch_id" value="6730">
+					<input type="hidden" name="version_id" value="36413">
+					<input type="hidden" name="token" value="3e9bc946">
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-sm-2 control-label">订阅的消息类型</label>
-				<div class="col-sm-10">
-					<div class="checkbox">
-						<label>
-							<input name="subscribes-show" type="checkbox" value=""> 启用订阅消息
-						</label>
-					</div>
-					<div class="js-subscribes" style="display:none;">
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[text]" type="checkbox" value="text"> 文本消息(重要)							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[image]" type="checkbox" value="image"> 图片消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[voice]" type="checkbox" value="voice"> 语音消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[video]" type="checkbox" value="video"> 视频消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[shortvideo]" type="checkbox" value="shortvideo"> 小视频消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[location]" type="checkbox" value="location"> 位置消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[link]" type="checkbox" value="link"> 链接消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[subscribe]" type="checkbox" value="subscribe"> 粉丝开始关注							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[unsubscribe]" type="checkbox" value="unsubscribe"> 粉丝取消关注							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[qr]" type="checkbox" value="qr"> 扫描二维码							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[trace]" type="checkbox" value="trace"> 追踪地理位置							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[click]" type="checkbox" value="click"> 点击菜单(模拟关键字)							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[view]" type="checkbox" value="view"> 点击菜单(链接)							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[merchant_order]" type="checkbox" value="merchant_order"> 微小店消息							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[user_get_card]" type="checkbox" value="user_get_card"> 用户领取卡券事件							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[user_del_card]" type="checkbox" value="user_del_card"> 用户删除卡券事件							</label>
-						</div>
-												<div class="checkbox">
-							<label>
-								<input name="subscribes[user_consume_card]" type="checkbox" value="user_consume_card"> 用户核销卡券事件							</label>
-						</div>
-												<span class="help-block">订阅特定的消息类型后, 此消息类型的消息到达微擎系统后将会以通知的方式(消息数据只读, 并不能返回处理结果)调用模块的接受器, 用这样的方式可以实现全局的数据统计分析等功能. 请参阅 <a href="https://www.we7.cc/docs/#flow-module-subscribe">模块消息订阅</a></span>
-						<div class="alert-warning alert">注意: 订阅的消息信息是只读的, 只能用作分析统计, 不能更改, 也不能改变微擎处理主流程</div>
-					</div>
+			
+			<style>
+				table thead tr th {text-align: center;}
+				table tbody tr td:first-child {text-align: center;}
+			</style>
+			
+			<div class="form-group js-table" style="display:none;">
+				<div class="col-sm-12">
+					<table class="table table-striped table-hover" id="cloud-setting-table">
+						<thead>
+							<tr class="text-center">
+								<th style="width: 60px;">选</th>
+								<th>名称</th>
+								<th>参数</th>
+								<th style="width: 50px;">必填</th>
+								<th style="width: 120px;">类型</th>
+								<th class="text-danger" title="当表单类型为单选、多选时可用.
+格式为:
+value1 = title1
+value2 = title2">备选值 <i class="fa fa-question-circle"></i></th>
+								<th style="width: 80px;">操作</th>
+							</tr>
+						</thead>
+						<tbody class="js-cloud-setting-tbody-sortable ui-sortable">
+													</tbody>
+					</table>
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-10 col-sm-offset-2">
-					<a href="${ctx}/developer/module/doModuleDesign" class="btn btn-default">上一步</a>
+			<div class="form-group js-table" style="display:none;">
+				<div class="col-sm-12">
+					<label style="margin-left: 10px; margin-right: 10px;">
+						<input type="checkbox" class="js-check-all"> 全选
+					</label>
+					<button type="button" class="btn btn-danger js-delete-all">删除选择</button>
+					<button type="button" class="btn btn-success js-create">新增参数</button>
 					<input type="submit" name="submit" value="下一步" class="btn btn-success">
 					<input type="submit" name="submit-finish" value="完成并导出" class="btn btn-default">
 					<input type="hidden" name="id" value="5251">
@@ -400,36 +279,154 @@
 	</div>
 </div>
 <script>
-	require(['layer'], function(){
-		$(function() {
-			var $subscribes_show = $('[name="subscribes-show"]');
-			var $subscribes = $('.js-subscribes');
-			$subscribes_show.click(function(event) {
-				if (this.checked == true) {
-					$subscribes.show();
-					layer.msg('选择订阅消息后，应用代码必须要处理所有订阅消息，否则审核将不通过', {
-						time: 0,
-						btn:['确定'],
-						icon: 1,
-						shade: 0.3 //不显示遮罩层
-					});
-				} else {
-					$subscribes.hide();
+	var action1 =  "";
+   action1 =  $('#form1').attr("action");
+	require(['jquery.ui'], function($){
+		var param_types= {"text":"\u6587\u672c","number":"\u6570\u5b57","radio":"\u5355\u9009","checkbox":"\u591a\u9009","select":"\u4e0b\u62c9\u5355\u9009","selects":"\u4e0b\u62c9\u591a\u9009","image":"\u5355\u56fe\u4e0a\u4f20","images":"\u591a\u56fe\u4e0a\u4f20","date":"\u65e5\u671f","time":"\u65f6\u95f4","datetime":"\u65e5\u671f\u65f6\u95f4","textarea":"\u6587\u672c\u6846","richtext":"\u5bcc\u6587\u672c\u6846","color":"\u989c\u8272\u9009\u62e9"};
+		$(function(){
+
+			var tr = 
+				'<tr class="cloud-setting-template item">'+
+				'	<td>'+
+				'		<input type="checkbox" class="js-check-one"/>'+
+				'	</td>'+
+				'	<td>'+
+				'		<input name="cloud_setting[title][]" value="" type="text" placeholder="中文名称" class="js-title form-control"/>'+
+				'	</td>'+
+				'	<td>'+
+				'		<input name="cloud_setting[name][]" value="" type="text" placeholder="参数,字母数字" class="js-name form-control"/>'+
+				'	</td>'+
+				'	<td  class="text-center">'+
+				'		<input name="cloud_setting[required][]" value="0" type="hidden" placeholder="必填" class="form-control"/>'+
+				'		<input type="checkbox" placeholder="中文名称" class="js-required"/>'+
+				'	</td>'+
+				'	<td>'+
+				'		<select name="cloud_setting[type][]" class="form-control js-type">';
+				for (var i in param_types) {
+					tr += '<option value="'+i+'">'+param_types[i]+'</option>';
+				}
+				tr += '</select>'+
+				'	</td>'+
+				'	<td>'+
+				'		<textarea name="cloud_setting[value_text][]" class="form-control" readonly="readonly" placeholder=""></textarea>'+
+				'	</td>'+
+				'	<td>'+
+				'		<a href="javascript:;" class="btn btn-danger js-delete btn-origin">删除</a>'+
+				'	</td>'+
+				'</tr>';
+			var $cloud_setting_template = $('.cloud-setting-template');
+
+			var $cloud_setting_table = $('#cloud-setting-table');
+			
+			$('[name="setting"]').click(function(){
+				$('.js-table').css('display', this.checked ? '':'none');
+				$('.js-prev-next').css('display', this.checked ? 'none': '');
+				if (this.checked && $('.item').length <= 0) {
+					$('.js-cloud-setting-tbody-sortable').append(tr);
 				};
 			});
-			var platform_rule_checked = $('[name="platform_rule"]').attr('checked');
-			if (platform_rule_checked) {
-				$('.js-handles').eq(0).prop('checked', 'checked');
-			} 
-			$('[name="platform_rule"]').click(function(){
-				if(this.checked) {
-					$('.js-handles').eq(0).prop('checked', 'checked');
-				} else {
-					$('.js-handles').eq(0).removeAttr('disabled');
+			
+			$cloud_setting_table.on('click', '.js-delete', function(){
+				$(this).parent().parent().remove();
+			}).on('click', '.js-type', function(){
+				var complex_type = jQuery.inArray(this.value, ['select', 'selects', 'radio', 'checkbox']) > -1;
+				var $textarea = $(this).parent().next().find('textarea');
+				$textarea.attr('readonly', !complex_type);
+				$textarea.attr('placeholder', complex_type ? '格式为:\nvalue1 = title1\nvalue2 = title2' : '');
+			}).on('click', '.js-required', function(){
+				$(this).prev().val(this.checked ? 2 : 0);
+			});
+			
+			$('.js-create').click(function(){
+				$cloud_setting_table.find('.js-cloud-setting-tbody-sortable').append(tr);
+			});
+			$('.js-check-all').click(function(){
+				var $this = $(this);
+				$cloud_setting_table.find('tr.item').find('.js-check-one').each(function(){
+					this.checked = $this[0].checked;
+				});
+			});
+			$('.js-delete-all').click(function(){
+				$cloud_setting_table.find('tr.item').find('.js-check-one:checked').each(function(){
+					$(this).parent().parent().remove();
+				});
+			});
+			$( ".js-cloud-setting-tbody-sortable" ).sortable({
+				axis: 'y',
+				revert: true,
+			});
+			$('form').submit(function() {
+				alert("aaa");
+				var msg = '';
+				if ($cloud_setting_table.is(":visible")) {
+					if ($('.item').length <= 0) {
+						msg += '设置项参数不能为空. <br />';
+					};
+					$cloud_setting_table.find('.js-title').each(function() {
+						var title = $.trim($(this).val());
+						if (title == '') {
+							msg += '名称不能为空. <br />';
+							return false;
+						}
+						if ((/\*\/|\/\*|eval|\$\_/i).test(title)) {
+							msg += title + '输入名称无效. <br />';
+							return false;
+						}
+					});
+					function isRepeat(arr) {
+						var hash = {};
+						for(var i in arr) {
+							if (hash[arr[i]]) {
+								return true;
+							}
+							hash[arr[i]] = true;
+						}
+						return false;
+					}
+					var nameArr = [];
+					$cloud_setting_table.find('.js-name').each(function() {
+						var name = $.trim($(this).val());
+						nameArr.push(name);
+						if (name == '' || !(/^\w+$/i).test(name)) {
+							msg += name + '参数(只能包括字母和数字, 且只能以字母开头). <br />';
+							return false;
+						}
+					});
+					var repeat = isRepeat(nameArr);
+					if (repeat) {
+						msg += '参数中存在重复值. <br />';
+					}
+					if(msg != '') {
+						util.message(msg, '', 'error');
+						return false;
+					}
 				}
+				alert("bbb");
+				return true;
 			});
 		});
 	});
+	
+	
+	function sm1() {
+		// alert("sm1");
+		
+		
+		$("#form1").attr("action",action1 + "?finish=0");
+		
+		action2 = $('#form1').attr("action");
+	//	alert(action2);
+	//	$('#form1').submit();
+	}
+	function sm2() {
+		// alert("sm2");
+		
+			$("#form1").attr("action",action1 + "?finish=1");
+			
+			action2 = $('#form1').attr("action");
+		//	alert(action2);
+		//	$('#form1').submit();
+	}
 </script>			</div>
 </div>
 <script type="text/javascript">
@@ -463,7 +460,7 @@
 		</div>
 	</div>
 </div>
-<div class="toTop" style="display: block;">
+<div class="toTop">
 	<i class="fa fa-angle-up"></i>
 </div>
 </body></html>

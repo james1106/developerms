@@ -40,13 +40,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation" class="active">
-				<a href="">个人中心</a>
+				<a href="${ctx}/home">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者等级</a>
+				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -66,7 +66,7 @@
 				<span class="badge" id="developer-message-count">1</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i> tzwjt			</span>
+				<i class="fa fa-user"></i>			</span>
 			<a href="">退出</a>
 		</div>
 	</div>
@@ -80,7 +80,7 @@
 			<a href="javascript:;"><i class="fa fa-th-large"></i>发布管理</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="">我的发布</a>
+			<a href="${ctx}/home">我的发布</a>
 		</div>
 		<div class="list-group-item  hidden">
 			<a href="">我的服务</a>
@@ -110,7 +110,7 @@
 		</div>
         -->
 		<div class="list-group-item">
-			<a href="" class="menu-new">开发者认证</a>
+			<a href="${ctx}/developer/certification" class="menu-new">开发者认证</a>
 		</div>
 	</div>
 	<div class="list-group">
@@ -140,7 +140,7 @@
 		创建新模块
 	</div>
 	<div class="panel-body">
-		<form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+		<form action="${ctx}/developer/module/doModule" method="post" id="form1" class="form-horizontal" enctype="multipart/form-data">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">标识</label>
 				<div class="col-sm-10">
@@ -695,28 +695,23 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10 col-sm-offset-2">
-					<input type="submit" name="submit" value="下一步" onclick="sm1()" class="btn btn-success">
-					<input type="submit" name="submit-finish" value="完成并导出" onclick="sm2()" class="btn btn-default">
+					<input type="button" name="" value="下一步" onclick="sm1();" class="btn btn-success">
+					<input type="button" name="" value="完成并导出" onclick="sm2();" class="btn btn-default">
 					<input type="hidden" name="token" value="3e9bc946">
 				</div>
 			</div>
 		</form>
 		<script>
+		     var action1 =  "";
+		     action1 =  $('#form1').attr("action");
 			$(function() {
-				return true; //
+			//	return true; 
 				var $title = $('input[name="title"]');
-				var $name = $('input[name="name"]');
+				var $name = $('input[name="moduleName"]');
 				var $logo = $('input[name="logo"]');
 				var $ability = $('input[name="ability"]');
 				var $design_app_description = $('#designDescription');
-				function sm1() {
-					$('form').action = '/developer/module/doModule?finish=0';
-					$('form').submit();
-				}
-				function sm2() {
-					$('form').action = '/developer/module/doModule?finish=1';
-					$('form').submit();
-				}
+				
 				$('form').submit(function() {
 					var msg = '';
 					var title = $.trim($title.val());
@@ -742,16 +737,36 @@
 					if (UE.getEditor('description').getContent() == '') {
 						msg += '必须填写使用说明. <br />';
 					}
-					var $account_type = $('input[name="account_type[]"]:checked');
-					if ($account_type.length < 1){
-						msg += '必须选择适用公众号类型. <br />';
-					}
+				//	var $account_type = $('input[name="account_type[]"]:checked');
+				//	if ($account_type.length < 1){
+				//		msg += '必须选择适用公众号类型. <br />';
+				//	}
 					if(msg != '') {
 						util.message(msg, '', 'error');
 						return false;
 					}
 				});
 			});
+			
+			function sm1() {
+				// alert("sm1");
+				
+				
+				$("#form1").attr("action",action1 + "?finish=0");
+				
+				action2 = $('#form1').attr("action");
+			//	alert(action2);
+				$('#form1').submit();
+			}
+			function sm2() {
+			//	 alert("sm2");
+				
+					$("#form1").attr("action",action1 + "?finish=1");
+					
+					action2 = $('#form1').attr("action");
+				//	alert(action2);
+					$('#form1').submit();
+			}
 		</script>
 	</div>
 </div>			</div>

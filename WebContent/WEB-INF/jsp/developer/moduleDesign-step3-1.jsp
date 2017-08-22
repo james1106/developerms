@@ -34,13 +34,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation" class="active">
-				<a href="${ctx}/home">个人中心</a>
+				<a href="">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
+				<a href="" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -60,7 +60,7 @@
 				<span class="badge" id="developer-message-count">1</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i>			</span>
+				<i class="fa fa-user"></i> tzwjt			</span>
 			<a href="">退出</a>
 		</div>
 	</div>
@@ -178,21 +178,35 @@
 		</li>
 		<li class="step2   step-done ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-2">2</span><a href="">数据库设置</a>
+				<span class="ico-cir-num ico-cir-num-2">2</span><a href="">消息规则</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
 
 
-		<li class="step3  step-cur  ">
+		<li class="step3   step-done ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">后台管理</a>
+				<span class="ico-cir-num ico-cir-num-3">3</span><a href="">小程序</a>
 			</h2>
 			<span class="arrow"></span>
 		</li>
-		<li class="step4 ">
+
+
+		<li class="step4   step-done ">
 			<h2 class="step-tit">
-				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">导出</a>
+				<span class="ico-cir-num ico-cir-num-4">4</span><a href="">公众号</a>
+			</h2>
+			<span class="arrow"></span>
+		</li>
+		<li class="step5  step-cur  ">
+			<h2 class="step-tit">
+				<span class="ico-cir-num ico-cir-num-5">5</span><a href="">后台管理</a>
+			</h2>
+			<span class="arrow"></span>
+		</li>
+		<li class="step6 ">
+			<h2 class="step-tit">
+				<span class="ico-cir-num ico-cir-num-6">6</span><a href="">导出</a>
 			</h2>
 		</li>
 	</ul>
@@ -209,7 +223,7 @@
 <ul class="alert alert-warning">
 	<li>启用DIY管理界面 :</li>
 	<li class="pl"><i class="fa fa-info-circle"></i> 开发者可用自定义模块管理界面</li>
-	<li class="pl"><i class="fa fa-info-circle"></i> 在 <b>module.xml</b> 中, 编辑 <code>public function welcomeDisplay( $menus = array()) {}</code> 实现.</li>
+	<li class="pl"><i class="fa fa-info-circle"></i> 在 <b>module.php</b> 中, 编辑 <code>public function welcomeDisplay( $menus = array()) {}</code> 实现.</li>
 </ul>
 
 <div class="panel panel-default">
@@ -217,7 +231,7 @@
 		后台管理 - 【doWebXxx】 <span class="pull-right">【${module.title}】 - 【1.0】</span>
 	</div>
 	<div class="panel-body">
-		<form action="${ctx}/developer/module/nextFinish" method="post" id="form1" class="form-horizontal" enctype="multipart/form-data">
+		<form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
 			<div class="js-type-switch">
             <!--
 				<div class="form-group">
@@ -268,10 +282,8 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-10 col-sm-offset-2">
-				     <input type="hidden" name="moduleId" value="${module.id}">
-					<input type="hidden" name="moduleTitle" value="${module.title}">
-					<a href="JavaScript:history.Go(-1);" class="btn btn-default">上一步</a>
-					<input type="submit" name="submit" value="完成并导出" class="btn btn-success">
+					<a href="${ctx}/developer/module/doModuleDesignStep3" class="btn btn-default">上一步</a>
+					<input type="submit" name="submit" value="导出" class="btn btn-success">
 					<input type="hidden" name="id" value="5251">
 					<input type="hidden" name="branch_id" value="6730">
 					<input type="hidden" name="version_id" value="36413">
@@ -427,7 +439,6 @@
 					return msg;
 				};
 				$('form').submit(function() {
-					return true;
 					var ruleMsg = getmMsg('rule');
 					var menuMsg = getmMsg('menu');
 					var msg = ruleMsg + menuMsg;
@@ -437,26 +448,6 @@
 					}
 				});
 			});
-			
-			function sm1() {
-				// alert("sm1");
-				
-				
-				$("#form1").attr("action",action1 + "?finish=0");
-				
-				action2 = $('#form1').attr("action");
-			//	alert(action2);
-			//	$('#form1').submit();
-			}
-			function sm2() {
-				// alert("sm2");
-				
-					$("#form1").attr("action",action1 + "?finish=1");
-					
-					action2 = $('#form1').attr("action");
-				//	alert(action2);
-				//	$('#form1').submit();
-			}
 		</script>
 	</div>
 </div>			</div>

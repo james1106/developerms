@@ -38,13 +38,13 @@
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
 			<li role="presentation">
-				<a href="">个人中心</a>
+				<a href="${ctx}/home">个人中心</a>
 			</li>
 			<li role="presentation">
 				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation" class="active">
-				<a href=" class="link">开发者等级</a>
+				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
@@ -64,7 +64,7 @@
 				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i> wjt			</span>
+				<i class="fa fa-user"></i>			</span>
 			<a href="">退出</a>
 		</div>
 	</div>
@@ -78,7 +78,7 @@
 		</ul>
 					<!-- 初中高级开发者验证 -->
 <div class="panel panel-default">
-	<div class="panel-heading">初中高级开发者认证</div>
+	<div class="panel-heading">开发者认证</div>
 	<div class="panel-body">
 		<div class="form-group">
 			<form method="post" action="${ctx}/developer/doCertification" class="form-horizontal">
@@ -210,7 +210,7 @@
 			}
 		</script>
 	<div class="input-group">
-		<input type="text" value="${datum.credentialsPhoto}" name="credentialsPhoto" ref="datum[credentials_photo]" class="form-control" autocomplete="on">
+		<input type="text" value="${datum.credentialsPhoto}" name="credentialsPhoto" ref="credentialsPhoto" class="form-control" autocomplete="on">
 		<span class="input-group-btn">
 			<button class="btn btn-default" type="button" onclick="showImageDialog(this, &#39;YTo0OntzOjU6IndpZHRoIjtpOjgwMDtzOjY6ImhlaWdodCI7aTo2MDA7czo2OiJleHRyYXMiO2I6MDtzOjY6Imdsb2JhbCI7YjowO30=&#39;);">选择图片</button>
 		</span>
@@ -229,6 +229,8 @@
 				</div>
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
+					<input type="hidden" name="id" class="form-control" value="${datum.id}">
+				
 						<input type="submit" name="submit" class="btn btn-success" value="提交资料">
 					
 					</div>
