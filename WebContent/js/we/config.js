@@ -42,7 +42,7 @@ require.config({
 		'flowchart' : '../lib/editormd/lib/flowchart.min', 
 		'jqueryflowchart' : '../lib/editormd/lib/jquery.flowchart.min', 
 		'sequenceDiagram' : '../lib/editormd/lib/sequence-diagram.min',
-		'katex' : '../lib/editormd/lib/katex.min',
+		'katex' : '//cdn.bootcss.com/KaTeX/0.3.0/katex.min',
 		'editormd' : '../lib/editormd.amd',
 	},
 	shim:{

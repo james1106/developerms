@@ -45,7 +45,10 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav head-nav">
 					<li>
-						<a href="">首页</a>
+						<a href="${ctx}/index">首页</a>
+					</li>
+										<li>
+						<a href="">下载运营环境</a>
 					</li>
 				
 					<li>
@@ -55,14 +58,21 @@
 						<a href="" target="_blank">论坛</a>
 					</li>
 					<li>
-						<a href="${ctx}/home" target="_blank">开发者中心</a>
+						<a href="" target="_blank">开发者中心</a>
+					</li>
+					<li>
+						<a href="" target="_blank">运用者中心</a>
+					</li>
+					<li>
+						<a href="" target="_blank">服务商加盟<sup></sup></a>
 					</li>
 									</ul>
+									
 									<ul class="nav navbar-nav navbar-right head-user-login">
 						<li>
 							<a href="${ctx}/loginForm">登录</a>
 						</li>
-						<li class="active-right">
+						<li class="active">
 							<a href="">免费注册</a>
 						</li>
 					</ul>
@@ -78,7 +88,19 @@
 				<img src="${ctx}/images/we/logo-www.png">
 			</div>
 			<div class="form-login">
-				<form action="${ctx}/developer/doRegister" id="regForm" method="post">
+				<form action="${ctx}/doRegister" id="regForm" method="post">
+					<div class="form-group">
+					
+						<div class="col-md-12">
+							<label class="radio-inline">
+								<input type="radio" name="userType" value="1" checked=""> <font color="blue" size="4.5"><b>我是开发者</b></font>
+							</label>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<label class="radio-inline">
+								<input type="radio" name="userType" value="2"> <font color="blue" size="4.5"><b>我是应用者</b></font>
+							</label>
+						</div>
+					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" id="loginName" name="loginName" placeholder="请输入登录用户名">
 						<span class="help-block">用户名由3～15个字符组成</span>

@@ -46,9 +46,12 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav head-nav">
 					<li>
-						<a href="">首页</a>
+						<a href="${ctx}/index">首页</a>
 					</li>
-									
+										<li>
+						<a href="">下载运营环境</a>
+					</li>
+				
 					<li>
 						<a href="">应用市场</a>
 					</li>
@@ -56,14 +59,21 @@
 						<a href="" target="_blank">论坛</a>
 					</li>
 					<li>
-						<a href="${ctx}/home" target="_blank">开发者中心</a>
+						<a href="" target="_blank">开发者中心</a>
+					</li>
+					<li>
+						<a href="" target="_blank">运用者中心</a>
+					</li>
+					<li>
+						<a href="" target="_blank">服务商加盟<sup></sup></a>
 					</li>
 									</ul>
+									
 									<ul class="nav navbar-nav navbar-right head-user-login">
-						<li class="active-right">
-							<a href="">登录</a>
+						<li class="active">
+							<a href="${ctx}/loginForm">登录</a>
 						</li>
-						<li>
+						<li >
 							<a href="${ctx}/registerForm">免费注册</a>
 						</li>
 					</ul>
@@ -79,7 +89,7 @@
 				<img src="${ctx}/images/we/logo-www.png">
 			</div>
 			<div class="form-login">
-				<form action="${ctx}/developer/doLogin" method="post"  id="loginForm" >
+				<form action="${ctx}/doLogin" method="post"  id="loginForm" >
 					<div class="form-group">
 						<input type="text" class="form-control" id="loginName" name="loginName" placeholder="请输入登录用户名">
 						<span class="help-block form-error"></span>
