@@ -16,11 +16,12 @@
 	<link href="${ctx}/css/we/font-awesome.min.css" rel="stylesheet">
 	<link href="${ctx}/css/we/develop.css" rel="stylesheet">
 	<link rel="stylesheet" href="${ctx}/css/we/pace-theme-minimal.css">
+	<script src="${ctx}/js/we/jquery-1.11.1.min.js"></script>
 	<script>paceOptions = {elements: true};</script>
 	<script src="${ctx}/js/we/pace.min.js"></script>
 	<script src="${ctx}/js/we/require.js"></script>
 	<script src="${ctx}/js/we/config.js"></script>
-	<script src="${ctx}/js/we/jquery-1.11.1.min.js"></script>
+	
 	<script src="${ctx}/js/we/bootstrap.min.js"></script>
 	<script src="${ctx}/js/we/util.js"></script>
 	<script>window.sys={debug:false}</script>
@@ -42,10 +43,10 @@
 				<a href="${ctx}/index">首页</a>
 			</li>
 			<li role="presentation" class="active">
-				<a href="${ctx}/developer/home">个人中心</a>
+				<a href="${ctx}/apper/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">应用工具</a>
+				<a href="${ctx}/apper/home" class="link">应用工具</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/apper/enterpriseCertification" class="link">应用者认证</a>
@@ -59,8 +60,8 @@
 				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user">${loginName}</i></span>
-			<a href="">退出</a>
+				<i class="fa fa-user">${user.loginName}</i></span>
+			<a href="${ctx}/logout">退出</a>
 		</div>
 	</div>
 </div>
@@ -70,22 +71,22 @@
 <div class="aside">
 	<div class="list-group">
 		<div class="list-group-item title">
-			<a href="javascript:;"><i class="fa fa-th-large"></i>"发布管理"</a>
+			<a href="javascript:;"><i class="fa fa-th-large"></i>"应用管理"</a>
 		</div>
 		<div class="list-group-item  active ">
-			<a href="${ctx}/home">我的发布</a>
+			<a href="${ctx}/apper/home">我的需求</a>
 		</div>
 		<div class="list-group-item  hidden">
-			<a href="">我的服务</a>
+			<a href="${ctx}/apper/home">我的服务</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="">交易记录</a>
+			<a href="${ctx}/apper/home">交易记录</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="">举报盗版</a>
+			<a href="${ctx}/apper/home">举报盗版</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="" class="menu-new">我的订单</a>
+			<a href="${ctx}/apper/myOrder" class="menu-new">我的订单</a>
 		</div>
 		<div class="list-group-item ">
 			<a href="">举报盗版</a>
@@ -116,12 +117,6 @@
 	<div class="list-group">
 		<div class="list-group-item title">
 			<a href="javascript:;"><i class="fa fa-th-list"></i>其它管理</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">测试站点</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">演示站点</a>
 		</div>
 	</div>
 
@@ -203,10 +198,8 @@
 			<div class="nav-top clearfix">
 				<!--发布应用-->
 				<div class="pull-right">
-					<button style="padding: 6px 20px;" type="button" data-toggle="modal" data-target="#applyModal" class="developApp btn btn-success">
-						<i class="fa fa-plus"></i>发布需求
-					</button>
-					<a class="btn btn-success" style="padding: 6px 20px;" href="${ctx}/developer/module/designForm"><i class="fa fa-plus"></i> 发布应用需求</a>
+					
+					<a class="btn btn-success" style="padding: 6px 20px;" href="${ctx}/apper/editDemand"><i class="fa fa-plus"></i> 发布应用需求</a>
 					<a class="btn btn-success hidden" new-version="" style="padding: 6px 20px;" href="${ctx}/developer/module/designForm"><i class="fa fa-plus"></i> 新建应用模块</a>
 				</div>
 				<!--点击发布应用后弹出的模态框-->
@@ -305,10 +298,10 @@
 			
 			
 	      <div class="form-group"></div>
-	      <c:if test="empty ${modules}">
+	      <c:if test="empty ${demands}">
 			<div class="alert alert-warning">
 				<span><i class="fa fa-info-circle"></i></span>
-				您还没有创建任何应用，点击右上角【发布应用】去创建一个吧！
+				您还没有发布任何应用需求，点击右上角【发布应用需求】去发布一个吧！
 			</div>
 		  </c:if>
 					
@@ -342,10 +335,11 @@
 				<table class="table table-hover">
 					<thead class="navbar-inner">
 						<tr>
-							<th style="width: 115px;">LOGO</th>
-							<th style="width: 20%;" class="text-center">标识</th>
-							<th style="width: 20%;" class="text-center">名称</th>
-							<th style="width: 100px;" class="text-center">购买总数</th>
+							
+							<th style="width: 20%;" class="text-center">标 题</th>
+							<th style="width: 20%;" class="text-center">需求类型</th>
+							<th style="width: 20%;" class="text-center">应用类型</th>
+							<th style="width: 20%;" class="text-center">预算</th>
 							<th style="width: 100px;" class="text-center">创建时间</th>
 							<th style="width: 160px;" class="text-center">
 								应用总数: <span style="color:#555555;">1</span>
@@ -353,25 +347,25 @@
 						</tr>
 					</thead>
 					<tbody>
-                    <c:forEach items="${requestScope.modules}" var="module" varStatus="stat">
+                    <c:forEach items="${requestScope.demands}" var="demand" varStatus="stat">
 							<tr>
-								<td>
-									<img src="${module.logo}" title="erabits_hrm" width="48" height="48" style="border-radius:5px;">
+								<td class="text-center">
+									<a href="" title="查看应用主页" target="_blank">${demand.title}</a>
 								</td>
 								<td class="text-center">
-									<a href="" title="${module.moduleName}" target="_blank">${module.moduleName}</a>
+									${demand.type}
 								</td>
 								<td class="text-center">
-									<a href="" title="查看应用主页" target="_blank">${module.title}</a>
+									${demand.category}
 								</td>
-								<td class="text-center">0</td>
+								<td class="text-center">${demand.money}</td>
 								<td class="text-center">
-								<f:formatDate value="${module.createTime}" 
+								<f:formatDate value="${demand.createTime}" 
 								type="date" dateStyle="long"/>
 								</td>
 								<td class="text-center">
-																			<a href="${ctx}/developer/module/moduleVersion?moduleId=${module.id}">版本管理</a>
-																		<a href="${ctx}/developer/module/moduleApp?moduleId=${module.id}" target="_blank">基本设置</a>
+																			<a href="${ctx}/apper/editDemand?demandId=${demand.id}">修  改</a>
+																		
 									<span class="label label-warning">待更新</span>								</td>
 							</tr>
                     </c:forEach>

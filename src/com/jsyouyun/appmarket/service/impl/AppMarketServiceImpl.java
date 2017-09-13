@@ -10,11 +10,15 @@ import com.jsyouyun.appmarket.common.utils.tag.PageModel;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.AppOrder;
 import com.jsyouyun.appmarket.dao.UserDao;
 import com.jsyouyun.appmarket.dao.DeveloperDatumDao;
 import com.jsyouyun.appmarket.dao.DeveloperModuleDao;
+import com.jsyouyun.appmarket.dao.AppOrderDao;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
+import com.jsyouyun.appmarket.entity.ApperDemand;
 import com.jsyouyun.appmarket.dao.ApperEnterpriseDatumDao;
+import com.jsyouyun.appmarket.dao.ApperDemandDao;
 
 
 import com.jsyouyun.appmarket.service.AppMarketService;
@@ -46,6 +50,10 @@ public class AppMarketServiceImpl implements AppMarketService{
 	private DeveloperModuleDao developerModuleDao;
 	@Autowired
 	private ApperEnterpriseDatumDao apperEnterpriseDatumDao;
+	@Autowired
+	private ApperDemandDao apperDemandDao;
+	@Autowired
+	private AppOrderDao appOrderDao;
 	
 	
 	/*
@@ -365,6 +373,214 @@ public class AppMarketServiceImpl implements AppMarketService{
 	public void modifyApperEnterpriseDatum(ApperEnterpriseDatum apperEnterpriseDatum) {
 		apperEnterpriseDatumDao.update(apperEnterpriseDatum);
 	}
+	
+	/*****************应用者需求接口实现*************************************/
+	/**
+	 *AppMarketService接口findApperDemand方法实现
+	 * @see { HeverloperService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<ApperDemand> findApperDemand(ApperDemand apperDemand,PageModel pageModel) {
+		/** 当前需要分页的总数据条数  */
+		Map<String,Object> params = new HashMap<>();
+		params.put("apperDemand", apperDemand);
+		
+		int recordCount = apperDemandDao.count(params);
+	    pageModel.setRecordCount(recordCount);
+	    
+	    if(recordCount > 0){
+	        /** 开始分页查询数据：查询第几页的数据 */
+		    params.put("pageModel", pageModel);
+	    }
+	    List<ApperDemand> apperDemands = apperDemandDao.selectByPage(params);
+	    return apperDemands;
+	}
+	
+	/**
+	 * DeveloperModuleService接口removeApperDemandById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void removeApperDemandById(Integer id) {
+		apperDemandDao.deleteById(id);
+		
+	}
+	
+	/**
+	 * DeveloperModuleService接口findApperDemandById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public ApperDemand findApperDemandById(Integer id) {
+		
+		return apperDemandDao.selectById(id);
+	}
+	
+	
+	/**
+	 * 根据开发者用户查询开发者模块
+	 * @param user
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<ApperDemand> findApperDemandByUser(User user) {
+		
+		//findApperDemandByUser(user)
+		return apperDemandDao.selectByUserId(user.getId());
+	}
+	
+	/**
+	 * 根据状态查询开发者模块
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<ApperDemand> findApperDemandByStatus(Integer status) {
+		return apperDemandDao.selectByStatus(status);
+	}
+	
+	/**
+	 * DeveloperModuleService接口addDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void addApperDemand(ApperDemand apperDemand) {
+		apperDemandDao.save(apperDemand);
+		
+	}
+	
+	/**
+	 * DeveloperModuleService接口modifyDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void modifyApperDemand(ApperDemand apperDemand) {
+		apperDemandDao.update(apperDemand);
+	}
+	
+	/*****************应用订单接口实现*************************************/
+	/**
+	 *AppMarketService接口findApperDemand方法实现
+	 * @see { HeverloperService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrder(AppOrder appOrder,PageModel pageModel) {
+		/** 当前需要分页的总数据条数  */
+		Map<String,Object> params = new HashMap<>();
+		params.put("appOrder", appOrder);
+		
+		int recordCount = appOrderDao.count(params);
+	    pageModel.setRecordCount(recordCount);
+	    
+	    if(recordCount > 0){
+	        /** 开始分页查询数据：查询第几页的数据 */
+		    params.put("pageModel", pageModel);
+	    }
+	    List<AppOrder> appOrders = appOrderDao.selectByPage(params);
+	    return appOrders;
+	}
+	
+	/**
+	 * DeveloperModuleService接口removeApperDemandById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void removeAppOrderById(Integer id) {
+		appOrderDao.deleteById(id);
+		
+	}
+	
+	/**
+	 * DeveloperModuleService接口findApperDemandById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public AppOrder findAppOrderById(Integer id) {
+		
+		return appOrderDao.selectById(id);
+	}
+	
+	
+	/**
+	 * 根据开发者用户查询开发者模块
+	 * @param user
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrderByApperUser(User apperUser) {
+		return appOrderDao.selectByApperUserId(apperUser.getId());
+	}
+	
+	/**
+	 * 根据开发者用户查询开发者模块
+	 * @param user
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrderByDeveloperUser(User developerUser) {
+		return appOrderDao.selectByDeveloperUserId(developerUser.getId());
+	}
+	
+	/**
+	 * 根据开发者用户查询开发者模块
+	 * @param user
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrderByApp(DeveloperModule app) {
+		return appOrderDao.selectByAppId(app.getId());
+	}
+	
+	/**
+	 * 根据状态查询开发者模块
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrderByOrderStatus(Integer orderStatus) {
+		return appOrderDao.selectByOrderStatus(orderStatus);
+	}
+	
+	/**
+	 * 根据状态查询开发者模块
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<AppOrder> findAppOrderByAppStatus(Integer appStatus) {
+		return appOrderDao.selectByAppStatus(appStatus);
+	}
+	
+	/**
+	 * DeveloperModuleService接口addDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void addAppOrder(AppOrder appOrder) {
+		appOrderDao.save(appOrder);
+		
+	}
+	
+	/**
+	 * DeveloperModuleService接口modifyDeveloperModule方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Override
+	public void modifyAppOrder(AppOrder appOrder) {
+		appOrderDao.update(appOrder);
+	}
+	
 	
 
 	

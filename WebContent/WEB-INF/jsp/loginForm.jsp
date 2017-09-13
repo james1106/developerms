@@ -49,24 +49,20 @@
 						<a href="${ctx}/index">首页</a>
 					</li>
 										<li>
-						<a href="">下载运营环境</a>
+						<a href="${ctx}/index">下载运营环境</a>
 					</li>
 				
+					
 					<li>
-						<a href="">应用市场</a>
+						<a href="${ctx}/index" target="_blank">论坛</a>
 					</li>
 					<li>
-						<a href="" target="_blank">论坛</a>
+						<a href="${ctx}/developer/home" target="_blank">开发者中心</a>
 					</li>
 					<li>
-						<a href="" target="_blank">开发者中心</a>
+						<a href="${ctx}/apper/home" target="_blank">应用者中心</a>
 					</li>
-					<li>
-						<a href="" target="_blank">运用者中心</a>
-					</li>
-					<li>
-						<a href="" target="_blank">服务商加盟<sup></sup></a>
-					</li>
+					
 									</ul>
 									
 									<ul class="nav navbar-nav navbar-right head-user-login">
@@ -271,7 +267,7 @@
 	
 
 	 function refreshCode(){
-		$("#captchaImg").attr("src", "./captcha.jpg?"+Math.random());
+		$("#captchaImg").attr("src", "captcha.jpg?"+Math.random());
     }
 </script>
 

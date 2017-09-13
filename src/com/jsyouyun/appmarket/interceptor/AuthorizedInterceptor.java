@@ -11,16 +11,18 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /** 
- * ÅĞ¶ÏÓÃ»§È¨ÏŞµÄSpring MVCµÄÀ¹½ØÆ÷
+ * åˆ¤æ–­ç”¨æˆ·æƒé™çš„Spring MVCçš„æ‹¦æˆªå™¨
  */
 public class AuthorizedInterceptor  implements HandlerInterceptor {
 
-	/** ¶¨Òå²»ĞèÒªÀ¹½ØµÄÇëÇó */
-	private static final String[] IGNORE_URI = {"/index", "/loginForm", "/doRegister", "/doLogin", "/login","/registerForm", "/captcha.jpg", "/404.html"};
+	/** å®šä¹‰ä¸éœ€è¦æ‹¦æˆªçš„è¯·æ±‚ */
+	private static final String[] IGNORE_URI = {"/index", "/appDetails", "/appDemand", "/loginForm", "/doRegister", "/doLogin", "/login","/registerForm",
+			
+			"/captcha.jpg", "/developer/captcha.jpg", "/apper/captcha.jpg","/404.html"};
 	
-	 /** 
-     * ¸Ã·½·¨ĞèÒªpreHandle·½·¨µÄ·µ»ØÖµÎªtrueÊ±²Å»áÖ´ĞĞ¡£
-     * ¸Ã·½·¨½«ÔÚÕû¸öÇëÇóÍê³ÉÖ®ºóÖ´ĞĞ£¬Ö÷Òª×÷ÓÃÊÇÓÃÓÚÇåÀí×ÊÔ´¡£
+	/** 
+     * è¯¥æ–¹æ³•éœ€è¦preHandleæ–¹æ³•çš„è¿”å›å€¼ä¸ºtrueæ—¶æ‰ä¼šæ‰§è¡Œã€‚
+     * è¯¥æ–¹æ³•å°†åœ¨æ•´ä¸ªè¯·æ±‚å®Œæˆä¹‹åæ‰§è¡Œï¼Œä¸»è¦ä½œç”¨æ˜¯ç”¨äºæ¸…ç†èµ„æºã€‚
      */  
 	@Override
 	public void afterCompletion(HttpServletRequest request,
@@ -30,9 +32,9 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
 	}
 
 	 /** 
-     * Õâ¸ö·½·¨ÔÚpreHandle·½·¨·µ»ØÖµÎªtrueµÄÊ±ºò²Å»áÖ´ĞĞ¡£
-     * Ö´ĞĞÊ±¼äÊÇÔÚ´¦ÀíÆ÷½øĞĞ´¦ÀíÖ® ºó£¬Ò²¾ÍÊÇÔÚControllerµÄ·½·¨µ÷ÓÃÖ®ºóÖ´ĞĞ¡£
-     */  
+     * è¿™ä¸ªæ–¹æ³•åœ¨preHandleæ–¹æ³•è¿”å›å€¼ä¸ºtrueçš„æ—¶å€™æ‰ä¼šæ‰§è¡Œã€‚
+     * æ‰§è¡Œæ—¶é—´æ˜¯åœ¨å¤„ç†å™¨è¿›è¡Œå¤„ç†ä¹‹ åï¼Œä¹Ÿå°±æ˜¯åœ¨Controllerçš„æ–¹æ³•è°ƒç”¨ä¹‹åæ‰§è¡Œã€‚
+     */ 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler, ModelAndView mv) throws Exception {
@@ -40,32 +42,32 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
 	}
 
 	 /** 
-     * preHandle·½·¨ÊÇ½øĞĞ´¦ÀíÆ÷À¹½ØÓÃµÄ£¬¸Ã·½·¨½«ÔÚController´¦ÀíÖ®Ç°½øĞĞµ÷ÓÃ£¬
-     * µ±preHandleµÄ·µ»ØÖµÎªfalseµÄÊ±ºòÕû¸öÇëÇó¾Í½áÊøÁË¡£ 
-     * Èç¹ûpreHandleµÄ·µ»ØÖµÎªtrue£¬Ôò»á¼ÌĞøÖ´ĞĞpostHandleºÍafterCompletion¡£
+     * preHandleæ–¹æ³•æ˜¯è¿›è¡Œå¤„ç†å™¨æ‹¦æˆªç”¨çš„ï¼Œè¯¥æ–¹æ³•å°†åœ¨Controllerå¤„ç†ä¹‹å‰è¿›è¡Œè°ƒç”¨ï¼Œ
+     * å½“preHandleçš„è¿”å›å€¼ä¸ºfalseçš„æ—¶å€™æ•´ä¸ªè¯·æ±‚å°±ç»“æŸäº†ã€‚ 
+     * å¦‚æœpreHandleçš„è¿”å›å€¼ä¸ºtrueï¼Œåˆ™ä¼šç»§ç»­æ‰§è¡ŒpostHandleå’ŒafterCompletionã€‚
      */  
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object handler) throws Exception {
-		/** Ä¬ÈÏÓÃ»§Ã»ÓĞµÇÂ¼ */
+		/** é»˜è®¤ç”¨æˆ·æ²¡æœ‰ç™»å½• */
 		boolean flag = false; 
-		/** »ñµÃÇëÇóµÄServletPath */
+		/** è·å¾—è¯·æ±‚çš„ServletPath */
 		String servletPath = request.getServletPath();
-		/**  ÅĞ¶ÏÇëÇóÊÇ·ñĞèÒªÀ¹½Ø */
+		/**  åˆ¤æ–­è¯·æ±‚æ˜¯å¦éœ€è¦æ‹¦æˆª */
         for (String s : IGNORE_URI) {
             if (servletPath.contains(s)) {
                 flag = true;
                 break;
             }
         }
-        /** À¹½ØÇëÇó */
+        /** æ‹¦æˆªè¯·æ±‚ */
         if (!flag){
-        	/** 1.»ñÈ¡sessionÖĞµÄ¿ª·¢ÕßÓÃ»§  */
-        	User user = (User) request.getSession().getAttribute(AppMarketConstants.APPMARKET_SESSION);
-        	/** 2.ÅĞ¶Ï¿ª·¢ÕßÓÃ»§ÊÇ·ñÒÑ¾­µÇÂ¼ */
-        	if(user == null){
-        		 /** Èç¹ûÓÃ»§Ã»ÓĞµÇÂ¼£¬Ìø×ªµ½µÇÂ¼Ò³Ãæ */
-        		request.setAttribute("message", "ÇëÏÈµÇÂ¼ÔÙ·ÃÎÊÍøÕ¾!");
+        	/** 1.è·å–sessionä¸­çš„å¼€å‘è€…ç”¨æˆ·  */
+        	User developerUser = (User) request.getSession().getAttribute(AppMarketConstants.APPMARKET_SESSION);
+        	/** 2.åˆ¤æ–­å¼€å‘è€…ç”¨æˆ·æ˜¯å¦å·²ç»ç™»å½• */
+        	if(developerUser == null){
+        		 /** å¦‚æœç”¨æˆ·æ²¡æœ‰ç™»å½•ï¼Œè·³è½¬åˆ°ç™»å½•é¡µé¢ */
+        		request.setAttribute("message", "è¯·å…ˆç™»å½•å†è®¿é—®ç½‘ç«™!");
         		request.getRequestDispatcher(AppMarketConstants.LOGIN).forward(request, response);
         		return flag;
         	}else{
@@ -75,7 +77,6 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
         return flag;
 		
 	}
-
 }
 
 

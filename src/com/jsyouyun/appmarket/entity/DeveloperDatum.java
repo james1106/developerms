@@ -175,7 +175,7 @@ public class DeveloperDatum implements Serializable {
 	 
 	 @Override
 	public String toString() {
-		return "DeveloperUser [id=" + id + ", developerUser=" + developerUser + ", realName="
+		return "DeveloperDatum [id=" + id + ", developerUser=" + developerUser + ", realName="
 					+ realName + ", sex=" + sex + ", mobile=" + mobile
 					+ ", resideProvince=" + resideProvince + ", resideCity=" + resideCity + ", resideDist=" + resideDist
 					+ ", credentialsType=" + credentialsType + ", credentialsNumber=" + credentialsNumber

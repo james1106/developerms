@@ -29,37 +29,39 @@
 <div class="pace-activity"></div></div>
 
 <div class="header">
+	<div class="navbar-header">
+				<a class="navbar-brand" href="">
+					<img src="${ctx}/images/we/developer-logo_1.png" class="img-responsive">
+				</a>
+			</div>
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
+			<li role="presentation" >
+				<a href="${ctx}/index">首页</a>
+			</li>
 			<li role="presentation" class="active">
-				<a href="${ctx}/home">个人中心</a>
+				<a href="${ctx}/developer/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者工具</a>
+				<a href="${ctx}/developer/home" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
-				<a href="" target="_blank" class="link">应用商城</a>
+				<a href="${ctx}/developer/home" target="_blank" class="link">开发文档</a>
 			</li>
-            
-			<li role="presentation">
-				<a href="" target="_blank" class="link">开发文档</a>
-			</li>
-			<li role="presentation">
-				<a href="" target="_blank" class="link">需求市场</a>
-			</li>
+			
 		</ul>
 		<div class="pull-right login-info">
 			<a href="" style="margin-right: 1em; text-align: center; display: inline-block; line-height: 2em;">
 				<i class="fa fa-envelope"></i>
-				<span class="badge" id="developer-message-count">1</span>
+				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i>			</span>
-			<a href="">退出</a>
+				<i class="fa fa-user">${user.loginName}</i></span>
+			<a href="${ctx}/logout">退出</a>
 		</div>
 	</div>
 </div>

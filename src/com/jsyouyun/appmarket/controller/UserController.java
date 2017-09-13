@@ -49,7 +49,7 @@ public class UserController {
 	private Producer producer;
 	
 	
-	@RequestMapping("captcha.jpg")
+	@RequestMapping(value= {"/captcha.jpg", "/developer/captcha.jpg", "/apper/captcha.jpg"})
 	public void captcha(HttpServletResponse response, HttpSession session)throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-store, no-cache");
 		response.setContentType("image/jpeg");
@@ -86,6 +86,46 @@ public class UserController {
 		if(user != null){
 			// 将用户保存到HttpSession当中
 			session.setAttribute(AppMarketConstants.APPMARKET_SESSION, user);
+			Integer userType = user.getUserType();
+			if (userType == 1) {
+				mv.setViewName("redirect:/developer/home");
+			} else if (userType == 2) {
+				mv.setViewName("redirect:/apper/home");
+			} else {
+				mv.setViewName("redirect:/index");
+			}
+		}else{
+			// 设置登录失败提示信息
+			mv.addObject("message", "登录名或密码错误!请重新输入");
+			// 服务器内部跳转到登录页面
+			mv.setViewName("forward:/index");
+		}
+		
+		
+		return mv;
+		
+	}
+	
+	/**
+	 * 处理登录请求
+	 * @param String loginName  登录名
+	 * @param String loginPwd 密码
+	 * @return 跳转的视图
+	 * */
+	@RequestMapping(value="/logout")
+	 public ModelAndView doLogout(
+			 HttpSession session,
+			 Model model,
+			 ModelAndView mv){
+		// 调用业务逻辑组件判断用户是否可以登录
+		session.setAttribute(AppMarketConstants.APPMARKET_SESSION, null);
+		//model.addAttribute("user", null)
+		mv.setViewName("forward:/index");
+		/*
+		User user = appMarketService.login(loginName, loginPwd);
+		if(user != null){
+			// 将用户保存到HttpSession当中
+			session.setAttribute(AppMarketConstants.APPMARKET_SESSION, user);
 			// 设置Model数据
 			//model.addAttribute("user", user);
 			// 客户端跳转到main页面
@@ -96,8 +136,9 @@ public class UserController {
 			// 设置登录失败提示信息
 			mv.addObject("message", "登录名或密码错误!请重新输入");
 			// 服务器内部跳转到登录页面
-			mv.setViewName("forward:/developer/home");
+			mv.setViewName("forward:/index");
 		}
+		*/
 		return mv;
 		
 	}
@@ -225,10 +266,17 @@ public class UserController {
 			User userInfo = appMarketService.login(user.getLoginName(), user.getLoginPwd());
 			session.setAttribute(AppMarketConstants.APPMARKET_SESSION, userInfo);
 			// 设置Model数据
-			System.out.println("before:"+userInfo);
+			//System.out.println("before:"+userInfo);
 			//model.addAttribute("user", user);
 			// 客户端跳转到main页面
-			mv.setViewName("redirect:/developer/home");
+			Integer userType = userInfo.getUserType();
+			if (userType == 1) {
+				mv.setViewName("redirect:/developer/home");
+			} else if (userType == 2) {
+				mv.setViewName("redirect:/apper/home");
+			} else {
+				mv.setViewName("redirect:/index");
+			}
 		//	return "main"
 
 		   // 返回

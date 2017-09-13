@@ -23,6 +23,9 @@
     	<mvc:interceptor>
     		<!-- 拦截所有请求 -->
     		<mvc:mapping path="/*"/>
+    		<mvc:mapping path="/developer/home" />
+    		<mvc:mapping path="/apper/home" />
+    		<mvc:mapping path="/apper/orderApp" />
     		<!-- 自定义判断用户权限的拦截类 -->  
     	 	<bean class="com.jsyouyun.appmarket.interceptor.AuthorizedInterceptor"/>
     	</mvc:interceptor>

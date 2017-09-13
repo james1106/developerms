@@ -39,22 +39,22 @@ public class FileUtil {
 	}
 	
 	 /**
-	25      * @desc ½«Ô´ÎÄ¼ş/ÎÄ¼ş¼ĞÉú³ÉÖ¸¶¨¸ñÊ½µÄÑ¹ËõÎÄ¼ş,¸ñÊ½zip
-	26      * @param resourePath Ô´ÎÄ¼ş/ÎÄ¼ş¼Ğ
-	27      * @param targetPath  Ä¿µÄÑ¹ËõÎÄ¼ş±£´æÂ·¾¶
-	28      * @return void
-	29      * @throws Exception 
-	30      */
+		* @desc å°†æºæ–‡ä»¶/æ–‡ä»¶å¤¹ç”ŸæˆæŒ‡å®šæ ¼å¼çš„å‹ç¼©æ–‡ä»¶,æ ¼å¼zip
+		* @param resourePath æºæ–‡ä»¶/æ–‡ä»¶å¤¹
+		* @param targetPath  ç›®çš„å‹ç¼©æ–‡ä»¶ä¿å­˜è·¯å¾„
+		* @return void
+		* @throws Exception 
+	*/
 	public static void compressedFile(String resourcesPath,String targetPath) throws Exception{
 		System.out.println("resourcesPath:" + resourcesPath);
-	       File resourcesFile = new File(resourcesPath);     //Ô´ÎÄ¼ş
-           File targetFile = new File(targetPath);           //Ä¿µÄ
-           //Èç¹ûÄ¿µÄÂ·¾¶²»´æÔÚ£¬ÔòĞÂ½¨
+	       File resourcesFile = new File(resourcesPath);     //æºæ–‡ä»¶
+           File targetFile = new File(targetPath);           //ç›®çš„
+           //å¦‚æœç›®çš„è·¯å¾„ä¸å­˜åœ¨ï¼Œåˆ™æ–°å»º
 	         if(!targetFile.exists()){     
 	            targetFile.mkdirs();  
 	         }
 	         
-	         String targetName = resourcesFile.getName()+".zip";   //Ä¿µÄÑ¹ËõÎÄ¼şÃû
+	         String targetName = resourcesFile.getName()+".zip";   //ç›®çš„å‹ç¼©æ–‡ä»¶å
 	         FileOutputStream outputStream = new FileOutputStream(targetPath+"\\"+targetName);
 	         ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(outputStream));
 	         
@@ -64,42 +64,42 @@ public class FileUtil {
 	         System.out.println("compressed Done");
 	     }
 	     
-	     /**
-	      * @desc Éú³ÉÑ¹ËõÎÄ¼ş¡£
-	      *                  Èç¹ûÊÇÎÄ¼ş¼Ğ£¬ÔòÊ¹ÓÃµİ¹é£¬½øĞĞÎÄ¼ş±éÀú¡¢Ñ¹Ëõ
-	      *       Èç¹ûÊÇÎÄ¼ş£¬Ö±½ÓÑ¹Ëõ
-	      * @param out  Êä³öÁ÷
-	      * @param file  Ä¿±êÎÄ¼ş
-	      * @return void
-	      * @throws Exception 
-	      */
-	     public static void createCompressedFile(ZipOutputStream out,File file,String dir) throws Exception{
-	         //Èç¹ûµ±Ç°µÄÊÇÎÄ¼ş¼Ğ£¬Ôò½øĞĞ½øÒ»²½´¦Àí
+	 /**
+     * @desc ç”Ÿæˆå‹ç¼©æ–‡ä»¶ã€‚
+     *                  å¦‚æœæ˜¯æ–‡ä»¶å¤¹ï¼Œåˆ™ä½¿ç”¨é€’å½’ï¼Œè¿›è¡Œæ–‡ä»¶éå†ã€å‹ç¼©
+     *       å¦‚æœæ˜¯æ–‡ä»¶ï¼Œç›´æ¥å‹ç¼©
+     * @param out  è¾“å‡ºæµ
+     * @param file  ç›®æ ‡æ–‡ä»¶
+     * @return void
+     * @throws Exception 
+     */
+	  public static void createCompressedFile(ZipOutputStream out,File file,String dir) throws Exception{
+		  //å¦‚æœå½“å‰çš„æ˜¯æ–‡ä»¶å¤¹ï¼Œåˆ™è¿›è¡Œè¿›ä¸€æ­¥å¤„ç†
 	         if(file.isDirectory()){
-	             //µÃµ½ÎÄ¼şÁĞ±íĞÅÏ¢
+	        	//å¾—åˆ°æ–‡ä»¶åˆ—è¡¨ä¿¡æ¯
 	             File[] files = file.listFiles();
-	             //½«ÎÄ¼ş¼ĞÌí¼Óµ½ÏÂÒ»¼¶´ò°üÄ¿Â¼
+	             //å°†æ–‡ä»¶å¤¹æ·»åŠ åˆ°ä¸‹ä¸€çº§æ‰“åŒ…ç›®å½•
 	             out.putNextEntry(new ZipEntry(dir+"/"));
 	             
 	             dir = dir.length() == 0 ? "" : dir +"/";
 	             
-	             //Ñ­»·½«ÎÄ¼ş¼ĞÖĞµÄÎÄ¼ş´ò°ü
+	             //å¾ªç¯å°†æ–‡ä»¶å¤¹ä¸­çš„æ–‡ä»¶æ‰“åŒ…
 	             for(int i = 0 ; i < files.length ; i++){
-	                 createCompressedFile(out, files[i], dir + files[i].getName());         //µİ¹é´¦Àí
+	                 createCompressedFile(out, files[i], dir + files[i].getName());          //é€’å½’å¤„ç†
 	             }
 	         }
-	         else{   //µ±Ç°µÄÊÇÎÄ¼ş£¬´ò°ü´¦Àí
-	             //ÎÄ¼şÊäÈëÁ÷
+	         else{   //å½“å‰çš„æ˜¯æ–‡ä»¶ï¼Œæ‰“åŒ…å¤„ç†
+	        	//æ–‡ä»¶è¾“å…¥æµ
 	             FileInputStream fis = new FileInputStream(file);
 	             
 	             out.putNextEntry(new ZipEntry(dir));
-	             //½øĞĞĞ´²Ù×÷
+	           //è¿›è¡Œå†™æ“ä½œ
 	             int j =  0;
 	             byte[] buffer = new byte[1024];
 	             while((j = fis.read(buffer)) > 0){
 	                 out.write(buffer,0,j);
 	             }
-	             //¹Ø±ÕÊäÈëÁ÷
+	           //å…³é—­è¾“å…¥æµ
 	             fis.close();
 	         }
 	     }

@@ -2,6 +2,7 @@ package com.jsyouyun.appmarket.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import java.io.File;
@@ -29,7 +30,9 @@ import com.jsyouyun.appmarket.entity.User;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
+import com.jsyouyun.appmarket.entity.ApperDemand;
 import com.jsyouyun.appmarket.service.AppMarketService;
+import com.jsyouyun.appmarket.entity.AppOrder;
 import com.jsyouyun.appmarket.common.utils.FileUtil;
 
 //import com.jsyouyun.developer.common.utils.ShiroUtils;
@@ -105,8 +108,9 @@ public class ApperController {
 			 ){
 			// 执行添加操作
 		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
-		//  DeveloperDatum datum = appMarketService.findDeveloperDatumByUser(user);
-	//	  model.addAttribute("datum", datum);
+		   ApperEnterpriseDatum datum= appMarketService.findApperEnterpriseDatumByUser(user);
+		    		//findDeveloperDatumByUser(user);
+	  	   model.addAttribute("datum", datum);
 		  
 		//	appMarketService.addUser(developerUser);
 			// 设置客户端跳转到查询请求
@@ -119,8 +123,164 @@ public class ApperController {
 		//	return "main"
 
 		   // 返回
-			return "apper/apperEnterpriseCertificationForm";
+			return "apper/enterpriseCertificationForm";
 	}
+	
+	/*************************发布需求***************************************************/
+	
+	/**
+	 * 进入应用者企业认证
+	 * */
+	@RequestMapping(value="/apper/editDemand")
+	 public String demand(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   
+		   if (request.getParameter("demandId") != null) {
+			   Integer demandId = Integer.parseInt(request.getParameter("demandId"));
+			   ApperDemand demand = appMarketService.findApperDemandById(demandId);
+			   model.addAttribute("demand", demand);
+		   }
+		   //ApperEnterpriseDatum datum= appMarketService.findApperEnterpriseDatumByUser(user);
+		    		//findDeveloperDatumByUser(user);
+	  	  // model.addAttribute("datum", datum);
+		  
+		//	appMarketService.addUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "apper/demand";
+	}
+	
+	/**
+	 * 应用者企业认证
+	 * */
+	@RequestMapping(value="/apper/doDemand")
+	 public ModelAndView addOrUpdateDemand(
+			 @ModelAttribute ApperDemand apperDemand,
+			 HttpSession session,
+			 ModelAndView mv){
+			// 执行添加操作
+		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		//   System.out.println("userId:" + user.getId());
+		   Integer demandId = apperDemand.getId();
+		   if (demandId == null || demandId < 1) {
+			   apperDemand.setApperUser(user);
+			   appMarketService.addApperDemand(apperDemand);
+		   } else {
+			   //apperEnterpriseDatum.setDeveloperUser(user);
+			   appMarketService.modifyApperDemand(apperDemand);
+		   }
+		
+		   mv.setViewName("redirect:/apper/home");
+			
+		//	return "main"
+
+		   // 返回
+		   return mv;
+	}
+	
+	
+	/*************************购买应用***************************************************/
+	
+	/**
+	 * 进入应用者企业认证
+	 * */
+	@RequestMapping(value="/apper/orderApp")
+	 public String appOrder(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   
+		   if (request.getParameter("appId") != null) {
+			   Integer appId = Integer.parseInt(request.getParameter("appId"));
+			   DeveloperModule module = appMarketService.findDeveloperModuleById(appId);
+			   User developer = module.getDeveloperUser();
+			   
+			   AppOrder order = new AppOrder();
+			   order.setApp(module);
+			   order.setApperUser(user);
+			   order.setDeveloperUser(developer);
+			   Date d=new Date();
+			   System.out.println(d.getTime());
+			   String orderNo = String.valueOf(d.getTime());
+			   
+			   order.setOrderNo(orderNo);
+			   order.setPrice(module.getPrice());
+			   order.setCreateTime(new Date());
+			   order.setUpdateTime(new Date());
+			   appMarketService.addAppOrder(order);
+			   
+			 
+			   
+			   
+			  
+		   }
+		   
+		//   List<AppOrder> orders = appMarketService.findAppOrderByApperUser(user);
+		//   model.addAttribute("orders", orders);
+		   //ApperEnterpriseDatum datum= appMarketService.findApperEnterpriseDatumByUser(user);
+		    		//findDeveloperDatumByUser(user);
+	  	  // model.addAttribute("datum", datum);
+		  
+		//	appMarketService.addUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "redirect:/apper/myOrder";
+	}
+	
+	@RequestMapping(value="/apper/myOrder")
+	 public String myOrder(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		  
+		   
+		   List<AppOrder> orders = appMarketService.findAppOrderByApperUser(user);
+		   model.addAttribute("orders", orders);
+		   ApperEnterpriseDatum datum= appMarketService.findApperEnterpriseDatumByUser(user);
+		    		//findDeveloperDatumByUser(user);
+	  	   model.addAttribute("datum", datum);
+		  
+		//	appMarketService.addUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "apper/apperOrder";
+	}
+	
 	
 
 }

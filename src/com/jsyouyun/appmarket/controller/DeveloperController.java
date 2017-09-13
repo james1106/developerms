@@ -3,6 +3,7 @@ package com.jsyouyun.appmarket.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import java.io.File;
@@ -327,7 +328,7 @@ public class DeveloperController {
 		
 		//DeveloperModule modulue = appMarketService.findDeveloperModuleById(Integer.parseInt(moduleId));
 		//model.addAttribute("module", modulue);
-		return "redirect:/home";
+		return "redirect:/developer/home";
 		
 	}
 	
@@ -508,6 +509,58 @@ public class DeveloperController {
 	   return "developer/moduleApp";
 		
 	}
+	 
+	 @RequestMapping(value="/developer/module/moduleAppStatus")
+	 public String doModuleAppStatus(
+			 HttpSession session,
+			 Model model,
+			 HttpServletRequest request
+			 ){
+		// 设置客户端跳转到模块设计界面
+		
+		String moduleId = request.getParameter("moduleId");
+	//	String moduleTitle = request.getParameter("moduleTitle");
+		
+		 DeveloperModule modulue = appMarketService.findDeveloperModuleById(Integer.parseInt(moduleId));
+		model.addAttribute("module", modulue);
+		
+			
+	   return "developer/moduleAppStatus";
+		
+	}
+	 
+	 /**
+		 * 添加或编辑模块
+		 * @param DeveloperModule developerModule  模块对象
+		 * @param ModelAndView mv
+		 * */
+		@RequestMapping(value="/developer/module/doModuleStatus")
+		 public String editModuleStatus(
+				 @ModelAttribute DeveloperModule developerModule,
+				 HttpServletRequest request,
+				 HttpSession session,
+				 RedirectAttributes ra,
+				 Model model,
+				 ModelAndView mv){
+				// 执行添加操作
+			   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+			   model.addAttribute("user", user);
+			   
+			   Integer moduelId = developerModule.getId(); 
+			   if (moduelId  != null && moduelId  > 0) {
+				   DeveloperModule module = appMarketService.findDeveloperModuleById(moduelId);
+				   if (module != null) {
+					   module.setStatus(developerModule.getStatus());
+					   module.setPrice(developerModule.getPrice());
+					   module.setUpdateTime(new Date());
+					   appMarketService.modifyDeveloperModule(module);
+					   
+				   }
+				   
+			   }
+			   return "redirect:/developer/home";
+			   
+		}
 	
 	
 	

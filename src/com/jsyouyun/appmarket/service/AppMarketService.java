@@ -11,6 +11,8 @@ import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.User;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
+import com.jsyouyun.appmarket.entity.ApperDemand;
+import com.jsyouyun.appmarket.entity.AppOrder;
 /**   
  * @Description: 服务层接口 
  * @author 吴进田
@@ -196,12 +198,126 @@ public interface AppMarketService {
 	 * */
 	void modifyApperEnterpriseDatum(ApperEnterpriseDatum apperEnterpriseDatum);
 	
+	/****************   应用者需求 服务接口 **********************************/
+	/**
+	 * 获得所有应用者需求
+	 * @param apperDemand 查询条件
+	 * @param pageModel 分页对象
+	 * @return DeveloperModule对象的List集合
+	 * */
+	List<ApperDemand> findApperDemand(ApperDemand apperDemand,PageModel pageModel);
+	
+	/**
+	 * 根据id删除应用者需求
+	 * @param id
+	 * */
+	void removeApperDemandById(Integer id);
 	
 	
 	
-
+	/**
+	 * 根据id查询应用者需求
+	 * @param id
+	 * @return 开发者资料对象
+	 * */
+	ApperDemand findApperDemandById(Integer id);
+	
+	/**
+	 * 根据开发者用户查询应用者需求
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	List<ApperDemand> findApperDemandByUser(User user);
+	
+	/**
+	 * 根据状态查询应用者需求
+	 * @param status
+	 * @return 开发者资料对象
+	 * */
+	List<ApperDemand> findApperDemandByStatus(Integer status);
+	
+	/**
+	 * 添加应用者需求
+	 * @param apperDemand 应用者需求对象
+	 * */
+	void addApperDemand(ApperDemand apperDemand);
+	
+	/**
+	 * 修改应用者需求
+	 * @param employee 应用者需求
+	 * */
+	void modifyApperDemand(ApperDemand apperDemand);
+	
+	/****************   应用订单 服务接口 **********************************/
+	/**
+	 * 获得所有应用者需求
+	 * @param apperDemand 查询条件
+	 * @param pageModel 分页对象
+	 * @return DeveloperModule对象的List集合
+	 * */
+	List<AppOrder> findAppOrder(AppOrder appOrder,PageModel pageModel);
+	
+	/**
+	 * 根据id删除应用者需求
+	 * @param id
+	 * */
+	void removeAppOrderById(Integer id);
 	
 	
+	
+	/**
+	 * 根据id查询应用者需求
+	 * @param id
+	 * @return 开发者资料对象
+	 * */
+	AppOrder findAppOrderById(Integer id);
+	
+	/**
+	 * 根据开发者用户查询应用者需求
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	List<AppOrder> findAppOrderByApperUser(User apperUser);
+	
+	/**
+	 * 根据开发者用户查询应用者需求
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	List<AppOrder> findAppOrderByDeveloperUser(User developerUser);
+	
+	/**
+	 * 根据开发者用户查询应用者需求
+	 * @param dedeloperUser
+	 * @return 开发者资料对象
+	 * */
+	List<AppOrder> findAppOrderByApp(DeveloperModule app);
+	
+	/**
+	 * 根据状态查询应用者需求
+	 * @param status
+	 * @return 开发者资料对象
+	 * */
+	List<AppOrder> findAppOrderByOrderStatus(Integer orderStatus);
+	
+	/**
+	 * 根据状态查询应用者需求
+	 * @param status
+	 * @return 开发者资料对象
+	 * */
+	List<AppOrder> findAppOrderByAppStatus(Integer aaStatus);
+	
+	/**
+	 * 添加应用者需求
+	 * @param appOrder 应用者需求对象
+	 * */
+	void addAppOrder(AppOrder appOrder);
+	
+	/**
+	 * 修改应用者需求
+	 * @param employee 应用者需求
+	 * */
+	void modifyAppOrder(AppOrder appOrder);
 	
 }
 

@@ -15,11 +15,12 @@
 	<link href="${ctx}/css/we/font-awesome.min.css" rel="stylesheet">
 	<link href="${ctx}/css/we/develop.css" rel="stylesheet">
 	<link rel="stylesheet" href="${ctx}/css/we/pace-theme-minimal.css">
+	<script src="${ctx}/js/we/jquery-1.11.1.min.js"></script>
 	<script>paceOptions = {elements: true};</script>
 	<script src="${ctx}/js/we/pace.min.js"></script>
 	<script src="${ctx}/js/we/require.js"></script>
 	<script src="${ctx}/js/we/config.js"></script>
-	<script src="${ctx}/js/we/jquery-1.11.1.min.js"></script>
+	
 	<script src="${ctx}/js/we/bootstrap.min.js"></script>
 	<script src="${ctx}/js/we/util.js"></script>
 	
@@ -35,28 +36,33 @@
 <div class="pace-activity"></div></div>
 
 <div class="header">
+	<div class="navbar-header">
+				<a class="navbar-brand" href="">
+					<img src="${ctx}/images/we/developer-logo_1.png" class="img-responsive">
+				</a>
+			</div>
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
-			<li role="presentation">
-				<a href="${ctx}/home">个人中心</a>
+			<li role="presentation" >
+				<a href="${ctx}/index">首页</a>
+			</li>
+			<li role="presentation" >
+				<a href="${ctx}/developer/home">个人中心</a>
+			</li>
+            <li role="presentation" class="active">
+				<a href="">开发者认证</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者工具</a>
+				<a href="${ctx}/developer/home" class="link">开发者工具</a>
 			</li>
-			<li role="presentation" class="active">
+			<li role="presentation">
 				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
-				<a href="" target="_blank" class="link">应用商城</a>
+				<a href="${ctx}/developer/home" target="_blank" class="link">开发文档</a>
 			</li>
-            
-			<li role="presentation">
-				<a href="" target="_blank" class="link">开发文档</a>
-			</li>
-			<li role="presentation">
-				<a href="" target="_blank" class="link">需求市场</a>
-			</li>
+			
 		</ul>
 		<div class="pull-right login-info">
 			<a href="" style="margin-right: 1em; text-align: center; display: inline-block; line-height: 2em;">
@@ -64,8 +70,8 @@
 				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i>			</span>
-			<a href="">退出</a>
+				<i class="fa fa-user">${user.loginName}</i></span>
+			<a href="${ctx}/logout">退出</a>
 		</div>
 	</div>
 </div>
@@ -216,7 +222,7 @@
 		</span>
 	</div>
 	<div class="input-group" style="margin-top:.5em;">
-		<img src="${ctx}/images/we/nopic.jpg" class="img-responsive img-thumbnail" width="150">
+		<img src="${datum.credentialsPhoto}" class="img-responsive img-thumbnail" width="150">
 	</div>						<span class="help-block">开发者手持证件照片, 照片要求清晰可见, 小于 5M.</span>
 					</div>
 				</div>

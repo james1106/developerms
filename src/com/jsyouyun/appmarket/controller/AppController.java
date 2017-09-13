@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.User;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
+import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
+import com.jsyouyun.appmarket.entity.ApperDemand;
+import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
 import com.jsyouyun.appmarket.service.AppMarketService;
 import com.sun.xml.internal.ws.api.server.Module;
 
@@ -44,12 +47,47 @@ public class AppController {
 		DeveloperModule module = appMarketService.findDeveloperModuleById(Integer.parseInt(appId));
 		User user = module.getDeveloperUser();
 		DeveloperDatum developerDatum = appMarketService.findDeveloperDatumByUser(user);
-
+		//model.addAttribute("user", user);
 
 		model.addAttribute("app", module);
 		model.addAttribute("developer", developerDatum);
+		User loginUser = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		model.addAttribute("user", loginUser);
 		
 		return "appmarket/appDetails";
 			
 	}
+	
+	@RequestMapping(value="/appDemand")
+	 public String getDemandDetails(
+			 HttpSession session,
+			 Model model,
+			 HttpServletRequest request
+			 ){
+		// 设置客户端跳转到模块设计界面
+		
+		String demandId= request.getParameter("demandId");
+	//	String moduleTitle = request.getParameter("moduleTitle");
+	
+		//	String moduleTitle = request.getParameter("moduleTitle");
+			
+		ApperDemand demand= appMarketService.findApperDemandById(Integer.parseInt(demandId));
+				
+				
+				
+		User user = demand.getApperUser();
+		ApperEnterpriseDatum datum = appMarketService.findApperEnterpriseDatumByUser(user);
+
+
+		model.addAttribute("demand", demand);
+		model.addAttribute("apper", datum);
+		User loginUser = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		model.addAttribute("user", loginUser);
+		
+		return "appmarket/demandDetails";
+			
+	}
+	
+	
+	/************** 应用订单 *********************************************/
 }

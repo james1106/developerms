@@ -27,7 +27,7 @@ import java.util.Map;
 public class CommonController {
 	
 	// 上传文件会自动绑定到MultipartFile中
-	 @RequestMapping(value= {"/upload","/developer/upload", "/developer/module/upload"},method=RequestMethod.POST)
+	 @RequestMapping(value= {"/upload","/developer/upload", "/developer/module/upload", "/apper/upload"},method=RequestMethod.POST)
 	 @ResponseBody
 		 public Object upload(HttpServletRequest request,
 				//@RequestParam("description") String description,

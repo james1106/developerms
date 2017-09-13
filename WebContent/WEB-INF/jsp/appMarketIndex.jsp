@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维开发者平台</title>
+	<title>优云运维应用软件市场</title>
     
 	<meta name="keywords" content="">
 	<meta name="description" content="">
@@ -66,10 +66,14 @@
 						<a href="" target="_blank">论坛</a>
 					</li>
 					<li>
+                     <c:if test="${user.userType != 2}">
 						<a href="${ctx}/developer/home" target="_blank">开发者中心</a>
+                     </c:if>
 					</li>
 					<li>
+                    <c:if test="${user.userType != 1}">
 						<a href="${ctx}/apper/home" target="_blank">应用者中心</a>
+                     </c:if>
 					</li>
 					<li>
 						<a href="" target="_blank">服务商加盟<sup></sup></a>
@@ -77,10 +81,75 @@
 									</ul>
 									<ul class="nav navbar-nav navbar-right head-user-login">
 						<li>
-							<a href="${ctx}/loginForm">登录</a>
+							
+                            
+                            <c:if test="${user == null}">
+                            
+                            <a href="${ctx}/loginForm">登录</a>
+                            </c:if>
 						</li>
 						<li>
+                            <c:if test="${user == null}">
 							<a href="${ctx}/registerForm">免费注册</a>
+                            </c:if>
+                            <c:if test="${user != null}">
+							<a href="${ctx}/logout">退出</a>
+                            </c:if>
+                            
+						</li>
+					</ul>
+							<ul class="nav navbar-nav navbar-right">
+						<li class="">
+							<a href="" target="_blank">
+								<i class="wi wi-message icon"></i>消息 
+																	<span class="new-message">1</span>
+															</a>
+						</li>
+						
+						<li class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="" class="img-circle user-avatar-xs"> 
+								<span class="user-avatar-name">
+                                
+                                 <c:if test="${user != null}">
+                            ${user.loginName}[
+                            <c:if test="${user.userType == 1}">开发者</c:if>
+                            <c:if test="${user.userType == 2}">应用者</c:if>]
+                            </c:if>
+                                
+                                
+                                </span>
+								<i class="caret"></i>
+							</a>
+							<!--头部个人信息-->
+							<ul class="dropdown-menu head-user-info" role="menu">
+								<li class="head-user-head" onclick="">
+									<img src="" class="user-avatar-sm img-circle pull-left">
+                                   
+									
+								</li>
+								<li>
+									<a href="">
+										<i class="wi wi-application"></i>应用
+									</a>
+									<a href="" target="_blank">
+										<i class="wi wi-forum"></i>论坛
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="wi wi-wallet"></i>钱包
+									</a>
+									<a href="" target="_blank">
+										<i class="wi wi-developer"></i><c:if test="${user.userType == 1}">开发者</c:if>
+                                         <c:if test="${user.userType == 2}">应用者</c:if>
+									</a>
+								</li>
+								<li class="head-user-logout">
+									<a href="${ctx}/logout">退出</a>
+								</li>
+							</ul>
+							<!--end头部个人信息-->
 						</li>
 					</ul>
 							</div>
@@ -389,11 +458,13 @@
 		<div class="shop-sever">
 			<h3><font color="red">最新需求</font></h3>
 			<ul class="shop-school-lists">
-								<li><a target="_blank" href="">【干货分享】估价系统</a></li>
-								<li><a target="_blank" href="">【微擎案例】新-微信淘宝客</a></li>
-								<li><a target="_blank" href="">【干货分享】七夕大甩卖</a></li>
-								<li><a target="_blank" href="">【运营杂谈】快微同城</a></li>
-								<li><a target="_blank" href="">【运营杂谈】微酒店单店版</a></li>
+			
+			 				<c:forEach items="${requestScope.demands}" var="demand" varStatus="stat">
+			
+								<li><a target="_blank" href="${ctx}/appDemand?demandId=${demand.id}">【${demand.type}】${demand.title}</a></li>
+							</c:forEach>
+								
+								<li><a target="_blank" href="">【行业应用】微酒店单店版</a></li>
 							</ul>
 			</div>
 			<!--  
@@ -429,11 +500,11 @@
 		 <div class="shop-sever shop-school">
 			<h3><font color="blue">需求信息</font><a target="_blank" href="" class="shop-school-more">更多</a></h3>
 			<ul class="shop-school-lists">
-								<li><a target="_blank" href="">【干货分享】估价系统</a></li>
-								<li><a target="_blank" href="">【微擎案例】新-微信淘宝客</a></li>
-								<li><a target="_blank" href="">【干货分享】七夕大甩卖</a></li>
-								<li><a target="_blank" href="">【运营杂谈】快微同城</a></li>
-								<li><a target="_blank" href="">【运营杂谈】微酒店单店版</a></li>
+								<li><a target="_blank" href="">【营销运营】估价系统</a></li>
+								<li><a target="_blank" href="">【行业应用】新-微信淘宝客</a></li>
+								<li><a target="_blank" href="">【营销运营】大甩卖系统</a></li>
+								<li><a target="_blank" href="">【行业应用】快微同城</a></li>
+								<li><a target="_blank" href="">【行业应用】微酒店单店版</a></li>
 							</ul>
 		</div>
 		<!--end运营-->
@@ -529,13 +600,13 @@
 									<li class="apply-routine-list-item">
 						<a target="_blank" href="-5951.">
 							<img src="${ctx}/images/we/150449534259acc6ee8185e_sXN7XTWz6UW8.jpg">
-							<div class="apply-title">企业门店小程序通用</div>
+							<div class="apply-title">企业门店管理</div>
 						</a>
 					</li>
 									<li class="apply-routine-list-item">
 						<a target="_blank" href="-5874.">
 							<img src="${ctx}/images/we/150474611759b09a853985e_b0lcqhdQExDZ.png">
-							<div class="apply-title">小程序拼团商城</div>
+							<div class="apply-title">拼团商城</div>
 						</a>
 					</li>
 									<li class="apply-routine-list-item">
@@ -547,7 +618,7 @@
 									<li class="apply-routine-list-item">
 						<a target="_blank" href="-5801.">
 							<img src="${ctx}/images/we/ki7JsSi6YZsjsTfB59a3885793fb8.jpg">
-							<div class="apply-title">深蓝商城小程序</div>
+							<div class="apply-title">深蓝商城系统</div>
 						</a>
 					</li>
 									<li class="apply-routine-list-item">
@@ -559,13 +630,13 @@
 									<li class="apply-routine-list-item">
 						<a target="_blank" href="-5756.">
 							<img src="${ctx}/images/we/1503646016599fd1401b1b5_JE36NxWHXw4S.png">
-							<div class="apply-title">GO活动</div>
+							<div class="apply-title">营销活动</div>
 						</a>
 					</li>
 									<li class="apply-routine-list-item">
 						<a target="_blank" href="-5753.">
 							<img src="${ctx}/images/we/Sdi020cNH2q30jdh599fbe0263e78.jpg">
-							<div class="apply-title">企业展示小程序</div>
+							<div class="apply-title">企业展示系统</div>
 						</a>
 					</li>
 									<li class="apply-routine-list-item">
@@ -582,309 +653,7 @@
 <!--end 小程序-->
 <div class="container home-apply">
 	<!--新鲜出炉-->
-	<div class="shop-left apply-fresh-list">
-		<div class="panel panel-apply">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					新鲜出炉
-					<a target="_blank" href="c=store&a=modules&condition=1&order=createtime" class="apply-more pull-right">更多</a>
-				</h3>
-				
-			</div>
-			<div class="panel-body">
-				<div id="new-apply-list" class="carousel slide" data-ride="carousel" data-interval="8000">
-					<div class="carousel-inner" role="listbox">
-												<div class="item text-center">
-							<a target="_blank" href="-5921.">
-								<img src="${ctx}/images/we/150445369059ac243a2f75f_a259ZIgIPImg.jpg" alt="惠云淘宝客在线视频直播" class="apply-logo-default">
-								<h4 class="name">惠云淘宝客在线视频直播</h4>
-								<p class="date">
-									发布日期：2017-09-02								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>认证订阅号</span>
-																					<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5921.">
-																			</a><a href="1705." class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											微直播										</a>
-																			<a href="333." class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											淘宝客										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5937.">
-								<img src="${ctx}/images/we/150442464559abb2c5c0382_LgNPqGCzPdgU.jpg" alt="藏头诗卡片" class="apply-logo-default">
-								<h4 class="name">藏头诗卡片</h4>
-								<p class="date">
-									发布日期：2017-09-03								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>服务号</span>
-																					<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5937.">
-																			</a><a href="11." class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											吸粉										</a>
-																			<a href="1718." class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											藏头诗										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5986.">
-								<img src="${ctx}/images/we/mO83IofzJX8RRdiF59ae06502fe2d.jpg" alt="吸粉消费视频" class="apply-logo-default">
-								<h4 class="name">吸粉消费视频</h4>
-								<p class="date">
-									发布日期：2017-09-05								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>全部类型</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5986.">
-																			</a><a href="41" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											打赏										</a>
-																			<a href="42" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											视频										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center active">
-							<a target="_blank" href="-5945">
-								<img src="${ctx}/images/we/QBlnp3BZ78DfBZ8k59acb841a5497.jpg" alt="悄悄话" class="apply-logo-default">
-								<h4 class="name">悄悄话</h4>
-								<p class="date">
-									发布日期：2017-09-04								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>认证订阅号</span>
-																					<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5945">
-																			</a><a href="11" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											吸粉										</a>
-																			<a href="10" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											朋友圈										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5929">
-								<img src="${ctx}/images/we/DzfQmo9CbUb7d1qk59aa6f1127085.jpg" alt="聊吧便民" class="apply-logo-default">
-								<h4 class="name">聊吧便民</h4>
-								<p class="date">
-									发布日期：2017-09-02								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>全部类型</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5929">
-																			</a><a href="1208" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											信息										</a>
-																			<a href="481" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											便民										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5926">
-								<img src="${ctx}/images/we/pALGmEM6jVJ6M2A459aa48186faf7.jpg" alt="全网VIP影视三级分销系统" class="apply-logo-default">
-								<h4 class="name">全网VIP影视三级分销系统</h4>
-								<p class="date">
-									发布日期：2017-09-02								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5926">
-																			</a><a href="173" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											会员										</a>
-																			<a href="52" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											分销										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5935">
-								<img src="${ctx}/images/we/h1P7LLpLLHFzgnlP59ad842322592.jpg" alt="周公解梦" class="apply-logo-default">
-								<h4 class="name">周公解梦</h4>
-								<p class="date">
-									发布日期：2017-09-03								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>全部类型</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5935">
-																			</a><a href="11" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											吸粉										</a>
-																			<a href="20" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											营销										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-6015">
-								<img src="${ctx}/images/we/Y0K8on6KPhxOPPoP59af14928bc33.jpg" alt="快速买单付款" class="apply-logo-default">
-								<h4 class="name">快速买单付款</h4>
-								<p class="date">
-									发布日期：2017-09-06								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-6015">
-																			</a><a href="1727" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											买单										</a>
-																			<a href="1401" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											付款										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5930">
-								<img src="${ctx}/images/we/150434219159aa70afcdb6e_M5Ni58Ioj00o.png" alt="抢购秒杀" class="apply-logo-default">
-								<h4 class="name">抢购秒杀</h4>
-								<p class="date">
-									发布日期：2017-09-02								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>认证服务号</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5930">
-																			</a><a href="1338" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											抢购										</a>
-																			<a href="358" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											秒杀										</a>
-																	</div>
-							
-						</div>
-												<div class="item text-center">
-							<a target="_blank" href="-5927">
-								<img src="${ctx}/images/we/E7262ulu58I7eIIE59aa491006d64.jpg" alt="估价系统" class="apply-logo-default">
-								<h4 class="name">估价系统</h4>
-								<p class="date">
-									发布日期：2017-09-02								</p>
-								<p class="text-over fit">
-									适用：
-																														<span>全部类型</span>
-																											</p>
-								</a><div class="tag-list text-over"><a target="_blank" href="-5927">
-																			</a><a href="1716" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											估价										</a>
-																			<a href="20" class="btn btn-message-tag text-over"> 
-											<i class="fa fa-tag"></i> 
-											营销										</a>
-																	</div>
-							
-						</div>
-											</div>
-					<a class="left carousel-control" href="" role="button" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left wi wi-angle-left"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="" role="button" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right wi wi-angle-right"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="shop-right">
-		<!--官方推荐-->
-				<div class="panel panel-apply">
-			<div class="panel-heading">
-				<h3 class="panel-title">官方推荐<a target="_blank" href="&condition=1&recommend=1" class="apply-more">更多</a></h3>
-			</div>
-			<div class="panel-body">
-				<!--官方推荐列表12个-->
-				<ul class="apply-recomm-lists">
-										<li class="col-xs-2">
-						<a target="_blank" href="-1102"><img src="${ctx}/images/we/14797264915832d59c1a8ef_Bx63kbKHwB3B.jpg">
-							<p class="apply-title">微教育-多校版</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-398"><img src="${ctx}/images/we/zTLLle4KEE4S.jpg">
-							<p class="apply-title">Meepo微现场超级版</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-1422"><img src="${ctx}/images/we/Gw8tzfLHJ0ZwX82L.jpg">
-							<p class="apply-title">全新积分商城</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-4160"><img src="${ctx}/images/we/1493710776590837b81920b_dPMlPTJ5sLpl.jpg">
-							<p class="apply-title">米花互动教学</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-357"><img src="${ctx}/images/we/145812503956e938ef7b652_k72Y0eeM42a6.png">
-							<p class="apply-title">微夜店</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-2394"><img src="${ctx}/images/we/147183373957ba668c012d0_Z0PNl8JJXNMA.jpg">
-							<p class="apply-title">微课堂</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-386"><img src="${ctx}/images/we/145275647056974df65c18f_JNyJO4Jkdjk5.png">
-							<p class="apply-title">超级店</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-4076"><img src="${ctx}/images/we/UfxcX4NENgxPCCxB58f9d42da9ca5.jpg">
-							<p class="apply-title">点点智慧餐厅V3</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-4277"><img src="${ctx}/images/we/NpwqLYPESasRLpLh5918838f26632.jpg">
-							<p class="apply-title">自助任务平台WQ</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-670"><img src="${ctx}/images/we/nV9ZVUqYL7aYAxnq.jpg">
-							<p class="apply-title">掌盟微防伪溯源系统</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-1041"><img src="${ctx}/images/we/p4FqXBAy55U4AcXz.jpg">
-							<p class="apply-title">【超人】超级商城</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-400"><img src="${ctx}/images/we/hh1wIwW4H444.jpg">
-							<p class="apply-title">拼团</p>
-						</a>
-					</li>
-									</ul>
-				<!--end官方推荐列表-->
-			</div>
-		</div>
-				<!--end官方推荐-->
-	</div>
+	 
 	<!--end新鲜出炉-->
 	<div class="clearfix">
 		
@@ -979,7 +748,7 @@
 						</a>
 						<div class="media-body">
 							<a target="_blank" href="-5726"><img src="${ctx}/images/we/dG5yyjgtsS4i9EYe599e3d49d382e.jpg" class="pull-left">
-								<h4 class="media-heading">新-微信淘宝客</h4>
+								<h4 class="media-heading">新-淘宝客</h4>
 								<span>683人近期安装</span>
 							</a>
 						</div>
@@ -1076,18 +845,7 @@
 							<p class="apply-publish-time">2017-09-08</p>
 						</a>
 					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-6078"><img src="${ctx}/images/we/uHK6UNgV1BzNV17B59b2108bcc9a8.jpg">
-							<p class="apply-title">教师节特卖</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-4577"><img src="${ctx}/images/we/yPZSo4LdDP7TWz7P59390542bc710.jpg">
-							<p class="apply-title">限时抢购</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
+										
 										<li class="col-xs-2">
 						<a target="_blank" href="-5744"><img src="${ctx}/images/we/1503626194599f83d2bfbf6_oniz6Mni33J2.png">
 							<p class="apply-title">快微同城</p>
@@ -1107,14 +865,8 @@
 						</a>
 					</li>
 										<li class="col-xs-2">
-						<a target="_blank" href="-981"><img src="${ctx}/images/we/g76f9I56Z567z3EC.jpg">
-							<p class="apply-title">发红包多服务号版</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
 						<a target="_blank" href="-3118"><img src="${ctx}/images/we/I5A6iAam6E5XDWaX5843e64a5ebc8.jpg">
-							<p class="apply-title">商品营销淘口令发布图文</p>
+							<p class="apply-title">商品营销</p>
 							<p class="apply-publish-time">2017-09-08</p>
 						</a>
 					</li>
@@ -1130,39 +882,17 @@
 							<p class="apply-publish-time">2017-09-08</p>
 						</a>
 					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-838"><img src="${ctx}/images/we/1496666280593550a8cf718_Wrp7mzriX7OR.png">
-							<p class="apply-title">超级粉丝社区</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
+										
 										<li class="col-xs-2">
 						<a target="_blank" href="-4016"><img src="${ctx}/images/we/k0J0HRld5WxFSLfn59700a6891fe1.jpg">
 							<p class="apply-title">智云物业</p>
 							<p class="apply-publish-time">2017-09-08</p>
 						</a>
 					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-1451"><img src="${ctx}/images/we/eChuUxSCj27HhU7O.jpg">
-							<p class="apply-title">消息助手</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
+										
 										<li class="col-xs-2">
 						<a target="_blank" href="-3249"><img src="${ctx}/images/we/x7FmS0oDOf8ChTO8585ccd2b17bdf.jpg">
 							<p class="apply-title">万能客服</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-1692"><img src="${ctx}/images/we/150390740259a3ce4a91dbe_J71ir9P139H0.jpg">
-							<p class="apply-title">福卡红包</p>
-							<p class="apply-publish-time">2017-09-08</p>
-						</a>
-					</li>
-										<li class="col-xs-2">
-						<a target="_blank" href="-2359"><img src="${ctx}/images/we/YglY8kK5kbyYLk5K57b2e77fa7f36.jpg">
-							<p class="apply-title">【火池】中秋博饼提现版</p>
 							<p class="apply-publish-time">2017-09-08</p>
 						</a>
 					</li>
@@ -1233,11 +963,11 @@
 <div class="link-friendly container">
 	<div>友情链接:</div>
 	<div class="list">
-		<a href="" class="item" target="_blank">微信运营</a>
-		<a href="" class="item" target="_blank">微信开发</a>
-		<a href="" class="item" target="_blank">人人商城-专业的分销系统</a>
-		<a href="" class="item" target="_blank">免费h5游戏营销</a>
-		<a href="" class="item" target="_blank">赢在移动</a>
+		<a href="" class="item" target="_blank"></a>
+		<a href="" class="item" target="_blank"></a>
+		<a href="" class="item" target="_blank"></a>
+		<a href="" class="item" target="_blank"></a>
+		<a href="" class="item" target="_blank"></a>
 	</div>
 </div><!--底部-->
 <div class="footer">
@@ -1255,7 +985,7 @@
 		</div>
 		<ul class="footer-menu col-xs-12">
 			<li class="col-xs-2">
-				关于微擎
+				关于优云
 				<ul>
 					<li>
 						<a href="" target="_blank">关于我们</a>

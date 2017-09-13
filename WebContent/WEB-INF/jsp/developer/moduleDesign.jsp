@@ -37,67 +37,58 @@
 <div class="pace-activity"></div></div>
 
 <div class="header">
+	<div class="navbar-header">
+				<a class="navbar-brand" href="">
+					<img src="${ctx}/images/we/developer-logo_1.png" class="img-responsive">
+				</a>
+			</div>
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
+			<li role="presentation" >
+				<a href="${ctx}/index">首页</a>
+			</li>
 			<li role="presentation" class="active">
-				<a href="${ctx}/home">个人中心</a>
+				<a href="${ctx}/developer/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者工具</a>
+				<a href="${ctx}/developer/home" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
-				<a href="" target="_blank" class="link">应用商城</a>
+				<a href="${ctx}/developer/home" target="_blank" class="link">开发文档</a>
 			</li>
-            
-			<li role="presentation">
-				<a href="" target="_blank" class="link">开发文档</a>
-			</li>
-			<li role="presentation">
-				<a href="" target="_blank" class="link">需求市场</a>
-			</li>
+			
 		</ul>
 		<div class="pull-right login-info">
 			<a href="" style="margin-right: 1em; text-align: center; display: inline-block; line-height: 2em;">
 				<i class="fa fa-envelope"></i>
-				<span class="badge" id="developer-message-count">1</span>
+				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user"></i>			</span>
-			<a href="">退出</a>
+				<i class="fa fa-user">${user.loginName}</i></span>
+			<a href="${ctx}/logout">退出</a>
 		</div>
 	</div>
 </div>
 <div class="wrapper clearfix">
-	<div class="content clearfix" style="min-height: 1653px;">
-					<!--左侧导航aside-->
+	<div class="content clearfix" style="min-height: 741px;">
+	<!--左侧导航aside-->
 <div class="aside">
 	<div class="list-group">
 		<div class="list-group-item title">
-			<a href="javascript:;"><i class="fa fa-th-large"></i>发布管理</a>
+			<a href="javascript:;"><i class="fa fa-th-large"></i>"开发管理"</a>
 		</div>
-		<div class="list-group-item ">
-			<a href="${ctx}/home">我的发布</a>
+		<div class="list-group-item  active ">
+			<a href="${ctx}/developer/home">我的开发</a>
 		</div>
 		<div class="list-group-item  hidden">
-			<a href="">我的服务</a>
+			<a href="${ctx}/developer/home">我的服务</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="">交易记录</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">举报盗版</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">盗版查看</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">
-				悬赏文案
-			</a>
+			<a href="${ctx}/developer/home">交易记录</a>
 		</div>
 	</div>
 	<div class="list-group">
@@ -212,20 +203,31 @@
 				<label class="col-sm-2 control-label">模块类型</label>
 				<div class="col-sm-10">
 					<select name="category" class="form-control">
-												<option value="business">主要业务</option>
+                                <!--
+																		<option value="business">主要业务</option>
                                                 <option value="enterprise">企业应用</option>
                                                 <option value="biz">行业解决方案</option>
 												<option value="customer">客户关系</option>
                                                 <option value="services">常用服务及工具</option>
-                                                <!--
+                                                
 												<option value="activity">营销及活动</option>
 												
 												
 												
 												<option value="h5game">H5游戏</option>
-                                                -->
+                                                
 												<option value="other">其他</option>
-											</select>
+                                          -->      
+                                                <option value="企业应用">企业应用</option>
+                                                <option value="政事应用">政事应用</option>
+                                                <option value="行业解决方案">行业解决方案</option>
+												<option value="客户关系">客户关系</option>
+                                                <option value="常用服务及工具">常用服务及工具</option>
+                                                
+												<option value="营销及活动">营销及活动</option>
+									
+												<option value="其他">其他</option>
+								</select>
 					<span class="help-block">模块的类型, 用于分类展示和查找你的模块</span>
 				</div>
 			</div>

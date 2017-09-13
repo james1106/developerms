@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维开发者平台</title>
+	<title>优云运维应用软件市场--开发者中心</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -38,25 +38,23 @@
 			</div>
 	<div class="wrapper clearfix">
 		<ul class="nav pull-left" role="tablist">
-			<li role="presentation" class="active">
+			<li role="presentation" >
 				<a href="${ctx}/index">首页</a>
 			</li>
 			<li role="presentation" class="active">
 				<a href="${ctx}/developer/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="" class="link">开发者工具</a>
+				<a href="${ctx}/developer/home" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
-				<a href="" target="_blank" class="link">开发文档</a>
+				<a href="${ctx}/developer/home" target="_blank" class="link">开发文档</a>
 			</li>
-			<li role="presentation">
-				<a href="" target="_blank" class="link">需求市场</a>
-			</li>
+			
 		</ul>
 		<div class="pull-right login-info">
 			<a href="" style="margin-right: 1em; text-align: center; display: inline-block; line-height: 2em;">
@@ -64,8 +62,8 @@
 				<span class="badge" id="developer-message-count">0</span>
 			</a>
 			<span style="margin-right: 1em;">
-				<i class="fa fa-user">${loginName}</i></span>
-			<a href="">退出</a>
+				<i class="fa fa-user">${user.loginName}</i></span>
+			<a href="${ctx}/logout">退出</a>
 		</div>
 	</div>
 </div>
@@ -75,27 +73,16 @@
 <div class="aside">
 	<div class="list-group">
 		<div class="list-group-item title">
-			<a href="javascript:;"><i class="fa fa-th-large"></i>"发布管理"</a>
+			<a href="javascript:;"><i class="fa fa-th-large"></i>"开发管理"</a>
 		</div>
 		<div class="list-group-item  active ">
-			<a href="${ctx}/home">我的发布</a>
+			<a href="${ctx}/developer/home">我的开发</a>
 		</div>
 		<div class="list-group-item  hidden">
-			<a href="">我的服务</a>
+			<a href="${ctx}/developer/home">我的服务</a>
 		</div>
 		<div class="list-group-item ">
-			<a href="">交易记录</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">举报盗版</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">盗版查看</a>
-		</div>
-		<div class="list-group-item ">
-			<a href="">
-				悬赏文案
-			</a>
+			<a href="${ctx}/developer/home">交易记录</a>
 		</div>
 	</div>
 	<div class="list-group">
@@ -342,12 +329,12 @@
 				<table class="table table-hover">
 					<thead class="navbar-inner">
 						<tr>
-							<th style="width: 115px;">LOGO</th>
-							<th style="width: 20%;" class="text-center">标识</th>
+							<th style="width: 80px;">LOGO</th>
+							<th style="width: 10%;" class="text-center">标识</th>
 							<th style="width: 20%;" class="text-center">名称</th>
-							<th style="width: 100px;" class="text-center">购买总数</th>
+							<th style="width: 40px;" class="text-center">总数</th>
 							<th style="width: 100px;" class="text-center">创建时间</th>
-							<th style="width: 160px;" class="text-center">
+							<th style="width: 200px;" class="text-center">
 								应用总数: <span style="color:#555555;">1</span>
 							</th>
 						</tr>
@@ -370,9 +357,33 @@
 								type="date" dateStyle="long"/>
 								</td>
 								<td class="text-center">
+                                
 																			<a href="${ctx}/developer/module/moduleVersion?moduleId=${module.id}">版本管理</a>
 																		<a href="${ctx}/developer/module/moduleApp?moduleId=${module.id}" target="_blank">基本设置</a>
-									<span class="label label-warning">待更新</span>								</td>
+									<span class="label label-warning"><a href="${ctx}/developer/module/moduleAppStatus?moduleId=${module.id}">状态[
+                                    <c:choose>
+                                        <c:when test="${module.status == 0}">
+                                        待审核
+                                        </c:when>
+                                        <c:when test="${module.status == 1}">
+                                        审核通过
+                                        </c:when>
+                                        <c:when test="${module.status == -1}">
+                                        审核不通过
+                                        </c:when>
+                                        <c:when test="${module.status == 2}">
+                                        上架出售
+                                        </c:when>
+                                        <c:when test="${module.status == 3}">
+                                        下架
+                                        </c:when>
+                                    </c:choose>
+                                    ]
+                                            
+                                    
+                                    
+                   
+                                    </a></span>								</td>
 							</tr>
                     </c:forEach>
 							

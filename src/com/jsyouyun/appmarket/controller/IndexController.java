@@ -28,6 +28,7 @@ import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.User;
 import com.jsyouyun.appmarket.service.AppMarketService;
+import com.jsyouyun.appmarket.entity.ApperDemand;
 
 
 
@@ -67,13 +68,18 @@ public class IndexController{
 		/** 查询用户信息     */
 		if (session.getAttribute(AppMarketConstants.APPMARKET_SESSION) != null) {
 			User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
-			model.addAttribute("loginName", user.getLoginName());
+			model.addAttribute("user", user);
 		}
 		
 		  List<DeveloperModule> modules = 
 				appMarketService.findDeveloperModuleByStatus(2);
+		  List<ApperDemand> demands = 
+					appMarketService.findApperDemandByStatus(1);
+					
+					
 		  model.addAttribute("modules", modules);
-		  System.out.println(modules);
+		  model.addAttribute("demands", demands);
+		 // System.out.println(modules);
 		  
 		return "appMarketIndex";
 	}
@@ -98,10 +104,10 @@ public class IndexController{
 		/** 查询用户信息     */
 		 User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		// appMarketService.findDeveloperModuleByUser(user);
-		//  List<DeveloperModule> modules = 
-		//		developerService.findDeveloperModuleByUser(user);
-		//  model.addAttribute("modules", modules);
-		  model.addAttribute("loginName", user.getLoginName());
+		  List<DeveloperModule> modules = 
+				  appMarketService.findDeveloperModuleByUser(user);
+		  model.addAttribute("modules", modules);
+		  model.addAttribute("user", user);
 	
 		 return "/developer/main";
 		
@@ -125,11 +131,12 @@ public class IndexController{
 		*/
 		/** 查询用户信息     */
 		 User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 List<ApperDemand> demands = appMarketService.findApperDemandByUser(user);
 		// appMarketService.findDeveloperModuleByUser(user);
 		//  List<DeveloperModule> modules = 
 		//		developerService.findDeveloperModuleByUser(user);
-		//  model.addAttribute("modules", modules);
-		  model.addAttribute("loginName", user.getLoginName());
+		  model.addAttribute("demands", demands);
+		  model.addAttribute("user", user);
 	
 		 return "/apper/main";
 		

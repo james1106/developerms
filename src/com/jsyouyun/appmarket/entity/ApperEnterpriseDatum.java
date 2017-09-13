@@ -180,7 +180,7 @@ public class ApperEnterpriseDatum implements Serializable {
 	
 	 @Override
 	public String toString() {
-		 return "DeveloperUser [id=" + id + ", apperUser=" + apperUser + ", company="
+		 return "ApperEnterpriseDatum [id=" + id + ", apperUser=" + apperUser + ", company="
 				+ company + ", province=" + province + ", city=" + city
 				+ ", district=" + district + ", zipcode=" + zipcode + ", address=" + address
 				+ ", phone=" + phone + ", legalPerson=" + legalPerson
