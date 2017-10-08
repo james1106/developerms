@@ -1,39 +1,40 @@
 require.config({
 	baseUrl: 'resource/js/app',
 	paths: {
-		'jquery': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/jquery-1.11.1.min',
-		'jquery.ui': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/jquery-ui-1.10.3.min',
-		'jquery.caret': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/jquery.caret',
-		'jquery.jplayer': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/jplayer/jquery.jplayer.min',
-		'jquery.zclip': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/zclip/jquery.zclip.min',
-		'bootstrap': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/bootstrap.min',
-		'bootstrap.switch': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/switch/bootstrap-switch.min',
-		'angular': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/angular.min',
-		'angular.sanitize': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/angular-sanitize.min',
-		'angular.messages': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/angular-messages',
-		'underscore': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/underscore-min',
-		'chart': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/chart.min',
-		'moment': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/moment',
-		'filestyle': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/bootstrap-filestyle.min',
-		'datetimepicker': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/datetimepicker/bootstrap-datetimepicker.min',
-		'new_datetimepicker': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/new-datetimepicker/jquery-ui-timepicker-addon',
-		'daterangepicker': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/daterangepicker/daterangepicker',
-		'colorpicker': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/colorpicker/spectrum',
+		'jquery': '//cdn.w7.cc/web/resource/js/lib/jquery-1.11.1.min',
+		'jquery.ui': '//cdn.w7.cc/web/resource/js/lib/jquery-ui-1.10.3.min',
+		'jquery.lazyloading': '//cdn.w7.cc/web/resource/js/lib/jquery.lazyloading',
+		'jquery.caret': '//cdn.w7.cc/web/resource/js/lib/jquery.caret',
+		'jquery.jplayer': '//cdn.w7.cc/web/resource/components/jplayer/jquery.jplayer.min',
+		'jquery.zclip': '//cdn.w7.cc/web/resource/components/zclip/jquery.zclip.min',
+		'bootstrap': '//cdn.w7.cc/web/resource/js/lib/bootstrap.min',
+		'bootstrap.switch': '//cdn.w7.cc/web/resource/components/switch/bootstrap-switch.min',
+		'angular': '//cdn.w7.cc/web/resource/js/lib/angular.min',
+		'angular.sanitize': '//cdn.w7.cc/web/resource/js/lib/angular-sanitize.min',
+		'angular.messages': '//cdn.w7.cc/web/resource/js/lib/angular-messages',
+		'underscore': '//cdn.w7.cc/web/resource/js/lib/underscore-min',
+		'chart': '//cdn.w7.cc/web/resource/js/lib/chart.min',
+		'moment': '//cdn.w7.cc/web/resource/js/lib/moment',
+		'filestyle': '//cdn.w7.cc/web/resource/js/lib/bootstrap-filestyle.min',
+		'datetimepicker': '//cdn.w7.cc/web/resource/components/datetimepicker/bootstrap-datetimepicker.min',
+		'new_datetimepicker': '//cdn.w7.cc/web/resource/components/new-datetimepicker/jquery-ui-timepicker-addon',
+		'daterangepicker': '//cdn.w7.cc/web/resource/components/daterangepicker/daterangepicker',
+		'colorpicker': '//cdn.w7.cc/web/resource/components/colorpicker/spectrum',
 		'map': '//api.map.baidu.com/getscript?v=2.0&ak=F51571495f717ff1194de02366bb8da9&services=&t=20140530104353',
-		'css': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/css.min',
-		'webuploader' : '//we7cloud-10016060.file.myqcloud.com/web/resource/components/webuploader/webuploader.min',
-		'star-rating' : '//we7cloud-10016060.file.myqcloud.com/web/resource/components/star-rating/star-rating',
-		'switchery' : '//we7cloud-10016060.file.myqcloud.com/web/resource/components/switchery/switchery.min',
-		'iosOverlay' : '//we7cloud-10016060.file.myqcloud.com/web/resource/components/iosOverlay/iosOverlay',
-		'ion.rangeSlider': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/rangeSlider/ion.rangeSlider',
-		'raty' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/raty',
-		'layer': '//we7cloud-10016060.file.myqcloud.com/web/resource/components/layer/layer',
-		'dependencies': '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/vendor/dependencies',
-		'pizza' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/pizza',
-		'vue' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/vue.min',
-		'vue-resource' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/vue-resource.min',
-		'echarts' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/echarts.min',
-		'clipboard' : '//we7cloud-10016060.file.myqcloud.com/web/resource/js/lib/clipboard.min',
+		'css': '//cdn.w7.cc/web/resource/js/lib/css.min',
+		'webuploader' : '//cdn.w7.cc/web/resource/components/webuploader/webuploader.min',
+		'star-rating' : '//cdn.w7.cc/web/resource/components/star-rating/star-rating',
+		'switchery' : '//cdn.w7.cc/web/resource/components/switchery/switchery.min',
+		'iosOverlay' : '//cdn.w7.cc/web/resource/components/iosOverlay/iosOverlay',
+		'ion.rangeSlider': '//cdn.w7.cc/web/resource/components/rangeSlider/ion.rangeSlider',
+		'raty' : '//cdn.w7.cc/web/resource/js/lib/raty',
+		'layer': '//cdn.w7.cc/web/resource/components/layer/layer',
+		'dependencies': '//cdn.w7.cc/web/resource/js/lib/vendor/dependencies',
+		'pizza' : '//cdn.w7.cc/web/resource/js/lib/pizza',
+		'vue' : '//cdn.w7.cc/web/resource/js/lib/vue.min',
+		'vue-resource' : '//cdn.w7.cc/web/resource/js/lib/vue-resource.min',
+		'echarts' : '//cdn.w7.cc/web/resource/js/lib/echarts.min',
+		'clipboard' : '//cdn.w7.cc/web/resource/js/lib/clipboard.min',
 
 		'marked' : '../lib/editormd/lib/marked.min',
 		'prettify' : '../lib/editormd/lib/prettify.min',
@@ -50,9 +51,13 @@ require.config({
 			exports: "$",
 			deps: ['jquery']
 		},
+		'jquery.lazyloading': {
+			exports: "$",
+			deps: ['jquery']
+		},
 		'layer': {
 			exports: "$",
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/layer/skin/layer.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/layer/skin/layer.css']
 		},
 		'dependencies': {
 			exports: "$",
@@ -76,7 +81,7 @@ require.config({
 		},
 		'bootstrap.switch': {
 			exports: "$",
-			deps: ['bootstrap', 'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/switch/bootstrap-switch.min.css']
+			deps: ['bootstrap', 'css!//cdn.w7.cc/web/resource/components/switch/bootstrap-switch.min.css']
 		},
 		'angular': {
 			exports: 'angular',
@@ -102,43 +107,43 @@ require.config({
 		},
 		'datetimepicker': {
 			exports: '$',
-			deps: ['bootstrap', 'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/datetimepicker/bootstrap-datetimepicker.min.css']
+			deps: ['bootstrap', 'css!//cdn.w7.cc/web/resource/components/datetimepicker/bootstrap-datetimepicker.min.css']
 		},
 		'new_datetimepicker': {
 			exports: '$',
 			deps: [
 				'jquery',
-				'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/new-datetimepicker/jquery-ui.css',
-				'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/new-datetimepicker/datetimepicker.css',
-				'//we7cloud-10016060.file.myqcloud.com/web/resource/components/new-datetimepicker/jquery-ui-1.10.4.custom.min.js'
+				'css!//cdn.w7.cc/web/resource/components/new-datetimepicker/jquery-ui.css',
+				'css!//cdn.w7.cc/web/resource/components/new-datetimepicker/datetimepicker.css',
+				'//cdn.w7.cc/web/resource/components/new-datetimepicker/jquery-ui-1.10.4.custom.min.js'
 			]
 		},
 		'daterangepicker': {
 			exports: '$',
-			deps: ['bootstrap', 'moment', 'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/daterangepicker/daterangepicker.css']
+			deps: ['bootstrap', 'moment', 'css!//cdn.w7.cc/web/resource/components/daterangepicker/daterangepicker.css']
 		},
 		'colorpicker': {
 			exports: '$',
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/colorpicker/spectrum.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/colorpicker/spectrum.css']
 		},
 		'map': {
 			exports: 'BMap'
 		},
 		'webuploader': {
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/webuploader/webuploader.css', 'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/webuploader/style.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/webuploader/webuploader.css', 'css!//cdn.w7.cc/web/resource/components/webuploader/style.css']
 		},
 		'star-rating': {
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/star-rating/star-rating.min.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/star-rating/star-rating.min.css']
 		},
 		'switchery': {
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/switchery/switchery.min.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/switchery/switchery.min.css']
 		},
 		'iosOverlay': {
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/iosOverlay/iosOverlay.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/iosOverlay/iosOverlay.css']
 		},
 		'ion.rangeSlider': {
 			exports: "$",
-			deps: ['css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/rangeSlider/ion.rangeSlider.css', 'css!//we7cloud-10016060.file.myqcloud.com/web/resource/components/rangeSlider/ion.rangeSlider.skinFlat.css']
+			deps: ['css!//cdn.w7.cc/web/resource/components/rangeSlider/ion.rangeSlider.css', 'css!//cdn.w7.cc/web/resource/components/rangeSlider/ion.rangeSlider.skinFlat.css']
 		},
 
 		'editormd': {

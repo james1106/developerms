@@ -52,7 +52,7 @@
 				<a href="${ctx}/apper/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/apper/home" class="link">应用工具</a>
+				<a href="${ctx}/apper/applicationCenter" class="link">应用管理</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/apper/enterpriseCertification" class="link">应用者认证</a>

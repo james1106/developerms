@@ -395,7 +395,7 @@
 	});
 	
 	$(document).ready(function() {
-		dropdownOpen(); /调用
+		dropdownOpen(); //调用
 		$('.apply-tab li').mouseover(function(e) {
 			e.preventDefault()
 			$(this).children('a').tab('show')

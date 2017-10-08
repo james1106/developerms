@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -63,7 +63,7 @@ public class AuthorizedInterceptor  implements HandlerInterceptor {
         /** 拦截请求 */
         if (!flag){
         	/** 1.获取session中的开发者用户  */
-        	User developerUser = (User) request.getSession().getAttribute(AppMarketConstants.APPMARKET_SESSION);
+        	SysUser developerUser = (SysUser) request.getSession().getAttribute(AppMarketConstants.APPMARKET_SESSION);
         	/** 2.判断开发者用户是否已经登录 */
         	if(developerUser == null){
         		 /** 如果用户没有登录，跳转到登录页面 */

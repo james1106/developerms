@@ -3,13 +3,13 @@ package com.jsyouyun.appmarket.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 
 public class DeveloperModule implements Serializable {
 	 private static final long serialVersionUID = 1L;
 	
 	private Integer id; //主键
-	 private User developerUser; //开发者用户
+	 private SysUser developerUser; //开发者用户
 	 private String moduleName;   //'标识名',
 	 private String title; //'名称',
 	 private Integer status;     //状态
@@ -42,11 +42,11 @@ public class DeveloperModule implements Serializable {
  		this.id = id;
  	}
  	
- 	public User getDeveloperUser() {
+ 	public SysUser getDeveloperUser() {
  		return this.developerUser;
  	}
  	
- 	public void setDeveloperUser(User developerUser) {
+ 	public void setDeveloperUser(SysUser developerUser) {
  		this.developerUser = developerUser;
  	}
  	

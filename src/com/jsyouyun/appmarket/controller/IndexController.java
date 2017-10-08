@@ -26,7 +26,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 import com.jsyouyun.appmarket.service.AppMarketService;
 import com.jsyouyun.appmarket.entity.ApperDemand;
 
@@ -67,7 +67,7 @@ public class IndexController{
 		// 设置客户端跳转到模块设计界面
 		/** 查询用户信息     */
 		if (session.getAttribute(AppMarketConstants.APPMARKET_SESSION) != null) {
-			User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+			SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 			model.addAttribute("user", user);
 		}
 		
@@ -102,7 +102,7 @@ public class IndexController{
 		}
 		*/
 		/** 查询用户信息     */
-		 User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		// appMarketService.findDeveloperModuleByUser(user);
 		  List<DeveloperModule> modules = 
 				  appMarketService.findDeveloperModuleByUser(user);
@@ -130,7 +130,7 @@ public class IndexController{
 		}
 		*/
 		/** 查询用户信息     */
-		 User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		 List<ApperDemand> demands = appMarketService.findApperDemandByUser(user);
 		// appMarketService.findDeveloperModuleByUser(user);
 		//  List<DeveloperModule> modules = 

@@ -2,7 +2,7 @@ package com.jsyouyun.appmarket.common.oauth2;
 
 
 import com.jsyouyun.appmarket.entity.DeveloperUserToken;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 
 //import io.renren.modules.sys.service.ShiroService;
 //import org.apache.shiro.authc.*;

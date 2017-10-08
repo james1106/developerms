@@ -3,6 +3,7 @@ encoding//WebContent/WEB-INF/jsp/apper/apperCertificationForm123.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/apper/demand.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/appmarket/appDetails.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/developer/moduleDesign2.jsp=UTF-8
+encoding//WebContent/css/we/develop.css=UTF-8
 encoding//src/com/jsyouyun/appmarket/controller/DeveloperController.java=UTF-8
 encoding//src/com/jsyouyun/appmarket/dao/provider/DeveloperDatumDynaSqlProvider.java=UTF-8
 encoding//src/com/jsyouyun/appmarket/dao/provider/DeveloperModuleDynaSqlProvider.java=UTF-8

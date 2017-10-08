@@ -3,7 +3,7 @@ package com.jsyouyun.appmarket.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 
 /**   
  * @Description: 
@@ -16,7 +16,7 @@ public class ApperEnterpriseDatum implements Serializable {
 	 private static final long serialVersionUID = 1L;
 	 
 	 private Integer id; // '主键'
-	 private User apperUser; //应用者用户
+	 private SysUser apperUser; //应用者用户
 	 private String company; // '公司名称'
 	 private String province; // '省'
 	 private String city;     // '市'
@@ -47,11 +47,11 @@ public class ApperEnterpriseDatum implements Serializable {
 		this.id = id;
 	}
 	
-	public User getApperUser() {
+	public SysUser getApperUser() {
 		return this.apperUser;
 	}
 	
-	public void setApperUser(User appUser) {
+	public void setApperUser(SysUser appUser) {
 		this.apperUser = appUser;
 	}
 	

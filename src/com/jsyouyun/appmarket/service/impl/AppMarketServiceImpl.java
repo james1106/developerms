@@ -2,6 +2,7 @@ package com.jsyouyun.appmarket.service.impl;
 
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,15 +10,21 @@ import java.util.Map;
 import com.jsyouyun.appmarket.common.utils.tag.PageModel;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
-import com.jsyouyun.appmarket.entity.User;
-import com.jsyouyun.appmarket.entity.AppOrder;
-import com.jsyouyun.appmarket.dao.UserDao;
+import com.jsyouyun.appmarket.entity.SysUser;
+import com.jsyouyun.appmarket.entity.ModuleOrder;
+import com.jsyouyun.appmarket.dao.SysUserDao;
 import com.jsyouyun.appmarket.dao.DeveloperDatumDao;
 import com.jsyouyun.appmarket.dao.DeveloperModuleDao;
-import com.jsyouyun.appmarket.dao.AppOrderDao;
+import com.jsyouyun.appmarket.dao.ModuleOrderDao;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
+import com.jsyouyun.appmarket.entity.ApperModule;
+import com.jsyouyun.appmarket.entity.ApperUser;
+import com.jsyouyun.appmarket.entity.ApperUserModule;
 import com.jsyouyun.appmarket.entity.ApperDemand;
 import com.jsyouyun.appmarket.dao.ApperEnterpriseDatumDao;
+import com.jsyouyun.appmarket.dao.ApperModuleDao;
+import com.jsyouyun.appmarket.dao.ApperUserDao;
+import com.jsyouyun.appmarket.dao.ApperUserModuleDao;
 import com.jsyouyun.appmarket.dao.ApperDemandDao;
 
 
@@ -43,7 +50,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * 自动注入持久层Dao对象
 	 * */
 	@Autowired
-	private UserDao userDao;
+	private SysUserDao sysUserDao;
 	@Autowired
 	private DeveloperDatumDao developerDatumDao;
 	@Autowired
@@ -53,7 +60,13 @@ public class AppMarketServiceImpl implements AppMarketService{
 	@Autowired
 	private ApperDemandDao apperDemandDao;
 	@Autowired
-	private AppOrderDao appOrderDao;
+	private ModuleOrderDao moduleOrderDao;
+	@Autowired
+	private ApperModuleDao apperModuleDao;
+	@Autowired
+	private ApperUserDao apperUserDao;
+	@Autowired
+	private ApperUserModuleDao apperUserModuleDao;
 	
 	
 	/*
@@ -69,9 +82,9 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public User login(String loginName, String loginPwd) {
+	public SysUser login(String loginName, String loginPwd) {
 //		System.out.println("HrmServiceImpl login -- >>");
-		return userDao.selectByLoginNameAndPwd(loginName, loginPwd);
+		return sysUserDao.selectByLoginNameAndPwd(loginName, loginPwd);
 	}
 
 	/**
@@ -86,7 +99,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	/*
 		Map<String,Object> params = new HashMap<>();
 		params.put("user", user);
-		int recordCount = userDao.count(params);
+		int recordCount = sysUserDao.count(params);
 		pageModel.setRecordCount(recordCount);
 		if(recordCount > 0){
 		*/
@@ -94,7 +107,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	/*
 		    params.put("pageModel", pageModel);
 	    }
-		List<User> users = userDao.selectByPage(params);
+		List<User> users = sysUserDao.selectByPage(params);
 		 
 		return users;
 	}
@@ -107,8 +120,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public User findUserById(Integer id) {
-		return userDao.selectById(id);
+	public SysUser findSysUserById(Integer id) {
+		return sysUserDao.selectById(id);
 	}
 	
 	/**
@@ -116,8 +129,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { AppMarketService }
 	 * */
 	@Override
-	public void removeUserById(Integer id) {
-		userDao.deleteById(id);
+	public void removeSysUserById(Integer id) {
+		sysUserDao.deleteById(id);
 		
 	}
 	
@@ -126,8 +139,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { AppMarketService }
 	 * */
 	@Override
-	public void modifyUser(User user) {
-		userDao.update(user);
+	public void modifySysUser(SysUser user) {
+		sysUserDao.update(user);
 		
 	}
 	
@@ -136,8 +149,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { AppMarketService }
 	 * */
 	@Override
-	public void addUser(User user) {
-		userDao.save(user);
+	public void addSysUser(SysUser user) {
+		sysUserDao.save(user);
 		
 	}
 	/*****************开发者资料服务接口实现*************************************/
@@ -190,7 +203,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public DeveloperDatum findDeveloperDatumByUser(User user) {
+	public DeveloperDatum findDeveloperDatumByUser(SysUser user) {
 		return developerDatumDao.selectByUserId(user.getId());
 	}
 	
@@ -265,7 +278,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<DeveloperModule> findDeveloperModuleByUser(User user) {
+	public List<DeveloperModule> findDeveloperModuleByUser(SysUser user) {
 		return developerModuleDao.selectByUserId(user.getId());
 	}
 	
@@ -351,7 +364,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public ApperEnterpriseDatum findApperEnterpriseDatumByUser(User user) {
+	public ApperEnterpriseDatum findApperEnterpriseDatumByUser(SysUser user) {
 		return apperEnterpriseDatumDao.selectByUserId(user.getId());
 	}
 	
@@ -426,7 +439,7 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<ApperDemand> findApperDemandByUser(User user) {
+	public List<ApperDemand> findApperDemandByUser(SysUser user) {
 		
 		//findApperDemandByUser(user)
 		return apperDemandDao.selectByUserId(user.getId());
@@ -469,20 +482,20 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrder(AppOrder appOrder,PageModel pageModel) {
+	public List<ModuleOrder> findModuleOrder(ModuleOrder moduleOrder,PageModel pageModel) {
 		/** 当前需要分页的总数据条数  */
 		Map<String,Object> params = new HashMap<>();
-		params.put("appOrder", appOrder);
+		params.put("moduleOrder", moduleOrder);
 		
-		int recordCount = appOrderDao.count(params);
+		int recordCount = moduleOrderDao.count(params);
 	    pageModel.setRecordCount(recordCount);
 	    
 	    if(recordCount > 0){
 	        /** 开始分页查询数据：查询第几页的数据 */
 		    params.put("pageModel", pageModel);
 	    }
-	    List<AppOrder> appOrders = appOrderDao.selectByPage(params);
-	    return appOrders;
+	    List<ModuleOrder> moduleOrders = moduleOrderDao.selectByPage(params);
+	    return moduleOrders;
 	}
 	
 	/**
@@ -490,8 +503,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { DeveloperModuleService }
 	 * */
 	@Override
-	public void removeAppOrderById(Integer id) {
-		appOrderDao.deleteById(id);
+	public void removeModuleOrderById(Integer id) {
+		moduleOrderDao.deleteById(id);
 		
 	}
 	
@@ -501,9 +514,20 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public AppOrder findAppOrderById(Integer id) {
+	public ModuleOrder findModuleOrderById(Integer id) {
 		
-		return appOrderDao.selectById(id);
+		return moduleOrderDao.selectById(id);
+	}
+	
+	/**
+	 * DeveloperModuleService接口findApperDemandById方法实现
+	 * @see { DeveloperModuleService }
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public ModuleOrder findModuleOrderByOrderNo(String orderNo) {
+		
+		return moduleOrderDao.selectByOrderNo(orderNo);
 	}
 	
 	
@@ -514,8 +538,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrderByApperUser(User apperUser) {
-		return appOrderDao.selectByApperUserId(apperUser.getId());
+	public List<ModuleOrder> findModuleOrderByApper(SysUser apper) {
+		return moduleOrderDao.selectByApperId(apper.getId());
 	}
 	
 	/**
@@ -525,8 +549,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrderByDeveloperUser(User developerUser) {
-		return appOrderDao.selectByDeveloperUserId(developerUser.getId());
+	public List<ModuleOrder> findModuleOrderByDeveloper(SysUser developer) {
+		return moduleOrderDao.selectByDeveloperId(developer.getId());
 	}
 	
 	/**
@@ -536,8 +560,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrderByApp(DeveloperModule app) {
-		return appOrderDao.selectByAppId(app.getId());
+	public List<ModuleOrder> findModuleOrderByModule(DeveloperModule module) {
+		return moduleOrderDao.selectByModuleId(module.getId());
 	}
 	
 	/**
@@ -547,8 +571,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrderByOrderStatus(Integer orderStatus) {
-		return appOrderDao.selectByOrderStatus(orderStatus);
+	public List<ModuleOrder> findModuleOrderByOrderStatus(Integer orderStatus) {
+		return moduleOrderDao.selectByOrderStatus(orderStatus);
 	}
 	
 	/**
@@ -558,8 +582,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * */
 	@Transactional(readOnly=true)
 	@Override
-	public List<AppOrder> findAppOrderByAppStatus(Integer appStatus) {
-		return appOrderDao.selectByAppStatus(appStatus);
+	public List<ModuleOrder> findModuleOrderByModuleStatus(Integer moduleStatus) {
+		return moduleOrderDao.selectByModuleStatus(moduleStatus);
 	}
 	
 	/**
@@ -567,8 +591,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { DeveloperModuleService }
 	 * */
 	@Override
-	public void addAppOrder(AppOrder appOrder) {
-		appOrderDao.save(appOrder);
+	public void addModuleOrder(ModuleOrder moduleOrder) {
+		moduleOrderDao.save(moduleOrder);
 		
 	}
 	
@@ -577,10 +601,167 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @see { DeveloperModuleService }
 	 * */
 	@Override
-	public void modifyAppOrder(AppOrder appOrder) {
-		appOrderDao.update(appOrder);
+	public void modifyModuleOrder(ModuleOrder moduleOrder) {
+		moduleOrderDao.update(moduleOrder);
 	}
 	
+	/*****************************应用者用户********************************************/
+	
+	/**
+	 * 根据id查询应用者用户
+	 * @param id
+	 * @return 应用者用户
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public ApperUser findApperUserById(Integer id) {
+		return apperUserDao.selectById(id);
+	}
+	
+	
+	/**
+	 * 查询应用者的用户
+	 * @param apper
+	 * @return 应用者用户
+	 * */
+	@Transactional(readOnly=true)
+	@Override
+	public List<ApperUser> findApperUserByApper(SysUser apper) {
+		return apperUserDao.selectByApperId(apper.getId());
+	}
+	
+	/**
+	 * 添加应用者用户
+	 * @param apperUser 应用者用户
+	 * */
+	
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void addApperUser(ApperUser apperUser) {
+		SysUser apper = apperUser.getApper();
+		
+		String userName = apperUser.getUserName();
+		List<ApperModule> modules = apperUser.getModules();
+		apperUserDao.save(apperUser);
+		
+		if (modules != null) {
+			ApperUser apperUser1 = apperUserDao.selectByApperIdAndUserName(apper.getId(), userName);
+		
+			for (int i = 0; i < modules.size(); i++) {
+				ApperModule module = modules.get(i);
+				ApperUserModule userModule = new ApperUserModule();
+				userModule.setApper(apper);
+				userModule.setApperModule(module);
+				userModule.setApperUser(apperUser1);
+				userModule.setCreateTime(new Date());
+				userModule.setUpdateTime(new Date());
+			
+				apperUserModuleDao.save(userModule);
+			
+			
+			//module.set
+			}
+		}
+		
+	}
+	
+	
+	
+	/**
+	 * 修改应用者用户
+	 * @param apperUser 应用者用户
+	 * */
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void modifyApperUser(ApperUser apperUser) {
+		
+		
+		SysUser apper = apperUser.getApper();
+		
+		String userName = apperUser.getUserName();
+		List<ApperModule> modules = apperUser.getModules();
+		apperUserDao.update(apperUser);
+		
+		if (modules != null) {
+			apperUserModuleDao.deleteByApperId(apper.getId());
+			ApperUser apperUser1 = apperUserDao.selectByApperIdAndUserName(apper.getId(), userName);
+		
+			for (int i = 0; i < modules.size(); i++) {
+				ApperModule module = modules.get(i);
+				ApperUserModule userModule = new ApperUserModule();
+				userModule.setApper(apper);
+				userModule.setApperModule(module);
+				userModule.setApperUser(apperUser1);
+				userModule.setCreateTime(new Date());
+				userModule.setUpdateTime(new Date());
+			
+				apperUserModuleDao.save(userModule);
+			
+			
+			//module.set
+			}
+		}
+		
+	}
+	
+	/****************************应用者模块********************************************/
+	
+	/**
+	 * 根据id查询应用者模块
+	 * @param id
+	 * @return 应用者模块
+	 * */
+	@Transactional(readOnly = true)
+	@Override
+	public ApperModule findApperModuleById(Integer id) {
+		return apperModuleDao.selectById(id);
+	}
+	
+	/**
+	 * 查询应用者的模块
+	 * @param apper
+	 * @return 应用者模块开表
+	 * */
+	@Transactional(readOnly = true)
+	@Override
+	public List<ApperModule> findApperModuleByApper(SysUser apper) {
+		return apperModuleDao.selectByApperId(apper.getId());
+	}
+	
+	/**
+	 * 添加应用者模块
+	 * @param apperModule 应用者模块对象
+	 * */
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void addApperModule(ApperModule apperModule) {
+		apperModuleDao.save(apperModule);
+	}
+	
+	/**
+	 * 修改应用者模块
+	 * @param employee 应用者需求
+	 * */
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void modifyApperModule(ApperModule apperModule) {
+		apperModuleDao.update(apperModule);
+	}
+	
+	/**
+	 * 添加应用者用户模块
+	 * @param apperUserModule 应用者用户模块对象
+	 * */
+	//void addApperUserModule(ApperUserModule apperUserModule);
+	
+	/**
+	 * 修改应用者用户模块
+	 * @param apperUserModule 应用者用户模块
+	 * */
+//	void modifyApperUserModule(ApperUserModule apperUserModule);
+	
+	
+
 	
 
 	

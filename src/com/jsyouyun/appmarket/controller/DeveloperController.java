@@ -27,7 +27,7 @@ import com.google.code.kaptcha.Producer;
 
 import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
 import com.jsyouyun.appmarket.common.utils.tag.PageModel;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.service.AppMarketService;
@@ -70,7 +70,7 @@ public class DeveloperController {
 	
 	/**
 	 * 开发者用户认证
-	 * @param User developerUser  要注册的开发者用户对象
+	 * @param SysUser developerUser  要注册的开发者用户对象
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping(value="/developer/doCertification")
@@ -79,7 +79,7 @@ public class DeveloperController {
 			 HttpSession session,
 			 ModelAndView mv){
 			// 执行添加操作
-		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		//   System.out.println("userId:" + user.getId());
 		   Integer datumId = developerDatum.getId();
 		   if (datumId == null || datumId < 1) {
@@ -107,7 +107,7 @@ public class DeveloperController {
 	
 	/**
 	 * 开发者用户注册
-	 * @param User developerUser  要注册的开发者用户对象
+	 * @param SysUser developerUser  要注册的开发者用户对象
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping(value="/developer/certification")
@@ -116,7 +116,7 @@ public class DeveloperController {
 			 Model model
 			 ){
 			// 执行添加操作
-		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		  DeveloperDatum datum = appMarketService.findDeveloperDatumByUser(user);
 		  model.addAttribute("datum", datum);
 		  
@@ -137,7 +137,7 @@ public class DeveloperController {
 	
 	/**
 	 * 开发者用户注册
-	 * @param User developerUser  要注册的开发者用户对象
+	 * @param SysUser developerUser  要注册的开发者用户对象
 	 * @param ModelAndView mv
 	 * */
 	@RequestMapping(value="/developer/doDeveloperLevel")
@@ -146,7 +146,7 @@ public class DeveloperController {
 			 Model model
 			 ){
 			// 执行添加操作
-		  User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		  SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		  DeveloperDatum datum = appMarketService.findDeveloperDatumByUser(user);
 		  model.addAttribute("datum", datum);
 		  
@@ -202,7 +202,7 @@ public class DeveloperController {
 		}
 		*/
 		/** 查询用户信息     */
-		 User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		  appMarketService.findDeveloperModuleByUser(user);
 		  List<DeveloperModule> modules = 
 				appMarketService.findDeveloperModuleByUser(user);
@@ -395,7 +395,7 @@ public class DeveloperController {
 			 Model model,
 			 ModelAndView mv){
 			// 执行添加操作
-		   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		    if (developerModule.getId() != null && developerModule.getId() > 0) {
 		    	appMarketService.modifyDeveloperModule(developerModule);
 		    	
@@ -543,7 +543,7 @@ public class DeveloperController {
 				 Model model,
 				 ModelAndView mv){
 				// 执行添加操作
-			   User user = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+			   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 			   model.addAttribute("user", user);
 			   
 			   Integer moduelId = developerModule.getId(); 

@@ -46,7 +46,7 @@
 				<a href="${ctx}/apper/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/apper/home" class="link">应用工具</a>
+				<a href="${ctx}/apper/applicationCenter" class="link">应用管理</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/apper/enterpriseCertification" class="link">应用者认证</a>
@@ -71,7 +71,7 @@
 <div class="aside">
 	<div class="list-group">
 		<div class="list-group-item title">
-			<a href="javascript:;"><i class="fa fa-th-large"></i>"应用管理"</a>
+			<a href="javascript:;"><i class="fa fa-th-large"></i>"个人中心"</a>
 		</div>
 		<div class="list-group-item  active ">
 			<a href="${ctx}/apper/home">我的需求</a>

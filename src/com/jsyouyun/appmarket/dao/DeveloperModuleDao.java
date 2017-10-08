@@ -46,7 +46,7 @@ public interface DeveloperModuleDao  {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="developerUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	List<DeveloperModule> selectByPage(Map<String, Object> params);
@@ -79,13 +79,13 @@ public interface DeveloperModuleDao  {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="developerUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	DeveloperModule selectById(Integer id);
 	
 	
-	// 根据用户id查询开发者资料
+	// 根据开发都跟用户id查询开发者模块
 	@Select("select * from "+DEVELOPERMODULETABLE+" where user_id = #{userId}")
 	@Results({
 		@Result(id=true,column="id",property="id"),
@@ -105,13 +105,13 @@ public interface DeveloperModuleDao  {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="developerUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 		fetchType=FetchType.EAGER))
 		
 		})
 	List<DeveloperModule> selectByUserId(Integer userId);
 	
-	// 根据用户id查询开发者资料
+	// 根据状态查询开发者模块
 		@Select("select * from "+DEVELOPERMODULETABLE+" where status = #{status} order by id DESC ")
 		@Results({
 			@Result(id=true,column="id",property="id"),
@@ -131,7 +131,7 @@ public interface DeveloperModuleDao  {
 			@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 			@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 			@Result(column="user_id",property="developerUser",
-			one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+			one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 			
 			})

@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jsyouyun.appmarket.entity.DeveloperModule;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.common.utils.AppMarketConstants;
 import com.jsyouyun.appmarket.entity.ApperDemand;
@@ -45,13 +45,13 @@ public class AppController {
 		//	String moduleTitle = request.getParameter("moduleTitle");
 			
 		DeveloperModule module = appMarketService.findDeveloperModuleById(Integer.parseInt(appId));
-		User user = module.getDeveloperUser();
+		SysUser user = module.getDeveloperUser();
 		DeveloperDatum developerDatum = appMarketService.findDeveloperDatumByUser(user);
 		//model.addAttribute("user", user);
 
 		model.addAttribute("app", module);
 		model.addAttribute("developer", developerDatum);
-		User loginUser = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		SysUser loginUser = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		model.addAttribute("user", loginUser);
 		
 		return "appmarket/appDetails";
@@ -75,13 +75,13 @@ public class AppController {
 				
 				
 				
-		User user = demand.getApperUser();
+		SysUser user = demand.getApperUser();
 		ApperEnterpriseDatum datum = appMarketService.findApperEnterpriseDatumByUser(user);
 
 
 		model.addAttribute("demand", demand);
 		model.addAttribute("apper", datum);
-		User loginUser = (User)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		SysUser loginUser = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
 		model.addAttribute("user", loginUser);
 		
 		return "appmarket/demandDetails";

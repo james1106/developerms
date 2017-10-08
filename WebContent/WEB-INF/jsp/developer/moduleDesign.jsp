@@ -22,7 +22,7 @@
 	<script src="${ctx}/js/we/bootstrap.min.js"></script>
 	<script src="${ctx}/js/we/util.js"></script>
 	<script>window.sys={debug:false}</script>
-    <link href="${ctx}/css/we//ueditor.css" type="text/css" rel="stylesheet">
+    <link href="${ctx}/css/we/ueditor.css" type="text/css" rel="stylesheet">
     <style id="edui-customize-插入图片-style">.edui-default  .edui-for-插入图片 .edui-icon {background-position: -726px -77px}</style>
     <script src="${ctx}/js/we/codemirror.js" type="text/javascript" defer="defer"></script>
     <link rel="stylesheet" type="text/css" href="${ctx}/css/we/codemirror.css">
@@ -618,7 +618,7 @@
                 <div id="edui1_scalelayer" class="edui-default"></div>
                 </div></div>
                 <textarea name="description" type="text/plain" style="height: 300px; display: none;"></textarea>
-	<     <script type="text/javascript">
+	     <script type="text/javascript">
 			var ueditoroption = {
 				'autoClearinitialContent' : false,
 				'toolbars' : [['fullscreen', 'source', 'preview', '|', 'bold', 'italic', 'underline', 'strikethrough', 'forecolor', 'backcolor', '|',

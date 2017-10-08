@@ -49,7 +49,7 @@ public interface ApperEnterpriseDatumDao {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="apperUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	List<ApperEnterpriseDatum> selectByPage(Map<String, Object> params);
@@ -82,7 +82,7 @@ public interface ApperEnterpriseDatumDao {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="apperUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	ApperEnterpriseDatum selectById(Integer id);
@@ -108,7 +108,7 @@ public interface ApperEnterpriseDatumDao {
 		@Result(column="update_time",property="updateTime",javaType=java.util.Date.class),
 		@Result(column="create_time",property="createTime",javaType=java.util.Date.class),
 		@Result(column="user_id",property="apperUser",
-		one=@One(select="com.jsyouyun.appmarket.dao.UserDao.selectById",
+		one=@One(select="com.jsyouyun.appmarket.dao.SysUserDao.selectById",
 			fetchType=FetchType.EAGER))
 		})
 	ApperEnterpriseDatum selectByUserId(Integer userId);

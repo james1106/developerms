@@ -47,7 +47,7 @@
 				<a href="${ctx}/apper/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/apper/home" class="link">应用工具</a>
+				<a href="${ctx}/apper/applicationCenter" class="link">应用管理</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/apper/enterpriseCertification" class="link">应用者认证</a>
@@ -257,20 +257,20 @@
                         <td>
 							<div class="media">
 								<a class="media-left" href="" target="_blank">
-										<img src="${order.app.logo}" height="50" alt="" title="" class="icon">
+										<img src="${order.developerModule.logo}" height="50" alt="" title="" class="icon">
 								</a>
 								<div class="media-body">
-										<a href="" target="_blank">${order.app.title}</a>
+										<a href="" target="_blank">${order.developerModule.title}</a>
 								<p class="text-muted">专业版</p>
 								</div>
 							</div>
 						</td>
 						<td class="text-center">
-								${order.app.category}						</td>
-						<td class="text-center">${order.app.moduleName}</td>
+								${order.developerModule.category}						</td>
+						<td class="text-center">${order.developerModule.moduleName}</td>
 						<td class="text-center">
 								
-								<div>￥${order.app.price}</div>
+								<div>￥${order.developerModule.price}</div>
 						</td>
 						<td class="text-center" rowspan="1">
 									￥${order.price}							

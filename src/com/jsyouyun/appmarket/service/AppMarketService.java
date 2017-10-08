@@ -9,10 +9,13 @@ import java.util.List;
 import com.jsyouyun.appmarket.common.utils.tag.PageModel;
 import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
+import com.jsyouyun.appmarket.entity.ApperModule;
+import com.jsyouyun.appmarket.entity.ApperUser;
+import com.jsyouyun.appmarket.entity.ApperUserModule;
 import com.jsyouyun.appmarket.entity.ApperDemand;
-import com.jsyouyun.appmarket.entity.AppOrder;
+import com.jsyouyun.appmarket.entity.ModuleOrder;
 /**   
  * @Description: 服务层接口 
  * @author 吴进田
@@ -28,14 +31,14 @@ public interface AppMarketService {
 	 * @param  loginPwd
 	 * @return User对象
 	 * */
-	User login(String loginName,String loginPwd);
+	SysUser login(String loginName,String loginPwd);
 	
 	/**
 	 * 根据id查询用户
 	 * @param id
 	 * @return User对象
 	 * */
-	User findUserById(Integer id);
+	SysUser findSysUserById(Integer id);
 	
 	/**
 	 * 获得所有开发者用户
@@ -47,19 +50,19 @@ public interface AppMarketService {
 	 * 根据id删除用户
 	 * @param id
 	 * */
-	void removeUserById(Integer id);
+	void removeSysUserById(Integer id);
 	
 	/**
 	 * 修改用户
 	 * @param User 用户对象
 	 * */
-	void modifyUser(User User);
+	void modifySysUser(SysUser User);
 	
 	/**
 	 * 添加开发者用户
-	 * @param User 开发者用户对象
+	 * @param SysUser 开发者用户对象
 	 * */
-	void addUser(User developerUser);
+	void addSysUser(SysUser developerUser);
 	
 	/****************   开发者资料 服务接口 **********************************/
 	/**
@@ -90,7 +93,7 @@ public interface AppMarketService {
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	DeveloperDatum findDeveloperDatumByUser(User user);
+	DeveloperDatum findDeveloperDatumByUser(SysUser user);
 	
 	/**
 	 * 添加员工
@@ -133,7 +136,7 @@ public interface AppMarketService {
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	List<DeveloperModule> findDeveloperModuleByUser(User user);
+	List<DeveloperModule> findDeveloperModuleByUser(SysUser user);
 	
 	/**
 	 * 根据状态查询开发者模块
@@ -184,7 +187,7 @@ public interface AppMarketService {
 	 * @param user
 	 * @return 应用者企业资料对象
 	 * */
-	ApperEnterpriseDatum findApperEnterpriseDatumByUser(User user);
+	ApperEnterpriseDatum findApperEnterpriseDatumByUser(SysUser user);
 	
 	/**
 	 * 添加应用者企业资料
@@ -227,7 +230,7 @@ public interface AppMarketService {
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	List<ApperDemand> findApperDemandByUser(User user);
+	List<ApperDemand> findApperDemandByUser(SysUser user);
 	
 	/**
 	 * 根据状态查询应用者需求
@@ -255,13 +258,13 @@ public interface AppMarketService {
 	 * @param pageModel 分页对象
 	 * @return DeveloperModule对象的List集合
 	 * */
-	List<AppOrder> findAppOrder(AppOrder appOrder,PageModel pageModel);
+	List<ModuleOrder> findModuleOrder(ModuleOrder moduleOrder,PageModel pageModel);
 	
 	/**
 	 * 根据id删除应用者需求
 	 * @param id
 	 * */
-	void removeAppOrderById(Integer id);
+	void removeModuleOrderById(Integer id);
 	
 	
 	
@@ -270,54 +273,130 @@ public interface AppMarketService {
 	 * @param id
 	 * @return 开发者资料对象
 	 * */
-	AppOrder findAppOrderById(Integer id);
+	ModuleOrder findModuleOrderById(Integer id);
+	
+	/**
+	 * 根据orderNo查询模块订单
+	 * @param id
+	 * @return 开发者资料对象
+	 * */
+	ModuleOrder findModuleOrderByOrderNo(String orderNo);
 	
 	/**
 	 * 根据开发者用户查询应用者需求
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	List<AppOrder> findAppOrderByApperUser(User apperUser);
+	List<ModuleOrder> findModuleOrderByApper(SysUser apper);
 	
 	/**
 	 * 根据开发者用户查询应用者需求
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	List<AppOrder> findAppOrderByDeveloperUser(User developerUser);
+	List<ModuleOrder> findModuleOrderByDeveloper(SysUser developer);
 	
 	/**
 	 * 根据开发者用户查询应用者需求
 	 * @param dedeloperUser
 	 * @return 开发者资料对象
 	 * */
-	List<AppOrder> findAppOrderByApp(DeveloperModule app);
+	List<ModuleOrder> findModuleOrderByModule(DeveloperModule module);
 	
 	/**
 	 * 根据状态查询应用者需求
 	 * @param status
 	 * @return 开发者资料对象
 	 * */
-	List<AppOrder> findAppOrderByOrderStatus(Integer orderStatus);
+	List<ModuleOrder> findModuleOrderByOrderStatus(Integer orderStatus);
 	
 	/**
 	 * 根据状态查询应用者需求
 	 * @param status
 	 * @return 开发者资料对象
 	 * */
-	List<AppOrder> findAppOrderByAppStatus(Integer aaStatus);
+	List<ModuleOrder> findModuleOrderByModuleStatus(Integer moduleStatus);
 	
 	/**
 	 * 添加应用者需求
-	 * @param appOrder 应用者需求对象
+	 * @param moduleOrder 应用者需求对象
 	 * */
-	void addAppOrder(AppOrder appOrder);
+	void addModuleOrder(ModuleOrder moduleOrder);
 	
 	/**
 	 * 修改应用者需求
 	 * @param employee 应用者需求
 	 * */
-	void modifyAppOrder(AppOrder appOrder);
+	void modifyModuleOrder(ModuleOrder moduleOrder);
+	
+	/*****************************应用者用户********************************************/
+	/**
+	 * 根据id查询应用者用户
+	 * @param id
+	 * @return 应用者用户
+	 * */
+	ApperUser findApperUserById(Integer id);
+	
+	/**
+	 * 查询应用者的用户
+	 * @param apper
+	 * @return 应用者用户
+	 * */
+	List<ApperUser> findApperUserByApper(SysUser apper);
+	
+	/**
+	 * 添加应用者用户
+	 * @param apperUser 应用者用户
+	 * */
+	void addApperUser(ApperUser apperUser);
+	
+	/**
+	 * 修改应用者用户
+	 * @param apperUser 应用者用户
+	 * */
+	void modifyApperUser(ApperUser apperUser);
+	
+	/****************************应用者模块********************************************/
+	
+	/**
+	 * 根据id查询应用者模块
+	 * @param id
+	 * @return 应用者模块
+	 * */
+	ApperModule findApperModuleById(Integer id);
+	
+	/**
+	 * 查询应用者的模块
+	 * @param apper
+	 * @return 应用者模块开表
+	 * */
+	List<ApperModule> findApperModuleByApper(SysUser apper);
+	
+	/**
+	 * 添加应用者模块
+	 * @param apperModule 应用者模块对象
+	 * */
+	void addApperModule(ApperModule apperModule);
+	
+	/**
+	 * 修改应用者模块
+	 * @param employee 应用者需求
+	 * */
+	void modifyApperModule(ApperModule apperModule);
+	
+	/**
+	 * 添加应用者用户模块
+	 * @param apperUserModule 应用者用户模块对象
+	 * */
+//	void addApperUserModule(ApperUserModule apperUserModule);
+	
+	/**
+	 * 修改应用者用户模块
+	 * @param apperUserModule 应用者用户模块
+	 * */
+	//void modifyApperUserModule(ApperUserModule apperUserModule);
+	
+	
 	
 }
 

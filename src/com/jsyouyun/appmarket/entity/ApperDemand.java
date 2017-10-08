@@ -3,13 +3,13 @@ package com.jsyouyun.appmarket.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.jsyouyun.appmarket.entity.User;
+import com.jsyouyun.appmarket.entity.SysUser;
 
 public class ApperDemand implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	 private Integer id; // '主键'
-	 private User apperUser; //应用者用户
+	 private SysUser apperUser; //应用者用户
 	 private String title; // '标 题'
 	 private String type; // '需求类型'
 	 private String category; // '应用类型'
@@ -37,11 +37,11 @@ public class ApperDemand implements Serializable {
 		this.id = id;
 	}
 	
-	public User getApperUser() {
+	public SysUser getApperUser() {
 		return this.apperUser;
 	}
 	
-	public void setApperUser(User apperUser) {
+	public void setApperUser(SysUser apperUser) {
 		this.apperUser = apperUser;
 	}
 	
