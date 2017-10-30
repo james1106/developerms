@@ -16,6 +16,7 @@ import com.jsyouyun.appmarket.entity.ApperUser;
 import com.jsyouyun.appmarket.entity.ApperUserModule;
 import com.jsyouyun.appmarket.entity.ApperDemand;
 import com.jsyouyun.appmarket.entity.ModuleOrder;
+import com.jsyouyun.appmarket.entity.SoftAsset;
 /**   
  * @Description: 服务层接口 
  * @author 吴进田
@@ -395,6 +396,37 @@ public interface AppMarketService {
 	 * @param apperUserModule 应用者用户模块
 	 * */
 	//void modifyApperUserModule(ApperUserModule apperUserModule);
+	
+	
+/****************************软件资产********************************************/
+	
+	/**
+	 * 根据id查询软件资产
+	 * @param id
+	 * @return 软件资产
+	 * */
+	SoftAsset findSoftAssetById(Integer id);
+	
+	/**
+	 * 查询应用者的软件资产
+	 * @param apper
+	 * @return 软件资产
+	 * */
+	List<SoftAsset> findSoftAssetByApper(SysUser apper);
+	
+	/**
+	 * 添加软件资产
+	 * @param softAsset 软件资产
+	 * */
+	void addSoftAsset(SoftAsset softAsset);
+	
+	/**
+	 * 修改软件资产
+	 * @param softAsset 软件资产
+	 * */
+	void modifySoftAsset(SoftAsset softAsset);
+	
+	
 	
 	
 	

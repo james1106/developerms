@@ -15,6 +15,7 @@ import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.mapping.FetchType;
 
 import com.jsyouyun.appmarket.dao.provider.ApperUserModuleDynaSqlProvider;
+import com.jsyouyun.appmarket.entity.ApperUser;
 import com.jsyouyun.appmarket.entity.ApperUserModule;
 
 /**   
@@ -139,6 +140,17 @@ public interface ApperUserModuleDao  {
 				
 	})
 	List<ApperUserModule> selectByApperModuleId(Integer apperModuleId);
+	
+	// 根据应用者模块查询应用者用户模块
+		@Select("select apper_user_id from "+APPERUSERMODULETABLE+" where apper_module_id = #{apperModuleId}")
+		@Results({
+				@Result(column="apper_user_id",property="apperUser",
+				one=@One(select="com.jsyouyun.appmarket.dao.ApperUserDao.selectById",
+					fetchType=FetchType.EAGER)),
+					
+					
+		})
+	List<ApperUser> selectApperUsersByApperModuleId(Integer apperModuleId);
 	
 	
 		

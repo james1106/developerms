@@ -2,6 +2,7 @@ package com.jsyouyun.appmarket.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,7 @@ import com.jsyouyun.appmarket.entity.ApperDemand;
 import com.jsyouyun.appmarket.service.AppMarketService;
 import com.sun.xml.internal.ws.api.server.Module;
 import com.jsyouyun.appmarket.entity.ModuleOrder;
+import com.jsyouyun.appmarket.entity.SoftAsset;
 import com.jsyouyun.appmarket.common.utils.FileUtil;
 
 //import com.jsyouyun.developer.common.utils.ShiroUtils;
@@ -429,6 +431,262 @@ public class ApperController {
 		   // 返回
 			return "apper/apperOrder";
 	}
+	
+	
+	/******************************软件资产管理***************************************************************/
+	/**
+	 * 进软件资料列表
+	 * */
+	@RequestMapping(value="/apper/softAsset")
+	 public String softAsset(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			model.addAttribute("sysUser", user);
+			//model.addAttribute("apperModules", apperModules);
+			
+			List<SoftAsset> softAssets = appMarketService.findSoftAssetByApper(user);
+			model.addAttribute("softAssets", softAssets);
+			
+			
+			
+		   /*
+		   if (request.getParameter("demandId") != null) {
+			   Integer demandId = Integer.parseInt(request.getParameter("demandId"));
+			   ApperDemand demand = appMarketService.findApperDemandById(demandId);
+			   model.addAttribute("demand", demand);
+		   }
+		   */
+		   //ApperEnterpriseDatum datum= appMarketService.findApperEnterpriseDatumByUser(user);
+		    		//findDeveloperDatumByUser(user);
+	  	  // model.addAttribute("datum", datum);
+		  
+		//	appMarketService.addUser(developerUser);
+			// 设置客户端跳转到查询请求
+			// 将用户保存到HttpSession当中
+		
+			// 设置Model数据
+			//model.addAttribute("developerUser", developerUser);
+			// 客户端跳转到main页面
+			//mv.setViewName("redirect:/main");
+		//	return "main"
+
+		   // 返回
+			return "apper/apperSoftAsset";
+	}
+	
+	@RequestMapping(value= {"/apper/addSoftAsset"})
+	 public String addSoftAsset( 
+			 HttpServletRequest request,
+			 HttpSession session,
+			 Model model
+			 ){
+			// 执行添加操作
+		SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+		List<ApperUser> apperUsers = appMarketService.findApperUserByApper(user);
+		 model.addAttribute("sysUser", user);
+		model.addAttribute("apperModules", apperModules);
+		model.addAttribute("apperUsers", apperUsers);
+		
+		Integer softAssetId = null;
+		if (request.getParameter("softAssetId") != null) {
+			softAssetId = Integer.parseInt(request.getParameter("softAssetId"));
+			SoftAsset softAsset = appMarketService.findSoftAssetById(softAssetId);
+			model.addAttribute("softAsset", softAsset);
+		}
+		 
+		 
+		return "apper/addSoftAsset";
+	}
+	
+	@RequestMapping(value="/apper/doSoftAsset")
+	public ModelAndView doSoftAsset(
+			 @ModelAttribute SoftAsset softAsset,
+			 HttpServletRequest request,
+			 HttpSession session,
+			 ModelAndView mv){
+			// 执行添加操作
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		   System.out.println("userId:" + user.getId());
+		 //  String userIds = request.getParameter("userIds");
+		   
+		//   String[] userIdArray = userIds.split(",");
+		   /*
+		   List<ApperModule> modules  = null;
+		   if (moduleIds  != null) {
+			   modules = new ArrayList<ApperModule>();
+			   for (int i = 0; i < moduleIdArray.length; i++) {
+				   Integer moduleId = Integer.parseInt(moduleIdArray[i]);
+				   ApperModule appModule = appMarketService.findApperModuleById(moduleId);
+				   
+				   modules.add(appModule);
+			   
+			   }
+		   }
+		   */
+		   System.out.println(request.getParameter("moduleId"));
+		   Integer moduleId = Integer.parseInt((request.getParameter("moduleId")));
+			ApperModule apperMoudle = appMarketService.findApperModuleById(moduleId);
+			softAsset.setModule(apperMoudle);
+			System.out.println();
+			
+			try  {  
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+			    Date buyDate = sdf.parse(request.getParameter("buyDateStr"));  
+			    softAsset.setBuyDate(buyDate);
+			}  catch (Exception e)  {  
+			    System.out.println(e.getMessage());  
+			}  
+		
+			
+		   
+		   Integer softAssetId = softAsset.getId();
+		   if (softAssetId == null || softAssetId < 1) {
+			   //System.out.println("user_id:" + user.getId());
+			   softAsset.setApper(user);
+			   appMarketService.addSoftAsset(softAsset);
+			 //  apperUser.setModules(modules);
+			 //  appMarketService.addApperUser(apperUser);
+		   } else {
+			   //apperEnterpriseDatum.setDeveloperUser(user);
+			   softAsset.setApper(user);
+			   appMarketService.modifySoftAsset(softAsset);
+		   }
+		
+		   mv.setViewName("redirect:/apper/softAsset");
+			
+		//	return "main"
+
+		   // 返回
+		   return mv;
+	}
+	
+	/******************************日志管理***************************************************************/
+	/**
+	 * 进入操作日志列表
+	 * */
+	@RequestMapping(value="/apper/actionLog")
+	 public String actionLog(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			model.addAttribute("sysUser", user);
+			//model.addAttribute("apperModules", apperModules);
+			
+		
+			
+			
+		
+
+		   // 返回
+			return "apper/actionLog";
+	}
+	
+	/**
+	 * 进入日志详情
+	 * */
+	@RequestMapping(value="/apper/actionLogDetails")
+	 public String actionLogDetails(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			model.addAttribute("sysUser", user);
+			//model.addAttribute("apperModules", apperModules);
+			
+		
+			
+			
+			
+		 
+
+		   // 返回
+			return "apper/actionLogDetails";
+	}
+	
+	/**
+	 * 进入日志详情
+	 * */
+	@RequestMapping(value="/apper/userAppList")
+	 public String userAppList(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			
+			
+			List<ApperUser> apperUsers = appMarketService.findApperUserByApper(user);
+			model.addAttribute("sysUser", user);
+			model.addAttribute("apperUsers", apperUsers);
+			
+
+		   // 返回
+			return "apper/userAppList";
+	}
+	
+	/**
+	 * 进入日志详情
+	 * */
+	@RequestMapping(value="/apper/apperModuleUse")
+	 public String apperModuleUse(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		 
+		   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+			model.addAttribute("apper", user);
+			ApperEnterpriseDatum apperDatum = appMarketService.findApperEnterpriseDatumByUser(user);
+			model.addAttribute("apperDatum", apperDatum);
+			List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			model.addAttribute("apperModules", apperModules);
+			
+
+		   // 返回
+			return "apper/apperModuleUse";
+	}
+	
+	/**
+	 * 进入日志详情
+	 * */
+	@RequestMapping(value="/apper/apiDetails")
+	 public String apiDetails(
+			 HttpSession session,
+			 HttpServletRequest request,
+			 Model model
+			 ){
+			// 执行添加操作
+		//   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+		 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+			
+			
+		//	List<ApperUser> apperUsers = appMarketService.findApperUserByApper(user);
+		//	model.addAttribute("sysUser", user);
+		//	model.addAttribute("apperUsers", apperUsers);
+			
+
+		   // 返回
+			return "apper/apiDetails";
+	}
+	
+	
+	
 	
 	
 

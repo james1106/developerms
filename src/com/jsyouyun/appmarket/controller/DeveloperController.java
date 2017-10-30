@@ -561,6 +561,30 @@ public class DeveloperController {
 			   return "redirect:/developer/home";
 			   
 		}
+		
+		/**
+		 * 进入日志详情
+		 * */
+		@RequestMapping(value="/developer/apiDetails")
+		 public String apiDetails(
+				 HttpSession session,
+				 HttpServletRequest request,
+				 Model model
+				 ){
+				// 执行添加操作
+			//   SysUser user = (SysUser)session.getAttribute(AppMarketConstants.APPMARKET_SESSION);
+			 //  List<ApperModule> apperModules = appMarketService.findApperModuleByApper(user);
+				
+				
+			//	List<ApperUser> apperUsers = appMarketService.findApperUserByApper(user);
+			//	model.addAttribute("sysUser", user);
+			//	model.addAttribute("apperUsers", apperUsers);
+				
+
+			   // 返回
+				return "developer/apiDetails";
+		}
+		
 	
 	
 	

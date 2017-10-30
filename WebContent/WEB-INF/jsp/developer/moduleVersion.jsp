@@ -8,7 +8,7 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>版本中心 - 优云运维开发者平台</title>
+	<title>版本中心 - 互正软件运维开发者平台</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -195,7 +195,7 @@
 				<div class="modal-body clearfix">
 					<div class="alert alert-warning">
 						<span><i class="fa fa-info-circle"></i></span>
-						请上传你的版本压缩文件，具体规则请参照 <a href="" target="_blank">优云运维开发者开发助手</a>
+						请上传你的版本压缩文件，具体规则请参照 <a href="" target="_blank">互正软件运维开发者开发助手</a>
 					</div>
 					<form action="" method="post" class="form-horizontal js-version-create" enctype="multipart/form-data">
 						<div class="form-group">
@@ -284,7 +284,7 @@
 					<div class="modal-body clearfix">
 						<div class="alert alert-warning">
 							<span><i class="fa fa-info-circle"></i></span>
-							请上传你的版本压缩文件，具体规则请参照 <a href="" target="_blank">优云运维开发者开发助手</a>
+							请上传你的版本压缩文件，具体规则请参照 <a href="" target="_blank">互正软件运维开发者开发助手</a>
 						</div>
 						<form action="" method="post" class="form-horizontal js-version-create" enctype="multipart/form-data">
 							<div class="form-group">
@@ -500,10 +500,10 @@
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>

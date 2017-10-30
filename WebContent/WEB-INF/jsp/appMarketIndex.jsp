@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维应用软件市场</title>
+	<title>互正软件运维应用软件市场</title>
     
 	<meta name="keywords" content="">
 	<meta name="description" content="">
@@ -985,7 +985,7 @@
 		</div>
 		<ul class="footer-menu col-xs-12">
 			<li class="col-xs-2">
-				关于优云
+				关于互正软件
 				<ul>
 					<li>
 						<a href="" target="_blank">关于我们</a>
@@ -1069,7 +1069,7 @@
 	</div>
 	<hr>
 	<div class="foot">
-		<p class="footer-law">Copyright © 2017 优云运维开发平台.</p>
+		<p class="footer-law">Copyright © 2017 上海互正教育科技有限公司</p>
 	</div>
 
 </div>

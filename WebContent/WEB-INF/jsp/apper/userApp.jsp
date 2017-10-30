@@ -124,7 +124,7 @@
                                                     记录日志										
                                                 </a>
                                             </li>
-                                             <li class="list-group-item ">
+                                             <li class="list-group-item active">
                                                 <a href="${ctx}/apper/userAppList" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     用户频次										
@@ -143,7 +143,7 @@
                                 <span class="no-collapse">用户<i class="wi wi-appsetting pull-right setting"></i></span>
                             </div>
 										<ul class="list-group">
-                                            <li class="list-group-item active">
+                                            <li class="list-group-item ">
                                                 <a href="${ctx}/apper/apperUserManage" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     用户管理										
@@ -202,12 +202,11 @@
 		<div class="right-content">
 	<div class="we7-page-title">用户管理 </div>
 <ul class="we7-page-tab">
-	<li class="active"><a href="">单点登录--用户管理</a></li>
-    <!--
+	<li class="active"><a href="">用户管理</a></li>
 		<li><a href="">审核用户</a></li>
 		<li><a href="">用户回收站</a></li>
 	<li><a href="">用户属性设置</a></li>
-	<li><a href="">用户注册设置</a></li>-->
+	<li><a href="">用户注册设置</a></li>
 	</ul><div class="keyword-list-head clearfix we7-margin-bottom">
 	<form action="" method="get">
 		<input type="hidden" name="c" value="user">
@@ -236,8 +235,8 @@
 		<th></th>
 		<th class="text-left">用户名</th>
         <th>用户姓名</th>
-		<th>用户权限组</th>
-		<th>注册时间</th>
+		<th>日使用情况</th>
+		<th>月使用情况</th>
 		<th>状态</th>
 		<th class="text-right">操作</th>
 	</tr>
@@ -249,7 +248,14 @@
 			<span class="color-default ng-binding ng-scope" >${apperUser.realName}</span>
 			
 		</td>
-		<td class="color-default ng-binding" >0</td>
+		<td class="color-default ng-binding" >人事管理系统: 频次 3次,时长 11.33m
+        <br>客户关系管理: 频次 1次,时长 3.34m<br>
+        汽车管理系统: 频次 5次,时长 23.41m
+        </td>
+        <td class="color-default ng-binding" >人事管理系统: 频次 13次,时长 110.23m
+        <br>客户关系管理: 频次 19次,时长 153.42m<br>
+        汽车管理系统: 频次 16次,时长 230.41m
+        </td>
 		
 		<td>
 			<span  class="ng-binding"><f:formatDate value="${apperUser.createTime}" 

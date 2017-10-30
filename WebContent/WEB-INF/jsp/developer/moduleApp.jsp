@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="shortcut icon" href="http://we7cloud-10016060.file.myqcloud.com/images/2016/04/06/14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>应用信息 - 优云运维开发平台</title>
+	<title>应用信息 - 互正软件运维开发平台</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -458,10 +458,10 @@ body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}</style><
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>

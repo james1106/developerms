@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>设计模块 - 优云运维开发平台</title>
+	<title>设计模块 - 互正软件运维开发平台</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -212,7 +212,7 @@
 	</ul>
 </div>
 <!--end step-->				<ul class="alert alert-warning">
-			<li><i class="fa fa-info-circle"></i> &nbsp;&nbsp;推荐使用 <a href="" target="_blank">优云运维开发平台模块开发助手</a> 设计模块框架</li>
+			<li><i class="fa fa-info-circle"></i> &nbsp;&nbsp;推荐使用 <a href="" target="_blank">互正软件运维开发平台模块开发助手</a> 设计模块框架</li>
 			<li><i class="fa fa-info-circle"></i> &nbsp;&nbsp;创建应用后请及时完善运营方案以及演示设置</li>
 		</ul>
 					<div class="panel panel-default">
@@ -465,10 +465,10 @@ value2 = title2">备选值 <i class="fa fa-question-circle"></i></th>
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>

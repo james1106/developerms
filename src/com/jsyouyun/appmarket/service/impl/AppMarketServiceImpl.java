@@ -12,10 +12,12 @@ import com.jsyouyun.appmarket.entity.DeveloperDatum;
 import com.jsyouyun.appmarket.entity.DeveloperModule;
 import com.jsyouyun.appmarket.entity.SysUser;
 import com.jsyouyun.appmarket.entity.ModuleOrder;
+import com.jsyouyun.appmarket.entity.SoftAsset;
 import com.jsyouyun.appmarket.dao.SysUserDao;
 import com.jsyouyun.appmarket.dao.DeveloperDatumDao;
 import com.jsyouyun.appmarket.dao.DeveloperModuleDao;
 import com.jsyouyun.appmarket.dao.ModuleOrderDao;
+import com.jsyouyun.appmarket.dao.SoftAssetDao;
 import com.jsyouyun.appmarket.entity.ApperEnterpriseDatum;
 import com.jsyouyun.appmarket.entity.ApperModule;
 import com.jsyouyun.appmarket.entity.ApperUser;
@@ -67,6 +69,8 @@ public class AppMarketServiceImpl implements AppMarketService{
 	private ApperUserDao apperUserDao;
 	@Autowired
 	private ApperUserModuleDao apperUserModuleDao;
+	@Autowired
+	private SoftAssetDao softAssetDao;
 	
 	
 	/*
@@ -759,6 +763,54 @@ public class AppMarketServiceImpl implements AppMarketService{
 	 * @param apperUserModule 应用者用户模块
 	 * */
 //	void modifyApperUserModule(ApperUserModule apperUserModule);
+	
+/****************************软件资产********************************************/
+	
+	/**
+	 * 根据id查询软件资产
+	 * @param id
+	 * @return 软件资产
+	 * */
+	@Transactional(readOnly = true)
+	@Override
+	public SoftAsset findSoftAssetById(Integer id) {
+		return softAssetDao.selectById(id);
+		
+	}
+	
+	/**
+	 * 查询应用者的软件资产
+	 * @param apper
+	 * @return 软件资产
+	 * */
+	@Transactional(readOnly = true)
+	@Override
+	public List<SoftAsset> findSoftAssetByApper(SysUser apper) {
+		return softAssetDao.selectByApperId(apper.getId());
+		
+	}
+	
+	/**
+	 * 添加软件资产
+	 * @param softAsset 软件资产
+	 * */
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void addSoftAsset(SoftAsset softAsset) {
+		softAssetDao.save(softAsset);
+		
+	}
+	
+	/**
+	 * 修改软件资产
+	 * @param softAsset 软件资产
+	 * */
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	@Override
+	public void modifySoftAsset(SoftAsset softAsset) {
+		softAssetDao.update(softAsset);
+		
+	}
 	
 	
 

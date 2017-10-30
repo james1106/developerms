@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维开发者平台</title>
+	<title>互正软件运维开发者平台</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -397,10 +397,10 @@ require(['iosOverlay'], function(){
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>

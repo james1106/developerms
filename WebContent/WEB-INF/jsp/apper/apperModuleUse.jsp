@@ -40,7 +40,7 @@
 			<div></div>
 		</div>
 	</div>
-<div data-skin="default" class="skin-default ">
+<div data-skin="default" class="skin-default main-lg-body ">
 <div class="header">
 	<div class="navbar-header">
 				<a class="navbar-brand" href="">
@@ -109,7 +109,7 @@
                                 <span class="no-collapse">模块<i class="wi wi-appsetting pull-right setting"></i></span>
                             </div>
 										<ul class="list-group">
-                                            <li class="list-group-item active">
+                                            <li class="list-group-item ">
                                                 <a href="${ctx}/apper/apperModule" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     模块管理										
@@ -133,7 +133,7 @@
                                                     用户频次										
                                                 </a>
                                             </li>
-                                            <li class="list-group-item ">
+                                            <li class="list-group-item active">
                                                 <a href="${ctx}/apper/apperModuleUse" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     模块频次										
@@ -207,12 +207,14 @@
 	应用管理
 </div>
 <ul class="we7-page-tab">
-	<li class="active"><a href="">可使用的应用模块</a></li>
+	<li class="active"><a href="">软件使用频次</a></li>
+    <!--
 	<li><a href="">订购中的应用模块<span class="color-red"></span></a></li>
 	<li><a href="">已停用的应用模块</a></li>
-	
+	-->
 	</ul>
 <div id="js-system-module" ng-controller="installedCtrl" class="ng-scope">
+<!--
 	<div class="we7-page-search clearfix">
 		<form action="" method="get" class="row ng-pristine ng-valid">
 			<div class="form-group we7-margin-bottom  col-sm-4">
@@ -227,48 +229,28 @@
 			</div>
 		</form>
 	</div>
+    -->
 	<div class="clearfix"></div>
-
-	<ul class="letters-list">
-		<!-- ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">全部</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">A</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">B</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">C</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">D</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">E</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">F</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">G</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">H</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">I</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">J</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">K</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">L</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">M</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">N</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">O</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">P</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">Q</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">R</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">S</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">T</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">U</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">V</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">W</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">X</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">Y</a></li><!-- end ngRepeat: letter in letters --><li ng-class="activeLetter == letter ? &#39;active&#39; : &#39;&#39;" ng-repeat="letter in letters" class="ng-scope"><a href="javascript:;" ng-click="searchLetter(letter)" class="ng-binding">Z</a></li><!-- end ngRepeat: letter in letters -->
-	</ul>
 
 	<form action="" method="get" class="ng-pristine ng-valid">
 		<table class="table we7-table table-hover vertical-middle table-manage">
-			<colgroup><col width="120px">
-			<col width="350px">
-			<col width="230px">
-			</colgroup><tbody><tr>
-				<th colspan="2" class="text-left filter">
-					<div class="dropdown dropdown-toggle we7-dropdown">
-						<a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							安装时间排序
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a href="" class="active">更新时间排序</a></li>
-						</ul>
-					</div>
-				</th>
-				<th class="text-right">
-					<div class="we7-form">
-						<input type="checkbox" name="" onclick="filter(&#39;new_branch&#39;)" id="filter-1" value="1">
-						<label class="checkbox-inline" for="filter-1">
-							新分支应用
-						</label>
-						<span class="we7-margin-right"></span>
-						<input type="checkbox" name="" onclick="filter(&#39;upgrade_branch&#39;)" id="filter-2" value="2">
-						<label class="checkbox-inline" for="filter-2">
-							有升级的应用
-						</label>
-					</div>
-				</th>
-			</tr>
+			<colgroup><col width="100px">
+			 <col width="100px">
+	
+	<col width="210px">
+    <col width="210px">
+     <col width="210px">
+     <col width="100px">
+			</colgroup><tbody>
 			<tr>
 				<th colspan="2" class="text-left bg-light-gray">
-					应用名/版本
+					软件名/版本
 				</th>
-				<th class="text-right bg-light-gray">操作</th>
+                <th>日使用状况</th>
+                <th>周使用状况</th>
+                <th>月使用状况</th>
+                <th>统计时间</th>
+				
 			</tr>
 			<!-- ngRepeat: module in module_list -->
             <c:forEach items="${requestScope.apperModules}" var="module" varStatus="stat">
@@ -283,18 +265,22 @@
                     <p class="ng-binding">${module.moduleTitle}</p>
 					<span class="ng-binding">版本：${module.moduleVersion} </span><!-- ngIf: module.upgrade && isFounder == 1 -->
 				</td>
+                 
+		<td class="color-default ng-binding" >频次:${module.id * 2}次,时长:${module.id * 11.33}m,用户数:${module.id}
+        <br> 频次:${module.id * 1}次,时长:${module.id * 3.11}m,用户数:2<br>
+         频次:${module.id * 5}次,时长${module.id * 23.4}m,用户数:1
+        </td>
+        <td class="color-default ng-binding" >频次:${module.id * 13}次,时长:${module.id * 110.23}m,用户数:${module.id}
+        <br>频次:${module.id * 19}次,时长:${module.id * 153.4}m,用户数:2<br>
+        频次:${module.id * 16}次,时长:${module.id * 230.4}m,用户数:1
+        </td>
+        
+        <td class="color-default ng-binding" >频次:${module.id * 43}次,时长:${module.id * 410.13}m,用户数:3
+        <br>频次:${module.id * 81}次,时长:${module.id * 402.12}m,用户数:2<br>
+        频次:${module.id * 53}次,时长:${module.id * 1001.41}m,用户数:1
+        </td>
 				<td class="vertical-middle table-manage-td">
-					<div class="link-group">
-						
-						<a href="${module.id}" ng-if="isFounder == 1" class="ng-scope">管理设置</a>
-					</div>
-					<div class="manage-option text-right">
-						<!-- ngIf: isFounder == 1 --><a href="" ng-if="isFounder == 1" class="ng-scope">基本信息</a><!-- end ngIf: isFounder == 1 -->
-						<!-- ngIf: isFounder == 1 --><a href="" ng-if="isFounder == 1" class="ng-scope">应用权限组</a><!-- end ngIf: isFounder == 1 -->
-						<!-- ngIf: isFounder == 1 && module.subscribes.length -->
-												<!-- ngIf: isFounder == 1 -->
-                                                <a href="" ng-if="isFounder == 1" onclick="return confirm(&#39;确认要停用模块吗？&#39;)" class="ng-scope">停用</a><!-- end ngIf: isFounder == 1 -->
-											</div>
+					2017-10-25
 				</td>
 			</tr>
               </c:forEach>

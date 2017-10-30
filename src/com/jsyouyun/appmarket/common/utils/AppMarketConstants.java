@@ -14,6 +14,7 @@ public class AppMarketConstants {
 	public static final String APPERUSERTABLE = "yy_apper_user";
 	public static final String APPERMODULETABLE = "yy_apper_module";
 	public static final String APPERUSERMODULETABLE = "yy_apper_user_module";
+	public static final String SOFTASSETTABLE = "yy_soft_asset";
 	
 	
 	

@@ -37,7 +37,7 @@
 			<div></div>
 		</div>
 	</div>
-<div data-skin="default" class="skin-default ">
+<div data-skin="default" class="skin-default main-lg-body">
 <div class="header">
 	<div class="navbar-header">
 				<a class="navbar-brand" href="">
@@ -124,7 +124,7 @@
                                                     记录日志										
                                                 </a>
                                             </li>
-                                             <li class="list-group-item ">
+                                             <li class="list-group-item active">
                                                 <a href="${ctx}/apper/userAppList" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     用户频次										
@@ -143,7 +143,7 @@
                                 <span class="no-collapse">用户<i class="wi wi-appsetting pull-right setting"></i></span>
                             </div>
 										<ul class="list-group">
-                                            <li class="list-group-item active">
+                                            <li class="list-group-item ">
                                                 <a href="${ctx}/apper/apperUserManage" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     用户管理										
@@ -202,12 +202,13 @@
 		<div class="right-content">
 	<div class="we7-page-title">用户管理 </div>
 <ul class="we7-page-tab">
-	<li class="active"><a href="">单点登录--用户管理</a></li>
+	<li class="active"><a href="">用户软件使用频次</a></li>
     <!--
 		<li><a href="">审核用户</a></li>
 		<li><a href="">用户回收站</a></li>
 	<li><a href="">用户属性设置</a></li>
-	<li><a href="">用户注册设置</a></li>-->
+	<li><a href="">用户注册设置</a></li>
+    -->
 	</ul><div class="keyword-list-head clearfix we7-margin-bottom">
 	<form action="" method="get">
 		<input type="hidden" name="c" value="user">
@@ -216,58 +217,76 @@
 		<input type="hidden" name="type" value="">
 		<div class="input-group pull-left col-sm-4">
 			<input type="text" name="username" id="" value="" class="form-control" placeholder="搜索用户名">
-			<span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search"></i></button></span>
+			<span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search">搜索</i></button></span>
 		</div>
 	</form>
-	<div class="pull-right">
-		<a href="${ctx}/apper/addApperUser" class="btn btn-primary">+添加用户</a>	</div>
+	
 </div>
 <table class="table we7-table table-hover table-manage vertical-middle ng-scope" id="js-users-display" ng-controller="UsersDisplay">
 	<colgroup>
-    <col width="120px">
-	<col width="150px">
-	<col width="150px">
-	<col width="120px">
-	<col width="150px">
-
+  
 	<col width="100px">
-	<col width="150px">
+	<col width="100px">
+    <col width="120px">
+	<col width="200px">
+	<col width="200px">
+    <col width="200px">
+	<col width="120px">
+	
 	</colgroup><tbody><tr>
-		<th></th>
+		
 		<th class="text-left">用户名</th>
         <th>用户姓名</th>
-		<th>用户权限组</th>
-		<th>注册时间</th>
-		<th>状态</th>
-		<th class="text-right">操作</th>
+        <th></th>
+		<th>日使用情况</th>
+        <th>周使用情况</th>
+		<th>月使用情况</th>
+		<th>统计时间</th>
+		
 	</tr>
 	<c:forEach items="${requestScope.apperUsers}" var="apperUser" varStatus="stat">
     <tr ng-repeat="user in users" ng-if="users" class="ng-scope">
-		<td><img src="${ctx}/images/we/nopic-user.png" alt="" class="img-responsive icon"></td>
+		
 		<td class="text-left ng-binding" >${apperUser.userName}</td>
 		<td>
 			<span class="color-default ng-binding ng-scope" >${apperUser.realName}</span>
 			
 		</td>
-		<td class="color-default ng-binding" >0</td>
+        <td class="color-default ng-binding" align="right">人事管理系统: 
+        <br>客户关系管理: <br>
+        汽车管理系统: 
+        </td>
+		<td class="color-default ng-binding" align="left">频次:${apperUser.id * 2}次,时长:${apperUser.id * 11.33}m
+        <br> 频次:${apperUser.id * 1}次,时长:${apperUser.id * 3.34}m<br>
+         频次:${apperUser.id * 3}次,时长:${apperUser.id * 23.41}m
+        </td>
+        <td class="color-default ng-binding" align="left">频次:${apperUser.id * 12}次,时长:${apperUser.id * 110.23}m
+        <br>频次:${apperUser.id * 19}次,时长:${apperUser.id * 153.42}m<br>
+        频次:${apperUser.id * 16}次,时长:${apperUser.id * 230.41}m
+        </td>
+        
+        <td class="color-default ng-binding" align="left">频次:${apperUser.id * 43}次,时长:${apperUser.id * 410.13}m
+        <br>频次:${apperUser.id * 81}次,时长:${apperUser.id * 402.12}m<br>
+        频次:${apperUser.id * 53} 次,时长:${apperUser.id * 1001.41}1001.41m
+        </td>
 		
 		<td>
-			<span  class="ng-binding"><f:formatDate value="${apperUser.createTime}" 
-								type="date" dateStyle="long"/></span>
+			<span  class="ng-binding">2017-10-25</span>
 		</td>
-		<td>
-			<span  class="ng-binding">有效</span>
-		</td>
+		
 		<td class="vertical-middle table-manage-td">
 			<div class="link-group ng-scope" ng-if="!user.founder">
-				<a  class="ng-scope" href="${ctx}/apper/editApperUser?apperUserId=${apperUser.id}">编辑</a><!-- end ngIf: type == 'display' || type == 'clerk' -->
-				<a href="javascript:;" ng-click="operate(user.uid, &#39;recycle&#39;)" ng-if="type == &#39;display&#39; || type == &#39;clerk&#39;" data-toggle="tooltip" data-placement="left" title="" class="ng-scope" data-original-title="禁用后可在用户回收站查找到并重新启用。">禁用</a><!-- end ngIf: type == 'display' || type == 'clerk' -->
+				<a  class="ng-scope" href="${ctx}/apper/editApperUser?apperUserId=${apperUser.id}"></a><!-- end ngIf: type == 'display' || type == 'clerk' -->
+				<a href="javascript:;" ng-click="operate(user.uid, &#39;recycle&#39;)" ng-if="type == &#39;display&#39; || type == &#39;clerk&#39;" data-toggle="tooltip" data-placement="left" title="" class="ng-scope" data-original-title="禁用后可在用户回收站查找到并重新启用。"></a><!-- end ngIf: type == 'display' || type == 'clerk' -->
 				
 			</div><!-- end ngIf: !user.founder -->
 			<!-- ngIf: !user.founder --><div class="manage-option text-right ng-scope" ng-if="!user.founder">
-				<a href="">基础信息</a>
-				<a href="">应用模板权限</a>
-				<a href="">使用账号列表</a>
+				
+                
+                
+                <a href="">人事管理系统:频次 3次,时长 11.33m,  </a>
+				<a href="">客户关系管理:频次 13次,时长 110.23m,</a>
+				<a href="">汽车管理系统: 频次 13次,时长 110.23m</a>
 			</div><!-- end ngIf: !user.founder -->
 		</td>
 	</tr>

@@ -155,7 +155,7 @@ public class SysUser implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", loginName=" + loginName + ", loginPwd="
+		return "SysUser [id=" + id + ", loginName=" + loginName + ", loginPwd="
 				+ loginPwd + ", nickname=" + nickname + ", headImg=" + headImg
 				+ ", email=" + email + ", mobile=" + mobile + ", status=" + status + ", userType=" + userType
 				+ ", loginCount=" + loginCount + ", lastLoginTime=" + lastLoginTime

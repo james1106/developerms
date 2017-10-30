@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维应用软件市场-应用者认证</title>
+	<title>互正软件运维应用软件市场-应用者认证</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -138,7 +138,7 @@
 			</ul>
 		</div>
 		<ul class="alert alert-warning">
-			<li><h3>优云应用市场提醒您--应用者必须通过企业资质认证才可具有相应权限</h3></li>
+			<li><h3>互正软件应用市场提醒您--应用者必须通过企业资质认证才可具有相应权限</h3></li>
 			<li><i class="fa fa-info-circle"></i> 开发者企业认证需完善各项认证信息，缺一不可。</li>
 			<li><i class="fa fa-info-circle"></i> </li>
 		</ul>

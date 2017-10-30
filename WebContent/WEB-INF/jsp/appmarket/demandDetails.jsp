@@ -13,7 +13,7 @@
 	<meta name="renderer" content="webkit">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
-	<title>优云运维开发者平台--应用市场</title>
+	<title>互正软件运维开发者平台--应用市场</title>
 	<link rel="stylesheet" type="text/css" href="${ctx}/appdetails/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/appdetails/font-awesome.min.css">
 	<!--css3动画-->
@@ -243,11 +243,11 @@
 	支持：
 	<a target="_blank" href="http:/s.we7.cc/store-static-promise.html#promise-day" data-toggle="tooltip" data-placement="top" title="" data-original-title="7天内退全款"><img src="${ctx}/images/we/7daymin.png" alt=""></a> <a target="_blank" href="http:/s.we7.cc/store-static-promise.html#promise-day" data-toggle="tooltip" data-placement="top" title="" data-original-title="30天内退半款"><img src="${ctx}/images/we/30daymin.png" alt=""></a> <!----> <a target="_blank" href="http:/s.we7.cc/store-static-support.html#support-360" data-toggle="tooltip" data-placement="top" title="" data-original-title="通过360安全检测"><img src="${ctx}/images/we/icon-safe.png" alt=""></a> <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="" data-original-title="应用已加密"><img src="${ctx}/images/we/icon-pass.png" alt=""></a></div> <div class="details-message-support">
 	适用：
-	<a target="_blank" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="适用于优云运维平台"><span><i class="wi wi-wechat"></i>优云运维平台</span></a> <!----></div> <div class="details-message-tag">
+	<a target="_blank" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="适用于互正软件运维平台"><span><i class="wi wi-wechat"></i>互正软件运维平台</span></a> <!----></div> <div class="details-message-tag">
 	声明：
 	<a href="" target="_blank">免责声明</a> <a href="http:/s.we7.cc/index.php?c=wiki&do=view&id=3&list=368%C2%A0" target="_blank">授权协议</a></div></div></div></div> <div class="panel-footer">
-    备注： 本需求必须在优云运行环境系统上开发，点击
-	<a target="_blank" href="" class="c-blue">免费下载安装"优云运行环境"</a></div></div></div>
+    备注： 本需求必须在互正软件运行环境系统上开发，点击
+	<a target="_blank" href="" class="c-blue">免费下载安装"互正软件运行环境"</a></div></div></div>
 
     
     <!--在线演示弹窗-->
@@ -265,7 +265,7 @@
 <div class="we7-suspend-contact detail">
 	<div><a target="_blank" href=""><i class="wi wi-developer"></i>联系发布者</a></div>
 	<div><a target="_blank" href=""><i class="wi wi-collect"></i>我的收藏</a></div>
-	<div><a target="_blank" href=""><i class="wi wi-service"></i>优云客服</a></div>
+	<div><a target="_blank" href=""><i class="wi wi-service"></i>互正软件客服</a></div>
 	<div><a href="top"><i class="wi wi-angle-up"></i>回到顶部</a></div>
 </div><!--底部-->
 <div class="footer">
@@ -283,7 +283,7 @@
 		</div>
 		<ul class="footer-menu col-xs-12">
 			<li class="col-xs-2">
-				关于优云
+				关于互正软件
 				<ul>
 					<li>
 						<a href="" target="_blank">关于我们</a>
@@ -367,7 +367,7 @@
 	</div>
 	<hr>
 	<div class="foot">
-		<p class="footer-law">Copyright © 2017 优云运维开发平台.</p>
+		<p class="footer-law">Copyright © 2017 上海互正教育科技有限公司</p>
 	</div>
 
 </div>

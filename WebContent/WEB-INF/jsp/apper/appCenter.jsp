@@ -13,7 +13,7 @@
 	<meta charset="utf-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>优云运维应用软件市场-应用者中心</title>
+	<title>互正软件运维应用软件市场-应用者中心</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -41,7 +41,7 @@
 <div class="header">
 	<div class="navbar-header">
 				<a class="navbar-brand" href="">
-					<img src="${ctx}/images/we/apper-logo_1.png" class="img-responsive">
+					<img src="${ctx}/images/we/apper-logo.png" class="img-responsive">
 				</a>
 			</div>
 	<div class="wrapper clearfix">
@@ -110,6 +110,30 @@
                                                 <a href="${ctx}/apper/apperModule" class="text-over">
                                                     <i class="wi wi-user-group"></i>
                                                     模块管理										
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <a href="${ctx}/apper/softAsset" class="text-over">
+                                                    <i class="wi wi-user-group"></i>
+                                                    软件资产										
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <a href="${ctx}/apper/actionLog" class="text-over">
+                                                    <i class="wi wi-user-group"></i>
+                                                    记录日志										
+                                                </a>
+                                            </li>
+                                             <li class="list-group-item ">
+                                                <a href="${ctx}/apper/userAppList" class="text-over">
+                                                    <i class="wi wi-user-group"></i>
+                                                    用户频次										
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <a href="${ctx}/apper/apperModuleUse" class="text-over">
+                                                    <i class="wi wi-user-group"></i>
+                                                    模块频次										
                                                 </a>
                                             </li>
 										</ul>
@@ -390,7 +414,7 @@
 		<colgroup><col width="160px">
 		<col>
 		<col width="230px">
-		</colgroup><tbody><tr><th class="text-left" colspan="3">优云运维应用平台</th></tr>
+		</colgroup><tbody><tr><th class="text-left" colspan="3">互正软件运维应用平台</th></tr>
 		<tr>
 			<td class="table-label">应用平台入口URL<p></p></td>
 			<td>
@@ -491,10 +515,10 @@
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>

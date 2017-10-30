@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="14599282165704bc988a2db_IlrylC66kFce.jpg">
-	<title>优云运维应用软件市场--开发者中心</title>
+	<title>互正软件运维应用软件市场--开发者中心</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="${ctx}/images/we/14599282165704bc988a2db_IlrylC66kFce.jpg">
@@ -33,7 +33,7 @@
 <div class="header">
 	<div class="navbar-header">
 				<a class="navbar-brand" href="">
-					<img src="${ctx}/images/we/developer-logo_1.png" class="img-responsive">
+					<img src="${ctx}/images/we/developer-logo.png" class="img-responsive">
 				</a>
 			</div>
 	<div class="wrapper clearfix">
@@ -45,14 +45,14 @@
 				<a href="${ctx}/developer/home">个人中心</a>
 			</li>
 			<li role="presentation">
-				<a href="${ctx}/developer/home" class="link">开发者工具</a>
+				<a href="" class="link">开发者工具</a>
 			</li>
 			<li role="presentation">
 				<a href="${ctx}/developer/doDeveloperLevel" class="link">开发者等级</a>
 			</li>
             
 			<li role="presentation">
-				<a href="${ctx}/developer/home" target="_blank" class="link">开发文档</a>
+				<a href="${ctx}/developer/apiDetails" target="_blank" class="link">开发文档</a>
 			</li>
 			
 		</ul>
@@ -126,10 +126,10 @@
 			<div class="panel-body">
 				<ul class="bbs-article">
 					<script type="text/javascript" src=""></script>
-                    <li><a href="" title="" target="_blank"><b>优云运维应用商城整治行动，严禁开发者以非优云云服务的方式为用户提供下载更新服务</b> <span class="date">2017-08-18 17:58</span></a></li>
-                    <li><a href="" title="" target="_blank"><b>我们鼓励开发者发布分佣型应用，发展分享经济，让优云运维开发生态圈更加繁荣稳定</b> <span class="date">2017-08-18 14:52</span></a></li>
-                    <li><a href="" title="优云运维开发者平台上线啦，开发者来看看！" target="_blank"><b><font style="color: #FF0000;">优云运维开发者平台上线啦，开发者来看看！</font></b> <span class="date">2017-08-14 18:31</span></a></li>
-                    <li><a href="" title="优云运维插件机制来了，开发者们速度跟上！" target="_blank"><b><font style="color: #FF0000;">优云运维插件机制来了，开发者们速度跟上！</font></b> <span class="date">2017-08-14 18:55</span></a></li>
+                    <li><a href="" title="" target="_blank"><b>互正软件运维应用商城整治行动，严禁开发者以非互正软件云服务的方式为用户提供下载更新服务</b> <span class="date">2017-08-18 17:58</span></a></li>
+                    <li><a href="" title="" target="_blank"><b>我们鼓励开发者发布分佣型应用，发展分享经济，让互正软件运维开发生态圈更加繁荣稳定</b> <span class="date">2017-08-18 14:52</span></a></li>
+                    <li><a href="" title="互正软件运维开发者平台上线啦，开发者来看看！" target="_blank"><b><font style="color: #FF0000;">互正软件运维开发者平台上线啦，开发者来看看！</font></b> <span class="date">2017-08-14 18:31</span></a></li>
+                    <li><a href="" title="互正软件运维插件机制来了，开发者们速度跟上！" target="_blank"><b><font style="color: #FF0000;">互正软件运维插件机制来了，开发者们速度跟上！</font></b> <span class="date">2017-08-14 18:55</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -209,7 +209,7 @@
 								<div class="col-md-3">
 									<div class="con">
 										<a href="${ctx}/developer/module/designForm">
-											<span class="img-circle" title="为优云运维开发平台开发者提供在线设计模块的功能">
+											<span class="img-circle" title="为互正软件运维开发平台开发者提供在线设计模块的功能">
 												<i class="fa fa-edit fa-4x"></i>
 											</span>
 											<p class="title text-danger">设计新模块</p>
@@ -223,14 +223,14 @@
 								<div class="col-md-4">
 									<div class="con">
 										<a href="">
-											<span class="img-circle" title="为优云运维平台提供各种增强功能的应用模块">
+											<span class="img-circle" title="为互正软件运维平台提供各种增强功能的应用模块">
 												<i class="fa fa-cubes fa-4x"></i>
 											</span>
 											<p class="title">应用模块</p>
 										</a>
 									</div>
 									<div class="box">
-										<p>为优云运维平台提供各种增强功能的应用模块</p>
+										<p>为互正软件运维平台提供各种增强功能的应用模块</p>
 										<ul>
 											<li>基准目录: /modules/</li>
 											<li>位于基准目录的子目录“模块标识/”下的所有文件</li>
@@ -241,14 +241,14 @@
 								<div class="col-md-4">
 									<div class="con">
 										<a href="">
-											<span class="img-circle" title="为优云运维平台提供各种风格的模板界面">
+											<span class="img-circle" title="为互正软件运维平台提供各种风格的模板界面">
 												<i class="fa fa-sitemap fa-4x"></i>
 											</span>
 											<p class="title">模板</p>
 										</a>
 									</div>
 									<div class="box">
-										<p>为优云运维平台提供各种风格的模板界面</p>
+										<p>为互正软件运维平台提供各种风格的模板界面</p>
 										<ul>
 											<li>基准目录: /template/</li>
 											<li>位于基准目录的子目录“模板标识/”下的所有文件</li>
@@ -258,14 +258,14 @@
 								<div class="col-md-4 hidden">
 									<div class="con">
 										<a href="">
-											<span class="img-circle" title="为优云运维平台提供特色服务功能">
+											<span class="img-circle" title="为互正软件运维平台提供特色服务功能">
 												<i class="fa fa-wrench fa-4x"></i>
 											</span>
 											<p class="title">服务</p>
 										</a>
 									</div>
 									<div class="box">
-										<p>为优云运维平台提供特色服务功能</p>
+										<p>为互正软件运维平台提供特色服务功能</p>
 										<ul>
 											<li>故障排查</li>
 											<li>环境配置</li>
@@ -424,10 +424,10 @@
 			<a href="" target="_blank">官方微博</a><span class="pipe">|</span>
 			<a href="" target="_blank">意见及建议反馈</a><span class="pipe">|</span>
 			<a href="" target="_blank">服务协议</a><span class="pipe">|</span>
-			<a href="" target="_blank">优云运维开发平台技术文库</a>
+			<a href="" target="_blank">互正软件运维开发平台技术文库</a>
 		</ul>
 		<div>Copyright © 2017 
-			<a href="" target="_blank">优云运维开发平台.</a>
+			<a href="" target="_blank">上海互正教育科技有限公司</a>
 		</div>
 	</div>
 </div>
